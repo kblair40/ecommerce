@@ -33,21 +33,21 @@ const Navbar = (props) => {
   return (
     <header>
       <nav className={classes.navbarContainer}>
-        <NavLink className={classes.navbarLinks} to="/">
+        <NavLink className={classes.navbarLinks} to="/clothing">
           Clothing
         </NavLink>
 
-        <NavLink className={classes.navbarLinks} to="/">
+        <NavLink className={classes.navbarLinks} to="/jewelry">
           Jewelry
         </NavLink>
 
         <h1 className={classes.navbarLogo}>ECOMMERCE</h1>
 
-        <NavLink className={classes.navbarLinks} to="/">
+        <NavLink className={classes.navbarLinks} to="/electronics">
           Electronics
         </NavLink>
 
-        <NavLink className={classes.navbarLinks} to="/">
+        <NavLink className={classes.navbarLinks} to="/accessories">
           Accessories
         </NavLink>
       </nav>

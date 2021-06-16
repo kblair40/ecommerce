@@ -1,7 +1,7 @@
 import React from "react";
 
 const Jewelry = () => {
-  return <div></div>;
+  return <div>Jewelry</div>;
 };
 
 export default Jewelry;

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Electronics = () => {
-  return <div></div>;
+  return <div>Electronics</div>;
 };
 
 export default Electronics;
