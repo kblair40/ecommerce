@@ -2,13 +2,13 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import Navbar from "./components/Navbar";
-// import Accessories from "./pages/Accessories";
-// import Clothing from "./pages/Clothing";
-// import Electronics from "./pages/Electronics";
-// import Jewelry from "./pages/Jewelry";
-import Home from "./pages/Home";
 import Products from "./components/Products";
 
+// TODO
+// 1. When user clicks on product image, dialog should open with more details and
+//  ability to add to cart
+// 2.  When user clicks add to cart, snackbar should show up confirming success
+// 3.  Implement Redux for dialog state and cart state
 const styles = {
   homeLink: {
     textDecoration: "none",
@@ -36,18 +36,6 @@ function App({ classes }) {
         <Route path="/:category">
           <Products />
         </Route>
-        {/* <Route path="/accessories">
-          <Accessories />
-        </Route>
-        <Route path="/clothing">
-          <Clothing />
-        </Route>
-        <Route path="/electronics">
-          <Electronics />
-        </Route>
-        <Route path="/jewelry">
-          <Jewelry />
-        </Route> */}
         <Route path="/">
           <Redirect to="/home" />
         </Route>

@@ -17,6 +17,7 @@ const useStyles = makeStyles({
   },
   imgRoot: {
     flexGrow: 1,
+    cursor: "pointer",
   },
   price: {
     fontWeight: "bold",
@@ -24,15 +25,6 @@ const useStyles = makeStyles({
     marginBottom: "1.5rem",
     alignSelf: "flex-end",
     flexGrow: 1,
-  },
-  description: {
-    fontFamily: "Montserrat",
-    marginBottom: "1rem",
-  },
-  category: {
-    fontFamily: "Montserrat",
-    textAlign: "right",
-    fontSize: ".8rem",
   },
   actionsRoot: {
     width: "100%",
@@ -54,7 +46,14 @@ const useStyles = makeStyles({
   },
 });
 
-const Product = ({ title, price, description, category, image }) => {
+const Product = ({
+  title,
+  price,
+  description,
+  category,
+  image,
+  handleProductClick,
+}) => {
   const classes = useStyles();
 
   return (
@@ -66,25 +65,16 @@ const Product = ({ title, price, description, category, image }) => {
         image={image}
         title={description}
         classes={{ root: classes.imgRoot }}
+        onClick={handleProductClick}
       />
       <CardContent>
         <div className={classes.price}>${price.toFixed(2)}</div>
-
-        {/* <div className={classes.description}>{description}</div> */}
-        {/* <div className={classes.category}>{category}</div> */}
       </CardContent>
-      {/* <div className={classes.btnContainer}> */}
       <CardActions classes={{ root: classes.actionsRoot }}>
-        <Button
-          classes={{ root: classes.btnRoot }}
-          variant="outlined"
-          //   TouchRippleProps={{classes: {{root: classes.ripple, ripple: classes.ripple}}}}
-          //   disableRipple
-        >
+        <Button classes={{ root: classes.btnRoot }} variant="outlined">
           add to cart
         </Button>
       </CardActions>
-      {/* </div> */}
     </Card>
   );
 };

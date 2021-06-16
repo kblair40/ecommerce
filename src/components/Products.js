@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { PRODUCTS } from "../constants";
 import Product from "./Product";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import ProductDialog from "./ProductDialog";
+import { productDialogActions } from "../store/productDialogSlice";
 
 const useStyles = makeStyles({
   productsContainer: {
@@ -17,6 +20,9 @@ const Products = () => {
   const classes = useStyles();
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const dialogShowing = useSelector((state) => state.detailsDialog.showing);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (params.category !== "home") {
       setProducts(
@@ -26,7 +32,12 @@ const Products = () => {
       setProducts(PRODUCTS);
     }
     setLoading(false);
-  }, [params.category]);
+  }, [params.category, dialogShowing]);
+
+  const handleProductClick = () => {
+    console.log("PRODUCT CLICKED!");
+    dispatch(productDialogActions.showDialog());
+  };
 
   if (loading) {
     return (
@@ -43,19 +54,23 @@ const Products = () => {
     );
   } else {
     return (
-      <ul className={classes.productsContainer}>
-        {products.map((prod) => (
-          <Product
-            key={prod.id}
-            id={prod.id}
-            title={prod.title}
-            price={prod.price}
-            description={prod.description}
-            category={prod.category}
-            image={prod.image}
-          />
-        ))}
-      </ul>
+      <React.Fragment>
+        <ul className={classes.productsContainer}>
+          {products.map((prod) => (
+            <Product
+              key={prod.id}
+              id={prod.id}
+              title={prod.title}
+              price={prod.price}
+              description={prod.description}
+              category={prod.category}
+              image={prod.image}
+              handleProductClick={handleProductClick}
+            />
+          ))}
+        </ul>
+        <ProductDialog showing={dialogShowing} />
+      </React.Fragment>
     );
   }
 };
