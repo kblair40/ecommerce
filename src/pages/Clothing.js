@@ -1,7 +1,8 @@
 import React from "react";
+import Products from "../components/Products";
 
 const Clothing = () => {
-  return <div>Clothing</div>;
+  return <Products category="clothing" />;
 };
 
 export default Clothing;

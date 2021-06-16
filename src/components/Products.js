@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { PRODUCTS } from "../constants";
 import Product from "./Product";
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -7,16 +6,31 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 const useStyles = makeStyles({
   productsContainer: {
     display: "flex",
-    // justifyContent: "space-evenly",
     flexWrap: "wrap",
   },
 });
 
-const Products = () => {
+const categories = [
+  "electronics",
+  "jewelery",
+  "men clothing",
+  "women clothing",
+];
+
+const Products = ({ category }) => {
   const classes = useStyles();
+  let products = PRODUCTS.filter((product) =>
+    product.category.includes(category)
+  );
+  // if (category === "clothing") {
+  //   products = PRODUCTS.filter((product) =>
+  //     product.category.includes("clothing")
+  //   );
+  // } else {}
+  // PRODUCTS.filter(product => product.category === '')
   return (
     <ul className={classes.productsContainer}>
-      {PRODUCTS.map((prod) => (
+      {products.map((prod) => (
         <Product
           key={prod.id}
           id={prod.id}

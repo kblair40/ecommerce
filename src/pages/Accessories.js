@@ -1,7 +1,8 @@
 import React from "react";
+import Products from "../components/Products";
 
 const Accessories = () => {
-  return <div>Accessories</div>;
+  return <Products category="accessories" />;
 };
 
 export default Accessories;
