@@ -1,4 +1,5 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
+import withStyles from "@material-ui/core/styles/withStyles";
 
 import Navbar from "./components/Navbar";
 import Accessories from "./pages/Accessories";
@@ -7,7 +8,26 @@ import Electronics from "./pages/Electronics";
 import Jewelry from "./pages/Jewelry";
 import Home from "./pages/Home";
 
-function App() {
+const styles = {
+  homeLink: {
+    textDecoration: "none",
+    position: "relative",
+    bottom: "1rem",
+    left: "90%",
+    color: "#888",
+    marginRight: "1rem",
+    "&:hover": {
+      textDecoration: "none",
+      color: "#121212",
+    },
+    "&:visited": {
+      textDecoration: "none",
+      color: "#888",
+    },
+  },
+};
+
+function App({ classes }) {
   return (
     <div className="App">
       <Navbar />
@@ -28,8 +48,11 @@ function App() {
           <Home />
         </Route>
       </Switch>
+      <Link className={classes.homeLink} to="/">
+        Go Home
+      </Link>
     </div>
   );
 }
 
-export default App;
+export default withStyles(styles)(App);

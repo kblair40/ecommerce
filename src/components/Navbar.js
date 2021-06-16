@@ -14,16 +14,18 @@ const useStyles = makeStyles({
   },
   navbarLogo: {
     fontFamily: "Montserrat, sans-serif",
+    textDecoration: "none",
+    color: "#232323",
+    "&:visited": {
+      color: "#232323",
+    },
   },
   navbarLinks: {
     fontFamily: "Oswald, sans-serif",
     textDecoration: "none",
-    color: "#121212",
+    color: "#232323",
     "&:visited": {
-      color: "#121212",
-    },
-    "&:hover": {
-      textShadow: "0 0 2px #ccc",
+      color: "#232323",
     },
   },
 });
@@ -40,9 +42,9 @@ const Navbar = (props) => {
         <NavLink className={classes.navbarLinks} to="/jewelry">
           Jewelry
         </NavLink>
-
-        <h1 className={classes.navbarLogo}>ECOMMERCE</h1>
-
+        <NavLink className={classes.navbarLogo} to="/">
+          <h1 className={classes.navbarLogo}>ECOMMERCE</h1>
+        </NavLink>
         <NavLink className={classes.navbarLinks} to="/electronics">
           Electronics
         </NavLink>
