@@ -18,6 +18,7 @@ const useStyles = makeStyles({
   imgRoot: {
     flexGrow: 1,
     cursor: "pointer",
+    maxWidth: "100%",
   },
   price: {
     fontWeight: "bold",
@@ -30,6 +31,9 @@ const useStyles = makeStyles({
     width: "100%",
     display: "flex",
     flexDirection: "column",
+  },
+  imageimage: {
+    maxWidth: "100%",
   },
 });
 
@@ -51,6 +55,7 @@ const Product = ({
     <Card classes={{ root: classes.cardRoot }}>
       <CardHeader title={title} />
       <CardMedia
+        // className={classes.imageimage}
         component="img"
         alt={description}
         image={image}

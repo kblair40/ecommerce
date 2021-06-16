@@ -1,6 +1,7 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import Badge from "@material-ui/core/Badge";
 import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -25,20 +26,21 @@ const useStyles = makeStyles({
   navbarLinks: {
     fontFamily: "Oswald, sans-serif",
     textDecoration: "none",
+    padding: 0,
     color: "#232323",
     "&:visited": {
       color: "#232323",
     },
   },
-  cartIconContainer: {
-    position: "absolute",
-    top: "40%",
-    right: "1%",
+  badgeRoot: {
+    // color: "white",
+    background: "#898989",
+    // border: "1px solid black",
+    // padding: "0 2px",
   },
-  cartIcon: {
-    postiion: "relative",
-    top: "-40%",
-    color: "#343434",
+  cartRoot: {
+    background: "transparent",
+    color: "#454545",
   },
 });
 
@@ -46,6 +48,12 @@ const Navbar = (props) => {
   const classes = useStyles();
   return (
     <nav className={classes.navbarContainer}>
+      {/* <NavLink className={classes.navbarLinks} to="/clothing">
+        Something
+      </NavLink> */}
+      <NavLink className={classes.navbarLogo} to="/">
+        <h1 className={classes.navbarLogo}>ECOMMERCE</h1>
+      </NavLink>
       <NavLink className={classes.navbarLinks} to="/clothing">
         Clothing
       </NavLink>
@@ -53,15 +61,24 @@ const Navbar = (props) => {
       <NavLink className={classes.navbarLinks} to="/jewelry">
         Jewelry
       </NavLink>
-      <NavLink className={classes.navbarLogo} to="/">
-        <h1 className={classes.navbarLogo}>ECOMMERCE</h1>
-      </NavLink>
+
       <NavLink className={classes.navbarLinks} to="/electronics">
         Electronics
       </NavLink>
 
       <NavLink className={classes.navbarLinks} to="/accessories">
         Accessories
+      </NavLink>
+      <NavLink className={classes.navbarLinks} to="/clothing">
+        <Badge
+          invisible={false}
+          badgeContent={0}
+          color="primary"
+          showZero
+          classes={{ badge: classes.badgeRoot }}
+        >
+          <ShoppingCartIcon classes={{ root: classes.cartRoot }} />
+        </Badge>
       </NavLink>
     </nav>
   );
