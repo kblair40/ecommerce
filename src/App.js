@@ -1,12 +1,13 @@
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import Navbar from "./components/Navbar";
-import Accessories from "./pages/Accessories";
-import Clothing from "./pages/Clothing";
-import Electronics from "./pages/Electronics";
-import Jewelry from "./pages/Jewelry";
+// import Accessories from "./pages/Accessories";
+// import Clothing from "./pages/Clothing";
+// import Electronics from "./pages/Electronics";
+// import Jewelry from "./pages/Jewelry";
 import Home from "./pages/Home";
+import Products from "./components/Products";
 
 const styles = {
   homeLink: {
@@ -32,7 +33,10 @@ function App({ classes }) {
     <div className="App">
       <Navbar />
       <Switch>
-        <Route path="/accessories">
+        <Route path="/:category">
+          <Products />
+        </Route>
+        {/* <Route path="/accessories">
           <Accessories />
         </Route>
         <Route path="/clothing">
@@ -43,14 +47,11 @@ function App({ classes }) {
         </Route>
         <Route path="/jewelry">
           <Jewelry />
-        </Route>
+        </Route> */}
         <Route path="/">
-          <Home />
+          <Redirect to="/home" />
         </Route>
       </Switch>
-      <Link className={classes.homeLink} to="/">
-        Go Home
-      </Link>
     </div>
   );
 }
