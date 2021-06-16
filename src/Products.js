@@ -5,13 +5,16 @@ import { PRODUCTS } from "./constants";
 const Products = () => {
   return (
     <ul>
-      {PRODUCTS.map((product) => (
-        <div>
-          <img src={`${product.image}`} />
-          <li>{product.title}</li>
+      {PRODUCTS.map((product, idx) => (
+        <>
+          <li>
+            <h1>{idx}</h1>
+          </li>
+          <img width={300} height={200} src={`${product.image}`} />
+          {/* <li>{product.title}</li>
           <li>{product.price}</li>
-          <li>{product.description}</li>
-        </div>
+          <li>{product.description}</li> */}
+        </>
       ))}
     </ul>
   );
