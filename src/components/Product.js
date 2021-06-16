@@ -3,8 +3,8 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardActions from "@material-ui/core/CardActions";
-import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import AddToCartButton from "./AddToCartButton";
 
 const useStyles = makeStyles({
   cardRoot: {
@@ -31,19 +31,6 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
   },
-  btnRoot: {
-    alignSelf: "flex-end",
-    fontFamily: "Montserrat",
-    position: "absolute",
-    bottom: ".5rem",
-    width: "95%",
-    right: "2.5%",
-    color: "#777",
-    "&:hover": {
-      background: "#fff",
-      color: "#333",
-    },
-  },
 });
 
 const Product = ({
@@ -56,6 +43,10 @@ const Product = ({
 }) => {
   const classes = useStyles();
 
+  const handleClick = () => {
+    handleProductClick(title, price, description, category, image);
+  };
+
   return (
     <Card classes={{ root: classes.cardRoot }}>
       <CardHeader title={title} />
@@ -65,15 +56,13 @@ const Product = ({
         image={image}
         title={description}
         classes={{ root: classes.imgRoot }}
-        onClick={handleProductClick}
+        onClick={handleClick}
       />
       <CardContent>
         <div className={classes.price}>${price.toFixed(2)}</div>
       </CardContent>
       <CardActions classes={{ root: classes.actionsRoot }}>
-        <Button classes={{ root: classes.btnRoot }} variant="outlined">
-          add to cart
-        </Button>
+        <AddToCartButton />
       </CardActions>
     </Card>
   );

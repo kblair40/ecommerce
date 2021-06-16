@@ -8,11 +8,11 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "baseline",
-    background: "#eaeaea",
-    "& li": {
-      listStyleType: "none",
-    },
+    background: "#f0f0f0",
     position: "relative",
+    bottom: ".5rem",
+    right: "1%",
+    width: "102%",
   },
   navbarLogo: {
     fontFamily: "Montserrat, sans-serif",
@@ -34,8 +34,6 @@ const useStyles = makeStyles({
     position: "absolute",
     top: "40%",
     right: "1%",
-    // bottom: "1rem",
-    // right: "1rem",
   },
   cartIcon: {
     postiion: "relative",

@@ -12,6 +12,7 @@ const useStyles = makeStyles({
   productsContainer: {
     display: "flex",
     flexWrap: "wrap",
+    marginTop: "6rem",
   },
 });
 
@@ -24,6 +25,7 @@ const Products = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setLoading(true);
     if (params.category !== "home") {
       setProducts(
         PRODUCTS.filter((product) => product.category.includes(params.category))
@@ -34,9 +36,17 @@ const Products = () => {
     setLoading(false);
   }, [params.category, dialogShowing]);
 
-  const handleProductClick = () => {
+  const handleProductClick = (title, price, description, category, image) => {
     console.log("PRODUCT CLICKED!");
-    dispatch(productDialogActions.showDialog());
+    dispatch(
+      productDialogActions.showDialog({
+        title,
+        price,
+        description,
+        category,
+        image,
+      })
+    );
   };
 
   if (loading) {
