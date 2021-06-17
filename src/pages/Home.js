@@ -1,11 +1,12 @@
 import React from "react";
-import Products from "../components/Products";
 import ImageCarousel from "../components/ImageCarousel";
+import CarouselSubtext from "../components/CarouselSubtext";
 
 const Home = () => {
   return (
     <div>
       <ImageCarousel />
+      <CarouselSubtext />
     </div>
   );
 };
