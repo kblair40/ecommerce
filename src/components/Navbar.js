@@ -3,6 +3,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Badge from "@material-ui/core/Badge";
 import { NavLink } from "react-router-dom";
+import NavIcons from "./NavIcons";
 
 const useStyles = makeStyles({
   navbarContainer: {
@@ -33,10 +34,7 @@ const useStyles = makeStyles({
     },
   },
   badgeRoot: {
-    // color: "white",
     background: "#898989",
-    // border: "1px solid black",
-    // padding: "0 2px",
   },
   cartRoot: {
     background: "transparent",
@@ -80,6 +78,7 @@ const Navbar = (props) => {
           <ShoppingCartIcon classes={{ root: classes.cartRoot }} />
         </Badge>
       </NavLink>
+      <NavIcons />
     </nav>
   );
 };
