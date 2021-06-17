@@ -9,13 +9,18 @@ const useStyles = makeStyles({
     right: "2rem",
   },
   overlayHeader: {
-    fontSize: "4rem",
+    fontSize: "5rem",
+    marginBottom: "1rem",
   },
   overlaySubtext: {
+    marginTop: 0,
     fontSize: "3rem",
   },
   galleryBtn: {
-    fontSize: "1.0rem",
+    fontSize: "1.2rem",
+    "&:hover": {
+      background: "transparent",
+    },
   },
 });
 
@@ -23,9 +28,9 @@ const CarouselTextOverlay = () => {
   const classes = useStyles();
   return (
     <div className={classes.textOverlayContainer}>
-      <h2 className={classes.overlayHeader}>Jackets Collection</h2>
-      <p className={classes.overlaySubtext}>2021</p>
-      <Button className={classes.galleryBtn} variant="text">
+      <h1 className={classes.overlayHeader}>Jackets Collection</h1>
+      <h4 className={classes.overlaySubtext}>2021</h4>
+      <Button className={classes.galleryBtn} variant="text" disableRipple>
         View Gallery
       </Button>
     </div>

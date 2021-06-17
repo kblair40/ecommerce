@@ -16,33 +16,28 @@ import eight from "../assets/images/eight.jpg";
 const useStyles = makeStyles({
   mainContainer: {
     display: "flex",
+    // justifyContent: "flex-start",
     fontFamily: "Montserrat, sans-serif",
     position: "relative",
   },
-  textOverlayContainer: {
-    position: "absolute",
-    textAlign: "right",
-    right: "1rem",
-  },
   carouselContainer: {
-    minWidth: "22.5rem",
-    overflow: "hidden",
-    position: "relative",
-    left: "1rem",
+    "& li": {
+      border: "none",
+      background: "transparent",
+    },
   },
   carouselImg: {
     overflow: "hidden",
-    height: "27rem",
+    height: "80vh",
+    maxHeight: "615px",
+    minWidth: "816px",
+    maxWidth: "900px",
+    minHeight: "600px",
   },
-  // overlayHeader: {
-  //   fontSize: "4rem",
-  // },
-  // overlaySubtext: {
-  //   fontSize: "3rem",
-  // },
-  // galleryBtn: {
-  //   fontSize: "1.0rem",
-  // },
+  img: {
+    height: "100%",
+    maxWidth: "99%",
+  },
 });
 // NOTES:
 // 1. I can create custom 'next' and 'prev' arrows (renderArrowNext)
@@ -58,19 +53,16 @@ const ImageCarousel = () => {
           // might want to change to true.  Default is false
           dynamicHeight={false}
           interval={4000}
-          swipeable={true}
-          emulateTouch={true}
           showArrows={false}
-          width="60%"
-          // removes round buttons at bottom
           showIndicators={false}
           showThumbs={false}
           useKeyboardArrows={true}
           showStatus={false}
           showIndicators={false}
           stopOnHover={false}
+          width="80vw" // prev set to 60%
         >
-          <div>
+          {/* <div>
             <img className={classes.carouselImg} src={six} />
           </div>
           <div>
@@ -78,6 +70,15 @@ const ImageCarousel = () => {
           </div>
           <div>
             <img className={classes.carouselImg} src={eight} />
+          </div> */}
+          <div className={classes.carouselImg}>
+            <img className={classes.img} src={six} />
+          </div>
+          <div className={classes.carouselImg}>
+            <img className={classes.img} src={seven} />
+          </div>
+          <div className={classes.carouselImg}>
+            <img className={classes.img} src={eight} />
           </div>
         </Carousel>
       </div>
