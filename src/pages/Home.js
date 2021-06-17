@@ -1,10 +1,11 @@
 import React from "react";
 import Products from "../components/Products";
+import ImageCarousel from "../components/ImageCarousel";
 
 const Home = () => {
   return (
     <div>
-      <Products category="all" />
+      <ImageCarousel />
     </div>
   );
 };

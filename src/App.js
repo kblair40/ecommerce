@@ -1,8 +1,10 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
 
+import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Products from "./components/Products";
+import ImageCarousel from "./components/ImageCarousel";
 
 // TODO
 // 1. When user clicks on product image, dialog should open with more details and
@@ -33,13 +35,17 @@ function App({ classes }) {
     <div className="App">
       <Navbar />
       <Switch>
-        <Route path="/:category">
+        <Route path="/home" exact>
+          <Home />
+        </Route>
+        <Route path="/:category" exact>
           <Products />
         </Route>
         <Route path="/">
           <Redirect to="/home" />
         </Route>
       </Switch>
+      <ImageCarousel />
     </div>
   );
 }

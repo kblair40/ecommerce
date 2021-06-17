@@ -46,10 +46,7 @@ const Navbar = (props) => {
   const classes = useStyles();
   return (
     <nav className={classes.navbarContainer}>
-      {/* <NavLink className={classes.navbarLinks} to="/clothing">
-        Something
-      </NavLink> */}
-      <NavLink className={classes.navbarLogo} to="/">
+      <NavLink className={classes.navbarLogo} to="/home">
         <h1 className={classes.navbarLogo}>ECOMMERCE</h1>
       </NavLink>
       <NavLink className={classes.navbarLinks} to="/clothing">
