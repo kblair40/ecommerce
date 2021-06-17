@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
@@ -6,10 +6,12 @@ const useStyles = makeStyles({
   textOverlayContainer: {
     position: "absolute",
     textAlign: "right",
-    right: "2rem",
+    left: "60%",
+    top: "-5rem",
+    fontFamily: "Montserrat",
   },
   overlayHeader: {
-    fontSize: "5rem",
+    fontSize: "6rem",
     marginBottom: "1rem",
   },
   overlaySubtext: {
@@ -22,14 +24,43 @@ const useStyles = makeStyles({
       background: "transparent",
     },
   },
+  "@media screen and (max-width: 800px)": {
+    textOverlayContainer: {
+      left: "20%",
+    },
+  },
+  "@media screen and (max-width: 550px)": {
+    textOverlayContainer: {
+      top: "-4rem",
+      left: "0%",
+    },
+    overlayHeader: {
+      fontSize: "4.5rem",
+    },
+    overlaySubtext: {
+      fontSize: "2.5rem",
+    },
+    galleryBtn: {
+      fontSize: ".8rem",
+    },
+  },
 });
 
-const CarouselTextOverlay = () => {
+const overlayTexts = [
+  { main: "Jackets Collection", sub: "2021" },
+  { main: "Jackets Collection", sub: "2020" },
+  { main: "Jackets Collection", sub: "2019" },
+  { main: "Jackets Collection", sub: "2018" },
+];
+
+const CarouselTextOverlay = ({ text }) => {
   const classes = useStyles();
+  // console.log("TEXT:", text);
+
   return (
     <div className={classes.textOverlayContainer}>
-      <h1 className={classes.overlayHeader}>Jackets Collection</h1>
-      <h4 className={classes.overlaySubtext}>2021</h4>
+      <h1 className={classes.overlayHeader}>{text.main}</h1>
+      {text.sub && <h4 className={classes.overlaySubtext}>{text.sub}</h4>}
       <Button className={classes.galleryBtn} variant="text" disableRipple>
         View Gallery
       </Button>

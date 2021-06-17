@@ -4,7 +4,9 @@ import CarouselSubtext from "../components/CarouselSubtext";
 
 const Home = () => {
   return (
-    <div>
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <ImageCarousel />
       <CarouselSubtext />
     </div>

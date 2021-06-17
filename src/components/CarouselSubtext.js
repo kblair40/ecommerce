@@ -1,14 +1,26 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 
+// TODO:
+// 1. Change flexDirection to column at narrow (<500px?) widths
 const styles = {
   subtextContainer: {
     display: "flex",
+    flexWrap: "wrap",
     justifyContent: "space-around",
   },
   text: {
     fontFamily: "Montserrat",
     width: "30%",
+  },
+  "@media screen and (max-width: 800px)": {
+    subtextContainer: {
+      flexDirection: "column",
+      alignItems: "center",
+    },
+    text: {
+      width: "80%",
+    },
   },
 };
 
@@ -24,7 +36,15 @@ const CarouselSubtext = ({ classes }) => {
         quis officia aute minim est reprehenderit ad voluptate est nostrud irure
         occaecat. Fugiat irure non labore nulla qui mollit consequat laborum
         aliqua. Duis nisi occaecat et aute dolore ullamco id aute laborum sit et
-        sint.
+        sint. Deserunt non adipisicing exercitation fugiat anim esse duis
+        occaecat velit tempor ullamco minim sint in. Ad excepteur laborum Lorem
+        id pariatur officia id consectetur pariatur. Ad excepteur laborum Lorem
+        id pariatur officia id consectetur pariatur. Minim cupidatat ut enim
+        aliqua in proident in irure labore Lorem. Qui non ea ea consectetur
+        nostrud. Ex quis officia aute minim est reprehenderit ad voluptate est
+        nostrud irure occaecat. Fugiat irure non labore nulla qui mollit
+        consequat laborum aliqua. Duis nisi occaecat et aute dolore ullamco id
+        aute laborum sit et sint.
       </p>
       <p className={classes.text}>
         Consectetur pariatur non adipisicing exercitation fugiat anim esse duis
@@ -35,7 +55,15 @@ const CarouselSubtext = ({ classes }) => {
         ullamco sit reprehenderit reprehenderit elit. Sit qui et occaecat aliqua
         voluptate aute ipsum reprehenderit. Magna laborum nostrud amet sint.
         Consequat excepteur officia consectetur excepteur qui cupidatat deserunt
-        commodo.
+        commodo. Deserunt non adipisicing exercitation fugiat anim esse duis
+        occaecat velit tempor ullamco minim sint in. Ad excepteur laborum Lorem
+        id pariatur officia id consectetur pariatur. Ad excepteur laborum Lorem
+        id pariatur officia id consectetur pariatur. Minim cupidatat ut enim
+        aliqua in proident in irure labore Lorem. Qui non ea ea consectetur
+        nostrud. Ex quis officia aute minim est reprehenderit ad voluptate est
+        nostrud irure occaecat. Fugiat irure non labore nulla qui mollit
+        consequat laborum aliqua. Duis nisi occaecat et aute dolore ullamco id
+        aute laborum sit et sint.
       </p>
       <p className={classes.text}>
         Minim sint in non adipisicing exercitation fugiat anim esse duis
@@ -47,6 +75,15 @@ const CarouselSubtext = ({ classes }) => {
         adipisicing proident duis in. Aliqua velit dolore in excepteur commodo
         laborum commodo exercitation esse. Nostrud ullamco magna exercitation
         enim aliqua cupidatat quis Lorem do sunt. Sit dolor ea elit minim.
+        Deserunt non adipisicing exercitation fugiat anim esse duis occaecat
+        velit tempor ullamco minim sint in. Ad excepteur laborum Lorem id
+        pariatur officia id consectetur pariatur. Ad excepteur laborum Lorem id
+        pariatur officia id consectetur pariatur. Minim cupidatat ut enim aliqua
+        in proident in irure labore Lorem. Qui non ea ea consectetur nostrud. Ex
+        quis officia aute minim est reprehenderit ad voluptate est nostrud irure
+        occaecat. Fugiat irure non labore nulla qui mollit consequat laborum
+        aliqua. Duis nisi occaecat et aute dolore ullamco id aute laborum sit et
+        sint.
       </p>
     </div>
   );
