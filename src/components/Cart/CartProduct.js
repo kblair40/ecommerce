@@ -2,18 +2,17 @@ import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import QuantityUpdate from "./QuantityUpdate";
 import { PRODUCTS } from "../../constants";
+import { cartActions } from "../../store/cartSlice";
 
 const useStyles = makeStyles({
   itemContainer: {
     display: "flex",
-    width: "100%", // probably unnecessary
     fontFamily: "Montserrat",
     fontWeight: 300,
-    // alignItems: 'center',
   },
   mainInfoContainer: {
     width: "70%",
@@ -63,16 +62,20 @@ const useStyles = makeStyles({
   updateCartActions: {
     display: "flex",
     flexDirection: "column",
-    // height: "100%", // Necessary?
     justifyContent: "space-between",
-    // background: "black",
   },
 });
 
 const CartProduct = ({ item }) => {
   const classes = useStyles();
   const chosenSize = useSelector((state) => state.cart.chosenSize);
+  const dispatch = useDispatch();
   console.log("RECEIVED:", item);
+
+  const handleQtyUpdate = (qty) => {
+    dispatch(cartActions.updateQty({ id: item.id, newQty: qty }));
+  };
+
   return (
     <>
       <div className={classes.itemContainer}>
@@ -103,7 +106,11 @@ const CartProduct = ({ item }) => {
           {/* REPLACE WITH SELECT DROPDOWN THAT CAN UPDATE QUANTITY */}
           {/* <div>Qty: {item.quantity}</div> */}
           <div>
-            Qty: <QuantityUpdate quantity={item.quantity} />
+            Qty:{" "}
+            <QuantityUpdate
+              handleQtyUpdate={handleQtyUpdate}
+              quantity={item.quantity}
+            />
           </div>
           <div>
             <Button variant="outlined" color="secondary">

@@ -5,11 +5,11 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 const styles = {};
 
-const QuantityUpdate = ({ quantity }) => {
+const QuantityUpdate = ({ quantity, handleQtyUpdate }) => {
   const [qty, setQty] = useState(quantity);
 
   const setMenuOrder = () => {
-    const qtyOptions = [1, 2, 3, 4, 5, 6, 7, 8];
+    const qtyOptions = [1, 2, 3, 4, 5];
     if (!qtyOptions.includes(quantity)) {
       qtyOptions.push(quantity);
     }
@@ -19,19 +19,21 @@ const QuantityUpdate = ({ quantity }) => {
     return qtyOptions;
   };
 
-  const handleQtyUpdate = (e) => {
+  const handleChange = (e) => {
+    handleQtyUpdate(e.target.value);
     setQty(e.target.value);
   };
 
+  const menuOptions = setMenuOrder();
+
   return (
     <Select
-      inputProps={{ "aria-label": "Without label" }}
-      defaultValue={qty}
+      //   defaultValue={qty}
       value={qty}
       displayEmpty={true}
-      onChange={handleQtyUpdate}
+      onChange={handleChange}
     >
-      {setMenuOrder().map((val) => (
+      {menuOptions.map((val) => (
         <MenuItem value={val}>{val}</MenuItem>
       ))}
     </Select>
