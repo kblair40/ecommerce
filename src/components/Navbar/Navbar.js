@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     bottom: ".5rem",
     right: "1%",
     width: "102%",
-    zIndex: 20,
+    // zIndex: 20,
   },
   navbarLogo: {
     fontFamily: "Montserrat, sans-serif",
@@ -45,10 +45,9 @@ const useStyles = makeStyles({
   },
 });
 
-const Navbar = (props) => {
+const Navbar = () => {
   const classes = useStyles();
   const totalItemsInCart = useSelector((state) => state.cart.totalQuantity);
-  console.log("TOTAL ITEMS IN CART:", totalItemsInCart);
   return (
     <nav className={classes.navbarContainer}>
       <NavLink className={classes.navbarLogo} to="/home">

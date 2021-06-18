@@ -12,61 +12,85 @@ const useStyles = makeStyles({
     display: "flex",
     fontFamily: "Montserrat",
     fontWeight: 300,
+    padding: ".5rem 0",
   },
+
+  // COLUMN #1
   mainInfoContainer: {
-    width: "70%",
+    width: "100%",
     minWidth: "15rem",
-    maxWidth: "20rem",
+    maxWidth: "22rem",
     display: "flex",
     justifyContent: "space-between",
   },
+  cartItemImageContainer: {
+    minWidth: "6rem",
+    maxWidth: "6rem",
+    marginRight: "1rem",
+  },
+  cartItemImage: {
+    display: "block",
+    width: "100%",
+    height: "auto",
+    maxWidth: "100%",
+  },
   mainInfo: {
+    height: "100%",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "flex-start",
+    marginLeft: "1rem",
+  },
+  itemTitle: {
+    fontWeight: 500,
+    width: "12rem",
   },
   mainInfoSubContainer: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
-    whiteSpace: "nowrap",
-  },
-  cartItemImageContainer: {
-    width: "6rem",
-    display: "flex",
-    alignItems: "center",
-  },
-  cartItemImage: {
-    maxWidth: "100%",
-  },
-
-  verticalDivider: {
-    margin: "0 .5rem",
-  },
-  horizontalDivider: {
-    margin: "1rem 0 .5rem 0",
   },
   info: {
     margin: 0,
   },
-  itemTitle: {
-    fontWeight: 500,
-    minWidth: "8rem",
-    maxWidth: "10rem",
-  },
-  removeItemBtn: {
-    whiteSpace: "nowrap",
-  },
+
+  // COLUMN #2
   updateCartActions: {
+    marginTop: "1rem",
+    width: "12rem",
+  },
+  qtyUpdateContainer: {
+    marginBottom: "1rem",
+  },
+  removeBtnRoot: {
+    padding: ".2rem",
+  },
+  removeItemBtnText: {
+    margin: 0,
+  },
+
+  // COLUMN #3
+  priceContainer: {
+    marginTop: "1rem",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
+    width: "10rem",
+    fontWeight: 500,
+  },
+  priceSubtext: {
+    marginTop: ".2rem",
+    fontWeight: "300",
+    fontSize: ".8rem",
+  },
+
+  verticalDivider: {
+    // margin: "0 .5rem",
+  },
+  horizontalDivider: {
+    // margin: "1rem 0 .5rem 0",
   },
 });
 
 const CartProduct = ({ item }) => {
-  const classes = useStyles();
+  const classes = useStyles(item.image);
   const dispatch = useDispatch();
 
   const handleQtyUpdate = (qty) => {
@@ -89,7 +113,6 @@ const CartProduct = ({ item }) => {
               alt={item.title}
             />
           </div>
-          <Divider className={classes.verticalDivider} orientation="vertical" />
           {/* SECOND COLUMN, But inside the first column */}
           <div className={classes.mainInfo}>
             <p className={classes.itemTitle}>{item.title}</p>
@@ -103,13 +126,12 @@ const CartProduct = ({ item }) => {
               <p className={classes.info}>SKU #{item.id}</p>
             </div>
           </div>
-          <Divider className={classes.verticalDivider} orientation="vertical" />
         </div>
 
-        {/* Third column */}
+        {/* ACTUAL SECOND COLUMN */}
         <div className={classes.updateCartActions}>
-          <div>
-            Qty:{" "}
+          <div className={classes.qtyUpdateContainer}>
+            Qty: &nbsp;
             <QuantityUpdate
               handleQtyUpdate={handleQtyUpdate}
               quantity={item.quantity}
@@ -119,16 +141,24 @@ const CartProduct = ({ item }) => {
           </div>
           <div>
             <Button
+              classes={{ root: classes.removeBtnRoot }}
+              size="small"
               onClick={handleRemoveFromCart}
               variant="outlined"
               color="secondary"
             >
-              <p className={classes.removeItemBtn}>Remove Item</p>
+              <p className={classes.removeItemBtnText}>Remove Item</p>
             </Button>
           </div>
         </div>
-        {/* FOURTH/LAST COLUMN */}
-        <div></div>
+
+        {/* THIRD/LAST COLUMN */}
+        <div className={classes.priceContainer}>
+          ${(item.price * item.quantity).toFixed(2)}
+          {item.quantity > 1 && (
+            <p className={classes.priceSubtext}>(${item.price} each)</p>
+          )}
+        </div>
       </div>
       <Divider className={classes.horizontalDivider} />
     </>

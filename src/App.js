@@ -7,28 +7,25 @@ import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/Products";
 
 // TODO
-// 1. When user clicks on product image, dialog should open with more details and
-//  ability to add to cart
-// 2.  When user clicks add to cart, snackbar should show up confirming success
-// 3.  Implement Redux for dialog state and cart state
-const styles = {
-  homeLink: {
-    textDecoration: "none",
-    position: "relative",
-    bottom: "1rem",
-    left: "90%",
-    color: "#888",
-    marginRight: "1rem",
-    "&:hover": {
-      textDecoration: "none",
-      color: "#121212",
-    },
-    "&:visited": {
-      textDecoration: "none",
-      color: "#888",
-    },
-  },
-};
+// 1.  When user clicks add to cart, snackbar should show up confirming success
+// 2.  Add 'No items in cart' message if user clicks cart while nothing is in their cart
+// 3.  Add checkout window to left of cart (smaller screens go below) with price total
+//        including tax and a button to checkout
+// 4.  Add checkout form where user can input name, address, phone #,
+// 5.  Improve transitions between pages
+//      - fade
+//      - loaders should display while content is loading
+// 6.  Move all styles to separate styles directory and import relevant styles from each component
+// 7.  Navbar should collapse to hamburger menu dropdown on small screens
+// 8.  Fix image sizing on products pages, especially for jewelry
+
+// EVENTUALLY
+// 1.  Put available products into firebase and load from there
+// 2.  Add ability for user to create account and login
+//      - User should be able to add products to their favorites
+//      - User should be able to rate products
+
+const styles = {};
 
 console.log("app running");
 
