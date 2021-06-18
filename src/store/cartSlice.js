@@ -1,4 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
+import { setMenuOrder } from "../helpers";
+
+const defaultMenuOptions = [1, 2, 3, 4, 5];
 
 const cartSlice = createSlice({
   name: "cart",
@@ -12,16 +15,30 @@ const cartSlice = createSlice({
       state.chosenSize = action.payload.chosenSize;
     },
     addToCart(state, action) {
-      let selectedItem = action.payload;
-      console.log("SELECTED ITEM", selectedItem);
+      let newItem = action.payload;
+      let currentItems = state.items.slice();
 
-      let productInCart = state.items.find(
-        (item) => item.id === selectedItem.id
+      let productIndex = currentItems.findIndex(
+        (item) => item.id === newItem.id
       );
-      if (productInCart) {
-        productInCart["quantity"]++;
+
+      // if this product already exists in cart...
+      if (productIndex !== -1) {
+        currentItems[productIndex].quantity++;
+        currentItems[productIndex].menuOptions = setMenuOrder(
+          currentItems[productIndex].quantity
+        );
       } else {
-        state.items.push({ ...selectedItem, quantity: 1 });
+        currentItems.push({
+          ...newItem,
+          menuOptions: defaultMenuOptions,
+          quantity: 1,
+        });
+        state.items = currentItems;
+        console.log(
+          "FROM REDUX 'addToCart' - state.items now =",
+          current(state)
+        );
       }
       state.totalQuantity++;
     },
@@ -30,17 +47,35 @@ const cartSlice = createSlice({
       let selectedItem = state.items.find((item) => item.id === id);
       let quantityChange = newQty - selectedItem.quantity;
 
-      let newState = state.items.map((item) => {
+      let updatedItems = state.items.map((item) => {
         if (item.id === id) {
           item.quantity = newQty;
         }
         return item;
       });
 
-      state.items = newState;
+      state.items = updatedItems;
       state.totalQuantity += quantityChange;
     },
-    // removeFromCart(state, action)
+    removeFromCart(state, action) {
+      console.log("REMOVE FROM CART CALLED");
+      console.log("action.payload:", action.payload);
+      console.log("current items:", state.items.target);
+      const { id } = action.payload;
+      console.log("ID:", id);
+      let qtyChange;
+      let updatedItems = state.items.filter((item) => {
+        if (item.id === id) {
+          qtyChange = item.quantity;
+          return false;
+        }
+        return true;
+      });
+
+      state.items = updatedItems;
+      console.log("updatedItems", current(state));
+      state.totalQuantity -= qtyChange;
+    },
   },
 });
 

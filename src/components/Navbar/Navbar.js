@@ -17,6 +17,7 @@ const useStyles = makeStyles({
     bottom: ".5rem",
     right: "1%",
     width: "102%",
+    zIndex: 20,
   },
   navbarLogo: {
     fontFamily: "Montserrat, sans-serif",

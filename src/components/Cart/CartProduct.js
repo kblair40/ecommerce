@@ -5,7 +5,6 @@ import Divider from "@material-ui/core/Divider";
 import { useSelector, useDispatch } from "react-redux";
 
 import QuantityUpdate from "./QuantityUpdate";
-import { PRODUCTS } from "../../constants";
 import { cartActions } from "../../store/cartSlice";
 
 const useStyles = makeStyles({
@@ -69,11 +68,16 @@ const useStyles = makeStyles({
 const CartProduct = ({ item }) => {
   const classes = useStyles();
   const chosenSize = useSelector((state) => state.cart.chosenSize);
+  // const menuOptions = useSelector((state) => state.)
   const dispatch = useDispatch();
   console.log("RECEIVED:", item);
 
   const handleQtyUpdate = (qty) => {
     dispatch(cartActions.updateQty({ id: item.id, newQty: qty }));
+  };
+
+  const handleRemoveFromCart = () => {
+    dispatch(cartActions.removeFromCart({ id: item.id }));
   };
 
   return (
@@ -103,17 +107,21 @@ const CartProduct = ({ item }) => {
 
         {/* Third column */}
         <div className={classes.updateCartActions}>
-          {/* REPLACE WITH SELECT DROPDOWN THAT CAN UPDATE QUANTITY */}
-          {/* <div>Qty: {item.quantity}</div> */}
           <div>
             Qty:{" "}
             <QuantityUpdate
               handleQtyUpdate={handleQtyUpdate}
               quantity={item.quantity}
+              id={item.id}
+              menuOptions={item.menuOptions}
             />
           </div>
           <div>
-            <Button variant="outlined" color="secondary">
+            <Button
+              onClick={handleRemoveFromCart}
+              variant="outlined"
+              color="secondary"
+            >
               <p className={classes.removeItemBtn}>Remove Item</p>
             </Button>
           </div>
@@ -121,7 +129,7 @@ const CartProduct = ({ item }) => {
         {/* FOURTH/LAST COLUMN */}
         <div></div>
       </div>
-      <Divider className={classes.horizontalDivider} fullWidth />
+      <Divider className={classes.horizontalDivider} />
     </>
   );
 };
