@@ -68,7 +68,7 @@ const Navbar = (props) => {
       <NavLink className={classes.navbarLinks} to="/accessories">
         Accessories
       </NavLink>
-      <NavLink className={classes.navbarLinks} to="/clothing">
+      <NavLink className={classes.navbarLinks} to="/checkout">
         <Badge
           invisible={false}
           badgeContent={totalItemsInCart}
