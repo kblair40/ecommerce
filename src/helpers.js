@@ -6,6 +6,6 @@ export const setMenuOrder = (qty) => {
   const chosenQtyIndex = qtyOptions.indexOf(qty);
   qtyOptions.splice(chosenQtyIndex, 1);
   qtyOptions.unshift(qty);
-  console.log("qty options:", qtyOptions, "\n\n");
+
   return qtyOptions;
 };

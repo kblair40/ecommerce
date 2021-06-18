@@ -44,7 +44,8 @@ const Products = () => {
     price,
     description,
     category,
-    image
+    image,
+    needsSizes
   ) => {
     dispatch(
       productDialogActions.showDialog({
@@ -54,6 +55,7 @@ const Products = () => {
         description,
         category,
         image,
+        needsSizes,
       })
     );
   };
@@ -84,6 +86,7 @@ const Products = () => {
               description={prod.description}
               category={prod.category}
               image={prod.image}
+              needsSizes={prod.needsSizes}
               handleProductClick={handleProductClick}
             />
           ))}

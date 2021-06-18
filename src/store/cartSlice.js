@@ -58,12 +58,9 @@ const cartSlice = createSlice({
       state.totalQuantity += quantityChange;
     },
     removeFromCart(state, action) {
-      console.log("REMOVE FROM CART CALLED");
-      console.log("action.payload:", action.payload);
-      console.log("current items:", state.items.target);
       const { id } = action.payload;
-      console.log("ID:", id);
       let qtyChange;
+
       let updatedItems = state.items.filter((item) => {
         if (item.id === id) {
           qtyChange = item.quantity;
@@ -73,7 +70,6 @@ const cartSlice = createSlice({
       });
 
       state.items = updatedItems;
-      console.log("updatedItems", current(state));
       state.totalQuantity -= qtyChange;
     },
   },

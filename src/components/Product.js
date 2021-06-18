@@ -4,7 +4,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardActions from "@material-ui/core/CardActions";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import AddToCartButton from "./AddToCartButton";
 import { cartActions } from "../store/cartSlice";
@@ -48,13 +48,21 @@ const Product = ({
   category,
   image,
   handleProductClick,
+  needsSizes,
 }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const chosenSize = useSelector((state) => state.detailsDialog.activeProduct);
 
   const handleClick = () => {
-    handleProductClick(id, title, price, description, category, image);
+    handleProductClick(
+      id,
+      title,
+      price,
+      description,
+      category,
+      image,
+      needsSizes
+    );
   };
 
   const handleAddItemtoCart = () => {
@@ -67,6 +75,7 @@ const Product = ({
         description,
         category,
         image,
+        needsSizes,
       })
     );
   };

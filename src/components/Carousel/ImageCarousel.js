@@ -19,7 +19,6 @@ const useStyles = makeStyles({
   },
   carouselImg: {
     minWidth: "600px",
-    // width: "70vw",
     maxWidth: "800px",
   },
   img: {
@@ -51,19 +50,26 @@ const ImageCarousel = () => {
           showIndicators={false}
           showThumbs={false}
           showStatus={false}
-          showIndicators={false}
           stopOnHover={false}
           onChange={(index) => setTextIdx(index)}
           width="70vw"
         >
           <div className={classes.carouselImg}>
-            <img className={classes.img} src={six} />
+            <img className={classes.img} src={six} alt="Girl in jacket" />
           </div>
           <div className={classes.carouselImg}>
-            <img className={classes.img} src={seven} />
+            <img
+              className={classes.img}
+              src={seven}
+              alt="Rack with multiple coats hanging"
+            />
           </div>
           <div className={classes.carouselImg}>
-            <img className={classes.img} src={eight} />
+            <img
+              className={classes.img}
+              src={eight}
+              alt="Man on beach near ocean"
+            />
           </div>
         </Carousel>
       </div>

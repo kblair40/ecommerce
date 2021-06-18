@@ -2,7 +2,7 @@ import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import QuantityUpdate from "./QuantityUpdate";
 import { cartActions } from "../../store/cartSlice";
@@ -67,10 +67,7 @@ const useStyles = makeStyles({
 
 const CartProduct = ({ item }) => {
   const classes = useStyles();
-  const chosenSize = useSelector((state) => state.cart.chosenSize);
-  // const menuOptions = useSelector((state) => state.)
   const dispatch = useDispatch();
-  console.log("RECEIVED:", item);
 
   const handleQtyUpdate = (qty) => {
     dispatch(cartActions.updateQty({ id: item.id, newQty: qty }));
@@ -86,7 +83,11 @@ const CartProduct = ({ item }) => {
         {/* FIRST COLUMN - Should display image on left, main product info in column to the right */}
         <div className={classes.mainInfoContainer}>
           <div className={classes.cartItemImageContainer}>
-            <img className={classes.cartItemImage} src={item.image} />
+            <img
+              className={classes.cartItemImage}
+              src={item.image}
+              alt={item.title}
+            />
           </div>
           <Divider className={classes.verticalDivider} orientation="vertical" />
           {/* SECOND COLUMN, But inside the first column */}

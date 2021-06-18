@@ -36,11 +36,10 @@ const ProductDialog = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const chosenSize = useSelector((state) => state.cart.chosenSize);
-  console.log("PRODUCT DIALOG:", chosenSize);
+
   const isOpen = useSelector((state) => state.detailsDialog.showing);
-  const { id, title, price, description, category, image } = useSelector(
-    (state) => state.detailsDialog.activeProduct
-  );
+  const { id, title, price, description, category, image, needsSizes } =
+    useSelector((state) => state.detailsDialog.activeProduct);
 
   const handleClose = () => {
     dispatch(productDialogActions.hideDialog());
@@ -66,10 +65,10 @@ const ProductDialog = () => {
       <DialogTitle style={{ textAlign: "center" }}>{title}</DialogTitle>
       <DialogContent>
         <div className={classes.imageContainer}>
-          <img className={classes.productImage} src={`${image}`} />
+          <img className={classes.productImage} src={`${image}`} alt={title} />
         </div>
         <DialogContentText>{description}</DialogContentText>
-        <SizesSelect />
+        {needsSizes && <SizesSelect />}
       </DialogContent>
       <DialogActions classes={{ root: classes.dialogActionsRoot }}>
         <Button

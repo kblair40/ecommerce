@@ -46,16 +46,8 @@ const useStyles = makeStyles({
   },
 });
 
-const overlayTexts = [
-  { main: "Jackets Collection", sub: "2021" },
-  { main: "Jackets Collection", sub: "2020" },
-  { main: "Jackets Collection", sub: "2019" },
-  { main: "Jackets Collection", sub: "2018" },
-];
-
 const CarouselTextOverlay = ({ text }) => {
   const classes = useStyles();
-  // console.log("TEXT:", text);
 
   return (
     <div className={classes.textOverlayContainer}>
