@@ -18,9 +18,13 @@ const styles = {
   },
 };
 
-const AddToCartButton = ({ classes }) => {
+const AddToCartButton = ({ classes, handleAddToCart }) => {
   return (
-    <Button classes={{ root: classes.btnRoot }} variant="outlined">
+    <Button
+      onClick={handleAddToCart}
+      classes={{ root: classes.btnRoot }}
+      variant="outlined"
+    >
       add to cart
     </Button>
   );

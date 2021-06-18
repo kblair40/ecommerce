@@ -2,8 +2,8 @@ import React from "react";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
 import Switch from "@material-ui/core/Switch";
-import { useDispatch } from "react-redux";
-import { modeActions } from "../store/modeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { modeActions } from "../../store/modeSlice";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
@@ -21,6 +21,7 @@ const styles = {
 
 const NavIcons = ({ classes }) => {
   const dispatch = useDispatch();
+
   const toggleMode = () => {
     dispatch(modeActions.toggleMode());
   };

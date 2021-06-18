@@ -4,7 +4,10 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardActions from "@material-ui/core/CardActions";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import { useDispatch } from "react-redux";
+
 import AddToCartButton from "./AddToCartButton";
+import { cartActions } from "../store/cartSlice";
 
 const useStyles = makeStyles({
   cardRoot: {
@@ -38,6 +41,7 @@ const useStyles = makeStyles({
 });
 
 const Product = ({
+  id,
   title,
   price,
   description,
@@ -46,16 +50,22 @@ const Product = ({
   handleProductClick,
 }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const handleClick = () => {
     handleProductClick(title, price, description, category, image);
+  };
+
+  const handleAddToCart = () => {
+    dispatch(
+      cartActions.addToCart({ id, title, price, description, category, image })
+    );
   };
 
   return (
     <Card classes={{ root: classes.cardRoot }}>
       <CardHeader title={title} />
       <CardMedia
-        // className={classes.imageimage}
         component="img"
         alt={description}
         image={image}
@@ -67,7 +77,7 @@ const Product = ({
         <div className={classes.price}>${price.toFixed(2)}</div>
       </CardContent>
       <CardActions classes={{ root: classes.actionsRoot }}>
-        <AddToCartButton />
+        <AddToCartButton handleAddToCart={handleAddToCart} />
       </CardActions>
     </Card>
   );

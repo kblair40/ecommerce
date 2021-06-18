@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { PRODUCTS } from "../constants";
-import Product from "./Product";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+import Product from "./Product";
 import ProductDialog from "./ProductDialog";
 import { productDialogActions } from "../store/productDialogSlice";
+import { PRODUCTS } from "../constants";
 
 const useStyles = makeStyles({
   productsContainer: {
@@ -36,10 +37,18 @@ const Products = () => {
     setLoading(false);
   }, [params.category, dialogShowing]);
 
-  const handleProductClick = (title, price, description, category, image) => {
+  const handleProductClick = (
+    id,
+    title,
+    price,
+    description,
+    category,
+    image
+  ) => {
     console.log("PRODUCT CLICKED!");
     dispatch(
       productDialogActions.showDialog({
+        id,
         title,
         price,
         description,

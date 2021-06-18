@@ -1,6 +1,6 @@
 import React from "react";
-import ImageCarousel from "../components/ImageCarousel";
-import CarouselSubtext from "../components/CarouselSubtext";
+import ImageCarousel from "../components/Carousel/ImageCarousel";
+import CarouselSubtext from "../components/Carousel/CarouselSubtext";
 
 const Home = () => {
   return (

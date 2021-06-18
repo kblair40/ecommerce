@@ -4,9 +4,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import CarouselTextOverlay from "./CarouselTextOverlay";
 
-import six from "../assets/images/six.jpg";
-import seven from "../assets/images/seven.jpg";
-import eight from "../assets/images/eight.jpg";
+import six from "../../assets/images/six.jpg";
+import seven from "../../assets/images/seven.jpg";
+import eight from "../../assets/images/eight.jpg";
 
 const useStyles = makeStyles({
   mainContainer: {
@@ -25,7 +25,6 @@ const useStyles = makeStyles({
   img: {
     maxWidth: "100%",
   },
-  "@media screen and (max-width: 600px)": {},
 });
 
 const overlayTexts = [

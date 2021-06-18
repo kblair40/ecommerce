@@ -3,6 +3,8 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Badge from "@material-ui/core/Badge";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import NavIcons from "./NavIcons";
 
 const useStyles = makeStyles({
@@ -44,6 +46,8 @@ const useStyles = makeStyles({
 
 const Navbar = (props) => {
   const classes = useStyles();
+  const totalItemsInCart = useSelector((state) => state.cart.totalQuantity);
+  console.log("TOTAL ITEMS IN CART:", totalItemsInCart);
   return (
     <nav className={classes.navbarContainer}>
       <NavLink className={classes.navbarLogo} to="/home">
@@ -67,7 +71,7 @@ const Navbar = (props) => {
       <NavLink className={classes.navbarLinks} to="/clothing">
         <Badge
           invisible={false}
-          badgeContent={0}
+          badgeContent={totalItemsInCart}
           color="primary"
           showZero
           classes={{ badge: classes.badgeRoot }}

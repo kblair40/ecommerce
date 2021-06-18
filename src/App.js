@@ -2,7 +2,8 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
+import Checkout from "./pages/Checkout";
+import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/Products";
 
 // TODO
@@ -29,6 +30,8 @@ const styles = {
   },
 };
 
+console.log("app running");
+
 function App({ classes }) {
   return (
     <div className="App">
@@ -36,6 +39,9 @@ function App({ classes }) {
       <Switch>
         <Route path="/home" exact>
           <Home />
+        </Route>
+        <Route path="/checkout" exact>
+          <Checkout />
         </Route>
         <Route path="/:category" exact>
           <Products />
