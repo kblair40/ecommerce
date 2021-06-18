@@ -34,6 +34,7 @@ const Products = () => {
     } else {
       setProducts(PRODUCTS);
     }
+
     setLoading(false);
   }, [params.category, dialogShowing]);
 
@@ -45,7 +46,6 @@ const Products = () => {
     category,
     image
   ) => {
-    console.log("PRODUCT CLICKED!");
     dispatch(
       productDialogActions.showDialog({
         id,

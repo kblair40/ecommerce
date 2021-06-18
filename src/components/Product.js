@@ -53,7 +53,7 @@ const Product = ({
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    handleProductClick(title, price, description, category, image);
+    handleProductClick(id, title, price, description, category, image);
   };
 
   const handleAddToCart = () => {
@@ -61,7 +61,6 @@ const Product = ({
       cartActions.addToCart({ id, title, price, description, category, image })
     );
   };
-
   return (
     <Card classes={{ root: classes.cardRoot }}>
       <CardHeader title={title} />

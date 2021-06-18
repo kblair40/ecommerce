@@ -7,6 +7,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { useSelector, useDispatch } from "react-redux";
 import { productDialogActions } from "../store/productDialogSlice";
+import { cartActions } from "../store/cartSlice";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import SizesSelect from "./SizesSelect";
 
@@ -33,14 +34,31 @@ const useStyles = makeStyles({
 
 const ProductDialog = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const chosenSize = useSelector((state) => state.cart.chosenSize);
+  console.log("PRODUCT DIALOG:", chosenSize);
   const isOpen = useSelector((state) => state.detailsDialog.showing);
-  const { title, price, description, category, image } = useSelector(
+  const { id, title, price, description, category, image } = useSelector(
     (state) => state.detailsDialog.activeProduct
   );
-  const dispatch = useDispatch();
 
   const handleClose = () => {
     dispatch(productDialogActions.hideDialog());
+    dispatch(cartActions.setSize({ size: undefined }));
+  };
+
+  const handleAddToCart = () => {
+    dispatch(
+      cartActions.addToCart({
+        id,
+        title,
+        price,
+        description,
+        category,
+        chosenSize,
+        image,
+      })
+    );
   };
 
   return (
@@ -66,6 +84,7 @@ const ProductDialog = () => {
           color="primary"
           variant="contained"
           classes={{ root: classes.addToCart }}
+          onClick={handleAddToCart}
         >
           Add To Cart
         </Button>

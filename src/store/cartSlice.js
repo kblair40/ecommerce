@@ -3,20 +3,25 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    // items: [{id: ..., quantity: 0}],
     items: [],
     totalQuantity: 0,
+    chosenSize: undefined,
   },
   reducers: {
+    setSize(state, action) {
+      state.chosenSize = action.payload.chosenSize;
+    },
     addToCart(state, action) {
-      let { id } = action.payload;
-      console.log("PRODUCT ID", id);
+      let selectedItem = action.payload;
+      console.log("SELECTED ITEM", selectedItem);
 
-      let productInCart = state.items.find((item) => item.id === id);
+      let productInCart = state.items.find(
+        (item) => item.id === selectedItem.id
+      );
       if (productInCart) {
         productInCart["quantity"]++;
       } else {
-        state.items.push({ id, quantity: 1 });
+        state.items.push({ ...selectedItem, quantity: 1 });
       }
       state.totalQuantity++;
     },

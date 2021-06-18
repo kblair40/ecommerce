@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { makeStyles } from "@material-ui/core/styles";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../store/cartSlice";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,12 +20,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SizesSelect = () => {
-  const [activeSize, setActiveSize] = useState(null);
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const activeSize = useSelector((state) => state.cart.chosenSize);
 
   const setSize = (e) => {
     e.stopPropagation();
-    setActiveSize(e.target.innerText.toLowerCase());
+    dispatch(
+      cartActions.setSize({ chosenSize: e.target.innerText.toLowerCase() })
+    );
   };
 
   return (
