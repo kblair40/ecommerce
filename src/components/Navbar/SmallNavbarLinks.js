@@ -115,7 +115,7 @@ const SmallNavbarLinks = () => {
               <Badge
                 invisible={false}
                 badgeContent={totalItemsInCart}
-                color="primary"
+                color="default"
                 showZero
                 className={classes.badge}
               >

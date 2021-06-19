@@ -10,6 +10,7 @@ import eight from "../../assets/images/eight.jpg";
 
 const useStyles = makeStyles({
   mainContainer: {
+    marginTop: "4rem",
     display: "flex",
     fontFamily: "Montserrat, sans-serif",
     position: "relative",

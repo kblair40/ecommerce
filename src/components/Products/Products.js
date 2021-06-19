@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   productsContainer: {
     display: "flex",
     flexWrap: "wrap",
-    // marginTop: "2rem",
+    marginTop: "4rem",
   },
 });
 

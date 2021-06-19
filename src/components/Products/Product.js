@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
     margin: ".5rem",
     textAlign: "center",
+    "& hover": {
+      cursor: "pointer",
+    },
   },
   imgRoot: {
     flexGrow: 1,
@@ -100,7 +103,7 @@ const Product = ({
 
   return (
     <Card classes={{ root: classes.cardRoot }}>
-      <p onClick={handleProductClick} className={classes.cardTitle}>
+      <p onClick={handleClick} className={classes.cardTitle}>
         {title}
       </p>
 

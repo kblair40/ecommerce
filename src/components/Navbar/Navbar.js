@@ -16,48 +16,50 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-evenly",
     alignItems: "baseline",
     background: "#f0f0f0",
-    position: "relative",
-    bottom: ".5rem",
-    right: "1%",
-    width: "102%",
+    position: "absolute",
+    top: 0,
+    right: 0,
+    width: "100%",
     zIndex: 10,
     minWidth: "350px",
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "space-between",
+      padding: "0 2rem",
+    },
     [theme.breakpoints.down("xs")]: {
-      position: "relative",
-      width: "108%",
-      right: "4%",
-      justifyContent: "center",
-      padding: "0 1.5rem",
+      justifyContent: "space-between",
+      padding: "0 1rem",
     },
   },
-  smallNav: {
-    position: "absolute",
-    left: "2rem",
+  smallNavLinksContainer: {
+    display: "flex",
   },
   navbarLogo: {
     fontFamily: "Montserrat, sans-serif",
     textDecoration: "none",
     margin: ".3rem 0",
     color: "#232323",
-    fontSize: "2rem",
+    fontSize: "1.8rem",
     "&:visited": {
       color: "#232323",
     },
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "1.7rem",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      position: "fixed",
+      left: 0,
+      right: 0,
+      textAlign: "center",
     },
   },
+  smallNav: {},
   navbarLinks: {
     fontFamily: "Oswald, sans-serif",
     textDecoration: "none",
-    fontSize: "1.3rem",
+    fontSize: "1.2rem",
     padding: 0,
     color: "#232323",
     "&:visited": {
       color: "#232323",
-    },
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "1rem",
     },
   },
   badgeRoot: {
@@ -99,19 +101,22 @@ const Navbar = () => {
         <NavLink className={classes.navbarLinks} to="/accessories">
           Accessories
         </NavLink>
+
+        <SetMode />
+      </Hidden>
+      <div className={classes.smallNavLinksContainer}>
         <NavLink className={classes.navbarLinks} to="/checkout">
           <Badge
             invisible={false}
             badgeContent={totalItemsInCart}
-            color="primary"
+            color="default"
             showZero
             classes={{ badge: classes.badgeRoot }}
           >
             <ShoppingCartIcon classes={{ root: classes.cartRoot }} />
           </Badge>
         </NavLink>
-        <SetMode />
-      </Hidden>
+      </div>
     </nav>
   );
 };
