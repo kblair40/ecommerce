@@ -56,7 +56,7 @@ const addressFormSlice = createSlice({
       const city = action.payload.val;
       console.log("city received", city);
       state.cityInput = city;
-      state.cityInputIsValid = validators.zip(city);
+      state.cityInputIsValid = validators.city(city);
     },
     manageState(state, action) {
       const st = action.payload.val;
@@ -85,7 +85,7 @@ export default addressFormSlice.reducer;
 const validators = {
   name: (name) => /^[a-z]{2,15}$/i.test(name),
   email: (email) => /^[a-z0-9]+@[a-z]+\.com$/i.test(email),
-  address: (address) => /^[a-z][a-z]{1,15}/i.test(address),
+  address: (address) => /^[0-9]+\s[a-z]{1,15}/i.test(address),
   city: (city) => /^[a-z]{2,16}/i.test(city),
   state: (state) => /^[a-z]{2}$/i.test(state),
   zip: (zip) => /[0-9]{5}/.test(zip),

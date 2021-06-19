@@ -33,20 +33,6 @@ const useStyles = makeStyles({
   },
 });
 
-// nameInput: "",
-//   nameInputIsValid: true,
-//   emailInput: "",
-//   emailInputIsValid: true,
-//   addressInput: "",
-//   addressInputIsValid: true,
-//   cityInput: "",
-//   cityInputIsValid: true,
-//   stateInput: "",
-//   stateInputIsValid: true,
-//   zipInput: "",
-//   zipInputIsValid: true,
-//   formIsValid: true,
-
 const CheckoutForm = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -64,7 +50,7 @@ const CheckoutForm = () => {
     stateInputIsValid,
     zipInput,
     zipInputIsValid,
-    formIsValid,
+    // formIsValid,
   } = useSelector((state) => state.addressForm);
 
   const handleFormUpdate = (e) => {
@@ -92,6 +78,16 @@ const CheckoutForm = () => {
         console.log("NO MATCH FOUND!");
     }
   };
+
+  const formIsValid =
+    nameInputIsValid &&
+    emailInputIsValid &&
+    addressInputIsValid &&
+    cityInputIsValid &&
+    stateInputIsValid &&
+    zipInputIsValid;
+
+  console.log("FORM IS VALID? ", formIsValid);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -163,6 +159,7 @@ const CheckoutForm = () => {
           className={classes.submitOrderBtn}
           variant="contained"
           color="primary"
+          disabled={!formIsValid}
         >
           Submit Order
         </Button>
