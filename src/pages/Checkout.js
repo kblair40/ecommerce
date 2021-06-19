@@ -2,7 +2,7 @@ import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 import Cart from "../components/Cart/Cart";
-import AddressForm from "../components/Cart/AddressForm";
+import AddressForm from "../components/Forms/AddressForm";
 
 const useStyles = makeStyles({
   checkoutPageContainer: {

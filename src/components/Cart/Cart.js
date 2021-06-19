@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { v4 as uuid } from "uuid";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
+import CartIsEmpty from "./CartIsEmpty";
 import CartProduct from "./CartProduct";
 
 const useStyles = makeStyles({
@@ -12,11 +13,28 @@ const useStyles = makeStyles({
     flexDirection: "column",
     // background: "red",
   },
+  cartEmptyContainer: {
+    fontFamily: "Montserrat",
+    display: "flex",
+    // background: "black",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
 
 const Cart = (props) => {
   const cartState = useSelector((state) => state.cart);
   const classes = useStyles();
+
+  console.log("CART STATE:", cartState);
+
+  if (!cartState.items.length) {
+    return (
+      <div className={classes.cartEmptyContainer}>
+        <CartIsEmpty />;
+      </div>
+    );
+  }
 
   return (
     <div
