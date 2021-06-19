@@ -1,5 +1,4 @@
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardActions from "@material-ui/core/CardActions";
@@ -8,15 +7,15 @@ import { useDispatch } from "react-redux";
 
 import AddToCartButton from "./AddToCartButton";
 import { cartActions } from "../store/cartSlice";
+import { BREAKPOINTS } from "../constants";
 
-const useStyles = makeStyles({
-  cardRoot: {
-    margin: "1rem .5rem",
-    position: "relative",
-    width: "30%",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+const useStyles = makeStyles((theme) => ({
+  cardTitle: {
+    fontSize: "1.2rem",
+    fontFamily: "Montserrat",
+    fontWeight: 600,
+    margin: ".5rem",
+    textAlign: "center",
   },
   imgRoot: {
     flexGrow: 1,
@@ -35,10 +34,50 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
   },
-  imageimage: {
-    maxWidth: "100%",
+
+  cardRoot: {
+    margin: "1rem .5rem",
+    position: "relative",
+    width: "22%",
+    minWidth: "130px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    [theme.breakpoints.up("xs")]: {
+      width: "45%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: "30%",
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "22%",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "16%", // test this on external monitor
+    },
   },
-});
+  // `@media screen and (max-width: ${BREAKPOINTS.lg})`: {
+  //   cardRoot: {
+  //     width: "30%",
+  //   },
+  // },
+  // "@media screen and (max-width: 640px)": {
+  //   cardRoot: {
+  //     width: "45%",
+  //   },
+  // },
+  // "@media screen and (max-width: 440px)": {
+  //   cardRoot: {
+  //     width: "90%",
+  //   },
+  // },
+}));
+
+// export const BREAKPOINTS = {
+//   lg: "980px",
+//   md: "640px",
+//   sm: "440px",
+// };
 
 const Product = ({
   id,
@@ -50,7 +89,7 @@ const Product = ({
   handleProductClick,
   needsSizes,
 }) => {
-  const classes = useStyles();
+  const classes = useStyles(BREAKPOINTS);
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -81,13 +120,14 @@ const Product = ({
   };
   return (
     <Card classes={{ root: classes.cardRoot }}>
-      <CardHeader title={title} />
+      <p className={classes.cardTitle}>{title}</p>
+
       <CardMedia
         component="img"
         alt={description}
         image={image}
         title={description}
-        classes={{ root: classes.imgRoot }}
+        classes={{ media: classes.imgRoot }}
         onClick={handleClick}
       />
       <CardContent>

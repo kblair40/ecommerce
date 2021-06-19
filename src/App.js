@@ -18,7 +18,9 @@ import Products from "./components/Products";
 // 6.  Move all styles to separate styles directory and import relevant styles from each component
 // 7.  Navbar should collapse to hamburger menu dropdown on small screens
 // 8.  Fix image sizing on products pages, especially for jewelry
-// 9.  Form Validations!!!
+// 9.  Better form validations!!!
+// 10. Add same images to homepage, but with various dimensions and display image depending on user's screen size
+//        ^^ https://cloudfour.com/thinks/responsive-images-101-definitions/
 
 // EVENTUALLY
 // 1.  Put available products into firebase and load from there

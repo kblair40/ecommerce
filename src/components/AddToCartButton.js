@@ -11,6 +11,7 @@ const styles = {
     width: "95%",
     right: "2.5%",
     color: "#777",
+    whiteSpace: "nowrap",
     "&:hover": {
       background: "#fff",
       color: "#333",
