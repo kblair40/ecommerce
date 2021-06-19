@@ -18,6 +18,7 @@ import Products from "./components/Products";
 // 6.  Move all styles to separate styles directory and import relevant styles from each component
 // 7.  Navbar should collapse to hamburger menu dropdown on small screens
 // 8.  Fix image sizing on products pages, especially for jewelry
+// 9.  Form Validations!!!
 
 // EVENTUALLY
 // 1.  Put available products into firebase and load from there

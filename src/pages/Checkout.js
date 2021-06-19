@@ -2,12 +2,14 @@ import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 import Cart from "../components/Cart/Cart";
-import CheckoutForm from "../components/Cart/CheckoutForm";
+import AddressForm from "../components/Cart/AddressForm";
 
 const useStyles = makeStyles({
   checkoutPageContainer: {
-    display: "flex",
+    display: "grid",
     flexWrap: "wrap",
+    gridTemplateColumns: "65% 32%",
+    gridColumnGap: "1rem",
   },
   "& @media screen and (max-width: 800px)": {
     flexDirection: "column",
@@ -19,7 +21,7 @@ const Checkout = () => {
   return (
     <div className={classes.checkoutPageContainer}>
       <Cart />
-      <CheckoutForm />
+      <AddressForm />
     </div>
   );
 };
