@@ -4,6 +4,7 @@ import Card from "@material-ui/core/Card";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
+import InputBase from "@material-ui/core/InputBase";
 
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -19,18 +20,33 @@ const useStyles = makeStyles((theme) => ({
   },
   inputRow: {
     marginBottom: "1rem",
+    width: "100%",
+    maxWidth: "30rem",
   },
   multipleInputRow: {
+    width: "100%",
+    maxWidth: "30rem",
     display: "flex",
     flexWrap: "wrap",
     marginBottom: "1rem",
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
   },
   inputCol: {
-    width: "30%",
+    width: "32%",
+    margin: "0 .5% 1rem .5%",
+    // marginBottom: "1rem",
+    minWidth: "6rem",
+  },
+  selectRoot: {
+    paddingLeft: ".2rem",
+    paddingRight: ".2rem",
+    minWidth: "2rem",
   },
   submitOrderBtn: {
     width: "100%",
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "30rem",
+    },
   },
 }));
 
@@ -176,6 +192,7 @@ const AddressForm = () => {
             <InputLabel htmlFor="city">City</InputLabel>
             <Input
               name="city"
+              disableUnderline={false}
               value={cityValue}
               error={cityHasError}
               onChange={handleCityChange}
@@ -186,12 +203,17 @@ const AddressForm = () => {
           <div className={classes.inputCol}>
             <InputLabel htmlFor="state">State</InputLabel>
             <Select
+              autoWidth={true}
+              classes={{
+                root: classes.selectRoot,
+              }}
               id="state"
               name="state"
               value={stateValue}
               error={stateHasError}
               onChange={handleStateChange}
               onBlur={handleStateBlur} // Shouldn't be necessary
+              fullWidth
             >
               {MURICA.map((state) => (
                 <MenuItem key={state} value={state}>

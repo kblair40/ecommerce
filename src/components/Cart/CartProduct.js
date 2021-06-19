@@ -7,18 +7,23 @@ import { useDispatch } from "react-redux";
 import QuantityUpdate from "./QuantityUpdate";
 import { cartActions } from "../../store/cartSlice";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   itemContainer: {
+    width: "50%",
+    minWidth: "34rem",
     display: "flex",
     fontFamily: "Montserrat",
     fontWeight: 300,
     padding: ".5rem 0",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
   },
 
   // COLUMN #1
   mainInfoContainer: {
-    width: "100%",
-    minWidth: "15rem",
+    // width: "100%",
+    // minWidth: "15rem",  // MIGHT NEED THIS BACK
     maxWidth: "22rem",
     display: "flex",
     justifyContent: "space-between",
@@ -55,10 +60,17 @@ const useStyles = makeStyles({
   // COLUMN #2
   updateCartActions: {
     marginTop: "1rem",
-    width: "12rem",
+    width: "50rem", // was 15rem
+    display: "flex",
+    flexDirection: "column",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "row",
+    },
   },
   qtyUpdateContainer: {
-    marginBottom: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      marginRight: "1rem",
+    },
   },
   removeBtnRoot: {
     padding: ".2rem",
@@ -80,14 +92,7 @@ const useStyles = makeStyles({
     fontWeight: "300",
     fontSize: ".8rem",
   },
-
-  verticalDivider: {
-    // margin: "0 .5rem",
-  },
-  horizontalDivider: {
-    // margin: "1rem 0 .5rem 0",
-  },
-});
+}));
 
 const CartProduct = ({ item }) => {
   const classes = useStyles(item.image);
