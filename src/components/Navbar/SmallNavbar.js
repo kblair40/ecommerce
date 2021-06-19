@@ -7,30 +7,42 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 const drawerWidth = "50%";
+const smallerDrawerWidth = "40%";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
   },
   drawer: {
-    width: drawerWidth,
+    width: smallerDrawerWidth,
     flexShrink: 0,
+    minWidth: 200,
+    [theme.breakpoints.down("xs")]: {
+      width: drawerWidth,
+    },
   },
   drawerHeader: {
     display: "flex",
     width: "100%",
     jusfifyContent: "flex-end",
-    background: "rgba(0,0,0,.2)",
+    background: "#f0f0f0",
     position: "relative",
-    height: "3rem", // DELETE
+    height: "3rem",
   },
   drawerPaper: {
-    width: drawerWidth,
+    width: smallerDrawerWidth,
+    minWidth: 200,
+    [theme.breakpoints.down("xs")]: {
+      width: drawerWidth,
+    },
   },
   closeIcon: {
     position: "absolute",
     top: "-.3rem",
     // left: "550%",
+    left: "80%",
+  },
+  [theme.breakpoints.down("xs")]: {
     left: "70%",
   },
 }));

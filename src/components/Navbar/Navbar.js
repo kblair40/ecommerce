@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     right: "1%",
     width: "102%",
     zIndex: 10,
-    minWidth: "330px",
+    minWidth: "350px",
     [theme.breakpoints.down("xs")]: {
       position: "relative",
       width: "108%",
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
       color: "#232323",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "1.5rem",
+      fontSize: "1.7rem",
     },
   },
   navbarLinks: {
