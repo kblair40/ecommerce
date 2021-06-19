@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import SmallNavbar from "./SmallNavbar";
-import NavIcons from "./NavIcons";
+import SetMode from "./SetMode";
 
 const useStyles = makeStyles((theme) => ({
   navbarContainer: {
@@ -110,7 +110,7 @@ const Navbar = () => {
             <ShoppingCartIcon classes={{ root: classes.cartRoot }} />
           </Badge>
         </NavLink>
-        <NavIcons />
+        <SetMode />
       </Hidden>
     </nav>
   );

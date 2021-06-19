@@ -19,7 +19,7 @@ const styles = {
   },
 };
 
-const NavIcons = ({ classes }) => {
+const SetMode = ({ classes }) => {
   const dispatch = useDispatch();
 
   const toggleMode = () => {
@@ -32,7 +32,6 @@ const NavIcons = ({ classes }) => {
         color="default"
         size="small"
         classes={{
-          //   track: classes.track,
           switchBase: classes.switchBase,
           root: classes.root,
         }}
@@ -43,4 +42,4 @@ const NavIcons = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(NavIcons);
+export default withStyles(styles)(SetMode);
