@@ -6,8 +6,8 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { useSelector, useDispatch } from "react-redux";
-import { productDialogActions } from "../store/productDialogSlice";
-import { cartActions } from "../store/cartSlice";
+import { productDialogActions } from "../../store/productDialogSlice";
+import { cartActions } from "../../store/cartSlice";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import SizesSelect from "./SizesSelect";
 
@@ -29,6 +29,9 @@ const useStyles = makeStyles({
   },
   productImage: {
     maxWidth: "60%",
+  },
+  titleRoot: {
+    textAlign: "center",
   },
 });
 
@@ -62,13 +65,14 @@ const ProductDialog = () => {
 
   return (
     <Dialog open={isOpen} onClose={handleClose}>
-      <DialogTitle style={{ textAlign: "center" }}>{title}</DialogTitle>
+      {/* style={{ textAlign: "center" }} */}
+      <DialogTitle classes={{ root: classes.titleRoot }}>{title}</DialogTitle>
       <DialogContent>
+        {needsSizes && <SizesSelect />}
         <div className={classes.imageContainer}>
           <img className={classes.productImage} src={`${image}`} alt={title} />
         </div>
         <DialogContentText>{description}</DialogContentText>
-        {needsSizes && <SizesSelect />}
       </DialogContent>
       <DialogActions classes={{ root: classes.dialogActionsRoot }}>
         <Button

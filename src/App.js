@@ -4,7 +4,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
 import Navbar from "./components/Navbar/Navbar";
-import Products from "./components/Products";
+// import Products from "./components/Products";
+import Products from "./components/Products/Products";
 
 // TODO
 // 1.  When user clicks add to cart, snackbar should show up confirming success

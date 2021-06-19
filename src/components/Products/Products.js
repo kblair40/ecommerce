@@ -6,14 +6,14 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 
 import Product from "./Product";
 import ProductDialog from "./ProductDialog";
-import { productDialogActions } from "../store/productDialogSlice";
-import { PRODUCTS } from "../constants";
+import { productDialogActions } from "../../store/productDialogSlice";
+import { PRODUCTS } from "../../constants";
 
 const useStyles = makeStyles({
   productsContainer: {
     display: "flex",
     flexWrap: "wrap",
-    marginTop: "6rem",
+    // marginTop: "2rem",
   },
 });
 

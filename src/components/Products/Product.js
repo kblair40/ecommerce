@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 import ReactImageMagnify from "react-image-magnify";
 
 import AddToCartButton from "./AddToCartButton";
-import { cartActions } from "../store/cartSlice";
-import { BREAKPOINTS } from "../constants";
+import { cartActions } from "../../store/cartSlice";
+import { BREAKPOINTS } from "../../constants";
 
 const useStyles = makeStyles((theme) => ({
   cardTitle: {
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
       width: "22%",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "16%", // test this on external monitor
+      width: "18%", // test this on external monitor
     },
   },
 }));
@@ -83,23 +83,26 @@ const Product = ({
     );
   };
 
-  const handleAddItemtoCart = () => {
-    dispatch(
-      cartActions.addToCart({
-        chosenSize: undefined,
-        id,
-        title,
-        price,
-        description,
-        category,
-        image,
-        needsSizes,
-      })
-    );
-  };
+  // const handleAddItemtoCart = () => {
+  //   dispatch(
+  //     cartActions.addToCart({
+  //       chosenSize: undefined,
+  //       id,
+  //       title,
+  //       price,
+  //       description,
+  //       category,
+  //       image,
+  //       needsSizes,
+  //     })
+  //   );
+  // };
+
   return (
     <Card classes={{ root: classes.cardRoot }}>
-      <p className={classes.cardTitle}>{title}</p>
+      <p onClick={handleProductClick} className={classes.cardTitle}>
+        {title}
+      </p>
 
       <ReactImageMagnify
         {...{
@@ -123,7 +126,8 @@ const Product = ({
         <div className={classes.price}>${price.toFixed(2)}</div>
       </CardContent>
       <CardActions classes={{ root: classes.actionsRoot }}>
-        <AddToCartButton handleAddItemtoCart={handleAddItemtoCart} />
+        <AddToCartButton handleProductClick={handleClick} />
+        {/* <AddToCartButton handleAddItemtoCart={handleAddItemtoCart} /> */}
       </CardActions>
     </Card>
   );

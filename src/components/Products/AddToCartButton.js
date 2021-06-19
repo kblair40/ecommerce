@@ -19,10 +19,10 @@ const styles = {
   },
 };
 
-const AddToCartButton = ({ classes, handleAddItemtoCart }) => {
+const AddToCartButton = ({ classes, handleProductClick }) => {
   return (
     <Button
-      onClick={handleAddItemtoCart}
+      onClick={handleProductClick}
       classes={{ root: classes.btnRoot }}
       variant="outlined"
     >

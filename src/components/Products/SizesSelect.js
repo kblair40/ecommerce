@@ -3,13 +3,14 @@ import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch, useSelector } from "react-redux";
-import { cartActions } from "../store/cartSlice";
+import { cartActions } from "../../store/cartSlice";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    margin: "-.5rem 0 1rem 0",
   },
   sizeBtnActive: {
     background: "rgba(0,0,0,0.3)",
