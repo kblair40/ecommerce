@@ -1,6 +1,5 @@
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardActions from "@material-ui/core/CardActions";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import { useDispatch } from "react-redux";
@@ -108,7 +107,6 @@ const Product = ({
             alt: { title },
             width: 200,
             height: 250,
-            // isFluidWidth: true,
             src: image,
           },
           largeImage: {
@@ -120,12 +118,6 @@ const Product = ({
           className: classes.imgRoot,
         }}
       />
-      {/* <img
-        src={image}
-        alt={title}
-        className={classes.imgRoot}
-        onClick={handleClick}
-      /> */}
 
       <CardContent>
         <div className={classes.price}>${price.toFixed(2)}</div>
