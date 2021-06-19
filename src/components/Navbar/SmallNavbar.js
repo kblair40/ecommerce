@@ -41,10 +41,7 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     top: "-.3rem",
     fontSize: "4rem",
-    left: "80%",
-    [theme.breakpoints.down("xs")]: {
-      left: "75%",
-    },
+    right: 0,
   },
 }));
 
@@ -72,6 +69,7 @@ const SmallNavbar = () => {
       </IconButton>
 
       <Drawer
+        variant="persistent"
         className={classes.drawer}
         variant="persistent"
         anchor="left"

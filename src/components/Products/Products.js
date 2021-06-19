@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import List from "@material-ui/core/List";
 
 import Product from "./Product";
 import ProductDialog from "./ProductDialog";
@@ -11,7 +12,14 @@ import { PRODUCTS } from "../../constants";
 
 const useStyles = makeStyles({
   productsContainer: {
+    width: "100%",
     display: "flex",
+    justifyContent: "center",
+  },
+  productsList: {
+    display: "flex",
+    width: "100%",
+    justifyContent: "center",
     flexWrap: "wrap",
     marginTop: "4rem",
   },
@@ -36,7 +44,7 @@ const Products = () => {
     }
 
     setLoading(false);
-  }, [params.category, dialogShowing]);
+  }, [params.category]);
 
   const handleProductClick = (
     id,
@@ -75,8 +83,9 @@ const Products = () => {
     );
   } else {
     return (
-      <React.Fragment>
-        <ul className={classes.productsContainer}>
+      <div className={classes.productsContainer}>
+        {/* USED TO be <ul></ul> instead of <List></List> */}
+        <List className={classes.productsList}>
           {products.map((prod) => (
             <Product
               key={prod.id}
@@ -90,9 +99,9 @@ const Products = () => {
               handleProductClick={handleProductClick}
             />
           ))}
-        </ul>
+        </List>
         <ProductDialog showing={dialogShowing} />
-      </React.Fragment>
+      </div>
     );
   }
 };

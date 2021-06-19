@@ -4,7 +4,6 @@ import Card from "@material-ui/core/Card";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
-import FormHelperText from "@material-ui/core/FormHelperText";
 
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -12,7 +11,7 @@ import { MURICA } from "../../constants";
 import useInput from "../../hooks/useInput";
 import ErrorMessage from "./ErrorMessage";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   checkoutFormContainer: {
     fontFamily: "Oswald",
     fontWeight: 800,
@@ -23,6 +22,7 @@ const useStyles = makeStyles({
   },
   multipleInputRow: {
     display: "flex",
+    flexWrap: "wrap",
     marginBottom: "1rem",
     justifyContent: "space-between",
   },
@@ -32,7 +32,7 @@ const useStyles = makeStyles({
   submitOrderBtn: {
     width: "100%",
   },
-});
+}));
 
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");

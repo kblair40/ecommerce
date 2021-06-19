@@ -4,12 +4,17 @@ import Brightness3Icon from "@material-ui/icons/Brightness3";
 import Switch from "@material-ui/core/Switch";
 import { useDispatch } from "react-redux";
 import { modeActions } from "../../store/modeSlice";
-import withStyles from "@material-ui/core/styles/withStyles";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
-const styles = {
+const useStyles = makeStyles((theme) => ({
   iconContainer: {
     display: "flex",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      // marginTop: "1rem",
+      position: "fixed",
+      bottom: "5rem",
+    },
   },
   switchBase: {
     color: "#454545",
@@ -17,10 +22,11 @@ const styles = {
   root: {
     color: "#454545",
   },
-};
+}));
 
-const SetMode = ({ classes }) => {
+const SetMode = () => {
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   const toggleMode = () => {
     dispatch(modeActions.toggleMode());
@@ -42,4 +48,4 @@ const SetMode = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(SetMode);
+export default SetMode;

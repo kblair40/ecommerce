@@ -37,18 +37,23 @@ const useStyles = makeStyles((theme) => ({
   navbarLogo: {
     fontFamily: "Montserrat, sans-serif",
     textDecoration: "none",
-    margin: ".3rem 0",
+    margin: ".3rem",
     color: "#232323",
     fontSize: "1.8rem",
     "&:visited": {
       color: "#232323",
     },
     [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      position: "fixed",
+      textAlign: "center",
+      width: "50%",
+      top: ".2rem",
+      position: "absolute",
       left: 0,
       right: 0,
-      textAlign: "center",
+      margin: "0 auto",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "68%",
     },
   },
   smallNav: {},

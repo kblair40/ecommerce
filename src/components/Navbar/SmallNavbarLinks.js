@@ -22,10 +22,6 @@ const useStyles = makeStyles({
     "& li:hover": {
       background: "#dfdfdf",
     },
-    // "& li:hover:not(:last-child)": {
-    //   background: "red",
-    // },
-    // :not(:last-child) { /* styles */ }
   },
   linksSection1: {
     height: "50%",
@@ -103,7 +99,7 @@ const SmallNavbarLinks = () => {
           </ListItem>
         </div>
       </List>
-      <Divider />
+      <Divider style={{ margin: 0 }} />
       <List>
         <div className={classes.linksSection2}>
           <ListItem disableGutters>
