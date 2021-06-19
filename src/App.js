@@ -21,6 +21,7 @@ import Products from "./components/Products";
 // 9.  Better form validations!!!
 // 10. Add same images to homepage, but with various dimensions and display image depending on user's screen size
 //        ^^ https://cloudfour.com/thinks/responsive-images-101-definitions/
+// 11. Add filter for gender on Clothing page
 
 // EVENTUALLY
 // 1.  Put available products into firebase and load from there

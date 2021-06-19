@@ -4,6 +4,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardActions from "@material-ui/core/CardActions";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import { useDispatch } from "react-redux";
+import ReactImageMagnify from "react-image-magnify";
 
 import AddToCartButton from "./AddToCartButton";
 import { cartActions } from "../store/cartSlice";
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "1rem .5rem",
     position: "relative",
     width: "22%",
-    minWidth: "130px",
+    minWidth: "190px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -56,28 +57,7 @@ const useStyles = makeStyles((theme) => ({
       width: "16%", // test this on external monitor
     },
   },
-  // `@media screen and (max-width: ${BREAKPOINTS.lg})`: {
-  //   cardRoot: {
-  //     width: "30%",
-  //   },
-  // },
-  // "@media screen and (max-width: 640px)": {
-  //   cardRoot: {
-  //     width: "45%",
-  //   },
-  // },
-  // "@media screen and (max-width: 440px)": {
-  //   cardRoot: {
-  //     width: "90%",
-  //   },
-  // },
 }));
-
-// export const BREAKPOINTS = {
-//   lg: "980px",
-//   md: "640px",
-//   sm: "440px",
-// };
 
 const Product = ({
   id,
@@ -122,14 +102,31 @@ const Product = ({
     <Card classes={{ root: classes.cardRoot }}>
       <p className={classes.cardTitle}>{title}</p>
 
-      <CardMedia
-        component="img"
-        alt={description}
-        image={image}
-        title={description}
-        classes={{ media: classes.imgRoot }}
-        onClick={handleClick}
+      <ReactImageMagnify
+        {...{
+          smallImage: {
+            alt: { title },
+            width: 200,
+            height: 250,
+            // isFluidWidth: true,
+            src: image,
+          },
+          largeImage: {
+            src: image,
+            width: 400,
+            height: 450,
+          },
+          enlargedImagePosition: "over",
+          className: classes.imgRoot,
+        }}
       />
+      {/* <img
+        src={image}
+        alt={title}
+        className={classes.imgRoot}
+        onClick={handleClick}
+      /> */}
+
       <CardContent>
         <div className={classes.price}>${price.toFixed(2)}</div>
       </CardContent>
