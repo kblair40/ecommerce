@@ -9,9 +9,8 @@ import { cartActions } from "../../store/cartSlice";
 
 const useStyles = makeStyles((theme) => ({
   itemContainer: {
-    // background: "rgba(200,20,20, .1)",
     width: "80%",
-    minWidth: "18rem", // was 34rem
+    minWidth: "18rem",
     display: "flex",
     fontFamily: "Montserrat",
     fontWeight: 300,
@@ -20,10 +19,6 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
       maxWidth: "20rem",
     },
-    // [theme.breakpoints.down("sm")]: {
-    //   flexDirection: "column",
-    //   maxWidth: "20rem",
-    // },
   },
 
   // COLUMN #1
@@ -65,12 +60,9 @@ const useStyles = makeStyles((theme) => ({
   // COLUMN #2
   updateCartActions: {
     marginTop: "1rem",
-    // width: "50rem", // was 15rem
-    // width: "15rem", // was 15rem
     display: "flex",
     flexDirection: "column",
     [theme.breakpoints.down("xs")]: {
-      // was sm
       flexDirection: "row",
     },
   },
@@ -93,9 +85,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       marginLeft: "1.5rem",
     },
-    // [theme.breakpoints.down("sm")]: {
-    //   marginLeft: "2.9rem",
-    // },
   },
   removeItemBtnText: {
     margin: 0,
@@ -111,12 +100,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       flexDirection: "row",
       marginTop: ".5rem",
-      // marginLeft: ".5rem",
-      // justifyContent: "space-evenly",
     },
   },
   priceSubtext: {
-    // margin: ".2rem 0 0 0",
     marginTop: ".2rem",
     fontWeight: "300",
     fontSize: ".8rem",

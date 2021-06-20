@@ -4,7 +4,6 @@ import Card from "@material-ui/core/Card";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
-import InputBase from "@material-ui/core/InputBase";
 
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -18,6 +17,18 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 800,
     padding: "1rem",
   },
+  inputRoot: {
+    fontFamily: "Montserrat",
+    // borderColor: "red",
+    "&:after": {
+      borderColor: "#a0a1a1", // reg focus color here
+    },
+    "&.Mui-error:after": {
+      borderColor: "#ff4244", // error color here
+    },
+  },
+  // inputError: {},
+
   inputRow: {
     marginBottom: "1rem",
     width: "100%",
@@ -38,15 +49,43 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "6rem",
   },
   selectRoot: {
+    fontFamily: "Montserrat",
     paddingLeft: ".2rem",
     paddingRight: ".2rem",
     minWidth: "2rem",
+    "&:after": {
+      borderColor: "#a0a1a1",
+    },
+  },
+  selectRootError: {
+    fontFamily: "Montserrat",
+    paddingLeft: ".2rem",
+    paddingRight: ".2rem",
+    minWidth: "2rem",
+    "&.MuiSelect-select:after": {
+      borderColor: "green", // NOT WORKING
+    },
+    // "&:after": {
+    // },
   },
   submitOrderBtn: {
     width: "100%",
+    backgroundColor: "purple",
+    "&.MuiButton-root": {
+      color: "white",
+      backgroundColor: "rgba(100,200,100,1)",
+    },
     [theme.breakpoints.down("sm")]: {
       maxWidth: "30rem",
     },
+  },
+  buttonDisabled: {
+    // color: "white",
+    "&.MuiButton-root": {
+      backgroundColor: "#f0f0f0",
+      color: "black",
+    },
+    backgroundColor: "green",
   },
 }));
 
@@ -146,7 +185,9 @@ const AddressForm = () => {
       <h1>Shipping Address</h1>
       <form onSubmit={handleFormSubmit}>
         <div className={classes.inputRow}>
-          <InputLabel htmlFor="fullName">Full Name</InputLabel>
+          <InputLabel classes={{ root: classes.inputRoot }} htmlFor="fullName">
+            Full Name
+          </InputLabel>
           <Input
             id="fullName"
             name="fullName"
@@ -154,14 +195,20 @@ const AddressForm = () => {
             onChange={handleNameChange}
             error={nameHasError}
             onBlur={handleNameBlur}
+            classes={{
+              root: classes.inputRoot,
+            }}
             fullWidth
           />
           {nameHasError && <ErrorMessage />}
         </div>
 
         <div className={classes.inputRow}>
-          <InputLabel htmlFor="email">Email</InputLabel>
+          <InputLabel classes={{ root: classes.inputRoot }} htmlFor="email">
+            Email
+          </InputLabel>
           <Input
+            classes={{ root: classes.inputRoot }}
             id="email"
             name="email"
             value={emailValue}
@@ -174,8 +221,11 @@ const AddressForm = () => {
         </div>
 
         <div className={classes.inputRow}>
-          <InputLabel htmlFor="address">Address</InputLabel>
+          <InputLabel classes={{ root: classes.inputRoot }} htmlFor="address">
+            Address
+          </InputLabel>
           <Input
+            classes={{ root: classes.inputRoot }}
             id="address"
             name="address"
             value={addressValue}
@@ -189,8 +239,11 @@ const AddressForm = () => {
 
         <div className={classes.multipleInputRow}>
           <div className={classes.inputCol}>
-            <InputLabel htmlFor="city">City</InputLabel>
+            <InputLabel classes={{ root: classes.inputRoot }} htmlFor="city">
+              City
+            </InputLabel>
             <Input
+              classes={{ root: classes.inputRoot }}
               name="city"
               disableUnderline={false}
               value={cityValue}
@@ -201,18 +254,20 @@ const AddressForm = () => {
             {cityHasError && <ErrorMessage />}
           </div>
           <div className={classes.inputCol}>
-            <InputLabel htmlFor="state">State</InputLabel>
+            <InputLabel classes={{ root: classes.inputRoot }} htmlFor="state">
+              State
+            </InputLabel>
             <Select
               autoWidth={true}
-              classes={{
-                root: classes.selectRoot,
-              }}
+              className={`${
+                stateHasError ? classes.selectRootError : classes.selectRoot
+              }`}
               id="state"
               name="state"
               value={stateValue}
               error={stateHasError}
               onChange={handleStateChange}
-              onBlur={handleStateBlur} // Shouldn't be necessary
+              onBlur={handleStateBlur}
               fullWidth
             >
               {MURICA.map((state) => (
@@ -225,8 +280,11 @@ const AddressForm = () => {
           </div>
 
           <div className={classes.inputCol}>
-            <InputLabel htmlFor="zip">Zip</InputLabel>
+            <InputLabel classes={{ root: classes.inputRoot }} htmlFor="zip">
+              Zip
+            </InputLabel>
             <Input
+              classes={{ root: classes.inputRoot }}
               id="zip"
               name="zip"
               value={zipValue}
@@ -239,9 +297,14 @@ const AddressForm = () => {
         </div>
         <Button
           type="submit"
-          className={classes.submitOrderBtn}
+          // className={classes.submitOrderBtn}
           variant="contained"
-          color="primary"
+          classes={{
+            root: classes.submitOrderBtn,
+            // label: classes.submitOrderBtn,
+            // contained: classes.submitOrderBtn,
+            disabled: classes.buttonDisabled,
+          }}
           disabled={!formIsValid}
         >
           Submit Order
