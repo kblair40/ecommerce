@@ -10,14 +10,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "3rem",
     display: "grid",
     gridTemplateColumns: "65% 32%",
-    justifyItems: "center",
+    // justifyItems: "center",
     gridColumnGap: "1rem",
     [theme.breakpoints.down("sm")]: {
       gridTemplateColumns: "95%",
     },
     [theme.breakpoints.down("xs")]: {
-      justifySelf: "center",
-      // gridTemplateColumns: "90%",
+      justifyItems: "center",
       gridTemplateRows: "auto",
     },
   },

@@ -10,6 +10,8 @@ import { productDialogActions } from "../../store/productDialogSlice";
 import { cartActions } from "../../store/cartSlice";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import SizesSelect from "./SizesSelect";
+import DialogAddToCartBtn from "./DialogAddToCartBtn";
+import DialogCloseBtn from "./DialogCloseBtn";
 
 const useStyles = makeStyles({
   addToCart: {
@@ -75,22 +77,8 @@ const ProductDialog = () => {
         <DialogContentText>{description}</DialogContentText>
       </DialogContent>
       <DialogActions classes={{ root: classes.dialogActionsRoot }}>
-        <Button
-          color="secondary"
-          variant="contained"
-          classes={{ root: classes.cancel }}
-          onClick={handleClose}
-        >
-          Cancel
-        </Button>
-        <Button
-          color="primary"
-          variant="contained"
-          classes={{ root: classes.addToCart }}
-          onClick={handleAddToCart}
-        >
-          Add To Cart
-        </Button>
+        <DialogCloseBtn handleClose={handleClose} />
+        <DialogAddToCartBtn handleClick={handleAddToCart} />
       </DialogActions>
     </Dialog>
   );
