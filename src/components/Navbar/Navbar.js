@@ -56,7 +56,6 @@ const useStyles = makeStyles((theme) => ({
       width: "68%",
     },
   },
-  smallNav: {},
   navbarLinks: {
     fontFamily: "Oswald, sans-serif",
     textDecoration: "none",

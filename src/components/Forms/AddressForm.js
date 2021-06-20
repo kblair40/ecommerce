@@ -13,9 +13,11 @@ import ErrorMessage from "./ErrorMessage";
 
 const useStyles = makeStyles((theme) => ({
   checkoutFormContainer: {
+    // background: "rgba(0,0,0,0.1)",
     fontFamily: "Oswald",
     fontWeight: 800,
     padding: "1rem",
+    // marginTop: "2rem",
   },
   inputRoot: {
     fontFamily: "Montserrat",
@@ -31,12 +33,12 @@ const useStyles = makeStyles((theme) => ({
 
   inputRow: {
     marginBottom: "1rem",
-    width: "100%",
-    maxWidth: "30rem",
+    width: "100%", // used to be 100%
+    maxWidth: "30rem", // used to be 30rem
   },
   multipleInputRow: {
-    width: "100%",
-    maxWidth: "30rem",
+    width: "100%", // used to be 100%
+    maxWidth: "30rem", // used to be 30rem
     display: "flex",
     flexWrap: "wrap",
     marginBottom: "1rem",
@@ -46,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     width: "32%",
     margin: "0 .5% 1rem .5%",
     // marginBottom: "1rem",
-    minWidth: "6rem",
+    minWidth: "5rem",
   },
   selectRoot: {
     fontFamily: "Montserrat",
@@ -65,8 +67,6 @@ const useStyles = makeStyles((theme) => ({
     "&.MuiSelect-select:after": {
       borderColor: "green", // NOT WORKING
     },
-    // "&:after": {
-    // },
   },
   submitOrderBtn: {
     width: "100%",
@@ -76,11 +76,10 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "rgba(100,200,100,1)",
     },
     [theme.breakpoints.down("sm")]: {
-      maxWidth: "30rem",
+      maxWidth: "20rem", // used to be 30rem
     },
   },
   buttonDisabled: {
-    // color: "white",
     "&.MuiButton-root": {
       backgroundColor: "#f0f0f0",
       color: "black",
@@ -258,7 +257,7 @@ const AddressForm = () => {
               State
             </InputLabel>
             <Select
-              autoWidth={true}
+              // autoWidth={true}
               className={`${
                 stateHasError ? classes.selectRootError : classes.selectRoot
               }`}

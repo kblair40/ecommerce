@@ -6,21 +6,24 @@ import AddressForm from "../components/Forms/AddressForm";
 
 const useStyles = makeStyles((theme) => ({
   checkoutPageContainer: {
+    // background: "black",
     marginTop: "3rem",
     display: "grid",
     gridTemplateColumns: "65% 32%",
+    justifyItems: "center",
     gridColumnGap: "1rem",
     [theme.breakpoints.down("sm")]: {
       gridTemplateColumns: "95%",
     },
     [theme.breakpoints.down("xs")]: {
-      gridTemplateColumns: "100%",
+      justifySelf: "center",
+      // gridTemplateColumns: "90%",
       gridTemplateRows: "auto",
     },
   },
-  "& @media screen and (max-width: 800px)": {
-    flexDirection: "column",
-  },
+  // "& @media screen and (max-width: 800px)": {
+  //   flexDirection: "column",
+  // },
 }));
 
 const Checkout = () => {
