@@ -74,6 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
   removeBtnRoot: {
     padding: ".2rem",
+    marginLeft: "3.8rem",
   },
   removeItemBtnText: {
     margin: 0,

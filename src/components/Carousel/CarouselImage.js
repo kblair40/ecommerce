@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 import { useImage } from "react-image";
-import CircularProgress from "@material-ui/core/CircularProgress";
 
 function Image({ image, altText }) {
   const { src } = useImage({
@@ -12,7 +11,7 @@ function Image({ image, altText }) {
 const CarouselImage = ({ image, altText }) => {
   return (
     <div>
-      <Suspense fallback={<CircularProgress />}>
+      <Suspense fallback={<p>Loading...</p>}>
         <Image image={image} altText={altText} />
       </Suspense>
     </div>

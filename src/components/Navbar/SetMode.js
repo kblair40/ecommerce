@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     [theme.breakpoints.down("sm")]: {
-      // marginTop: "1rem",
       position: "fixed",
       bottom: "5rem",
     },
@@ -29,8 +28,12 @@ const SetMode = () => {
   const classes = useStyles();
 
   const toggleMode = () => {
-    dispatch(modeActions.toggleMode());
+    dispatch(modeActions.openSnackbar());
+    setTimeout(() => {
+      dispatch(modeActions.closeSnackbar());
+    }, 2500);
   };
+
   return (
     <div className={classes.iconContainer}>
       <WbSunnyIcon fontSize="small" />
