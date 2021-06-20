@@ -9,21 +9,26 @@ import { cartActions } from "../../store/cartSlice";
 
 const useStyles = makeStyles((theme) => ({
   itemContainer: {
-    width: "50%",
-    minWidth: "34rem",
+    // background: "rgba(200,20,20, .1)",
+    width: "80%",
+    minWidth: "18rem", // was 34rem
     display: "flex",
     fontFamily: "Montserrat",
     fontWeight: 300,
     padding: ".5rem 0",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
+      maxWidth: "20rem",
     },
+    // [theme.breakpoints.down("sm")]: {
+    //   flexDirection: "column",
+    //   maxWidth: "20rem",
+    // },
   },
 
   // COLUMN #1
   mainInfoContainer: {
-    // width: "100%",
-    // minWidth: "15rem",  // MIGHT NEED THIS BACK
+    minWidth: "19rem",
     maxWidth: "22rem",
     display: "flex",
     justifyContent: "space-between",
@@ -60,21 +65,37 @@ const useStyles = makeStyles((theme) => ({
   // COLUMN #2
   updateCartActions: {
     marginTop: "1rem",
-    width: "50rem", // was 15rem
+    // width: "50rem", // was 15rem
+    // width: "15rem", // was 15rem
     display: "flex",
     flexDirection: "column",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("xs")]: {
+      // was sm
       flexDirection: "row",
     },
   },
   qtyUpdateContainer: {
+    width: "10rem",
+    marginBottom: ".5rem",
+    marginLeft: ".5rem",
     [theme.breakpoints.down("sm")]: {
+      width: "7rem",
       marginRight: "1rem",
     },
   },
   removeBtnRoot: {
+    minWidth: "7rem",
     padding: ".2rem",
-    marginLeft: "3.8rem",
+    marginRight: "1rem",
+    "&:hover": {
+      background: "#fff",
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: "1.5rem",
+    },
+    // [theme.breakpoints.down("sm")]: {
+    //   marginLeft: "2.9rem",
+    // },
   },
   removeItemBtnText: {
     margin: 0,
@@ -87,11 +108,22 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     width: "10rem",
     fontWeight: 500,
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "row",
+      marginTop: ".5rem",
+      // marginLeft: ".5rem",
+      // justifyContent: "space-evenly",
+    },
   },
   priceSubtext: {
+    // margin: ".2rem 0 0 0",
     marginTop: ".2rem",
     fontWeight: "300",
     fontSize: ".8rem",
+    width: "10rem",
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: ".5rem",
+    },
   },
 }));
 
