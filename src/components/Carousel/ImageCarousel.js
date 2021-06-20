@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import CarouselTextOverlay from "./CarouselTextOverlay";
+import CarouselImage from "./CarouselImage";
 
 import six from "../../assets/images/six.jpg";
 import seven from "../../assets/images/seven.jpg";
@@ -38,7 +39,16 @@ const overlayTexts = [
 // 2.
 const ImageCarousel = () => {
   const [textIdx, setTextIdx] = useState(0);
+  const [loading, setLoading] = useState(true);
   const classes = useStyles();
+
+  useEffect(() => {
+    setLoading(false);
+  });
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className={classes.mainContainer}>
@@ -55,7 +65,13 @@ const ImageCarousel = () => {
           onChange={(index) => setTextIdx(index)}
           width="70vw"
         >
-          <div className={classes.carouselImg}>
+          <CarouselImage image={six} altText={"Girl in jacket"} />
+          <CarouselImage
+            image={seven}
+            altText={"Rack with multiple coats hanging"}
+          />
+          <CarouselImage image={eight} altText={"Man on beach near ocean"} />
+          {/* <div className={classes.carouselImg}>
             <img className={classes.img} src={six} alt="Girl in jacket" />
           </div>
           <div className={classes.carouselImg}>
@@ -71,7 +87,7 @@ const ImageCarousel = () => {
               src={eight}
               alt="Man on beach near ocean"
             />
-          </div>
+          </div> */}
         </Carousel>
       </div>
       <CarouselTextOverlay text={overlayTexts[textIdx]} />
