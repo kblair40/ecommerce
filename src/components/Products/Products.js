@@ -9,8 +9,10 @@ import Product from "./Product";
 import ProductDialog from "./ProductDialog";
 import { productDialogActions } from "../../store/productDialogSlice";
 import { PRODUCTS } from "../../constants";
+import Fade from "../Transitions/FadeTransition";
+import FadeTransition from "../Transitions/FadeTransition";
 
-const Products = () => {
+const Products = (props) => {
   const params = useParams();
   const classes = useStyles();
   const [loading, setLoading] = useState(true);
@@ -68,8 +70,8 @@ const Products = () => {
     );
   } else {
     return (
-      <React.Fragment>
-        <div className={classes.productsContainer}>
+      <FadeTransition>
+        <div {...props} className={classes.productsContainer}>
           <List className={classes.productsList}>
             {products.map((prod) => (
               <Product
@@ -87,7 +89,7 @@ const Products = () => {
           </List>
           <ProductDialog showing={dialogShowing} />
         </div>
-      </React.Fragment>
+      </FadeTransition>
     );
   }
 };

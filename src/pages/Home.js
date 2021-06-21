@@ -3,22 +3,7 @@ import ImageCarousel from "../components/Carousel/ImageCarousel";
 import CarouselSubtext from "../components/Carousel/CarouselSubtext";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-const styles = {
-  carouselContainer: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    width: "100vw",
-    justifyContent: "center",
-  },
-  carouselSubcontainer: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    maxWidth: "80vw",
-    minWidth: "340px",
-  },
-};
+import styles from "../styles/HomeStyles";
 
 const Home = ({ classes }) => {
   return (

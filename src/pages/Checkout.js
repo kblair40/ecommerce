@@ -1,29 +1,8 @@
 import React from "react";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 
 import Cart from "../components/Cart/Cart";
 import AddressForm from "../components/Forms/AddressForm";
-
-const useStyles = makeStyles((theme) => ({
-  checkoutPageContainer: {
-    // background: "black",
-    marginTop: "3rem",
-    display: "grid",
-    gridTemplateColumns: "65% 32%",
-    // justifyItems: "center",
-    gridColumnGap: "1rem",
-    [theme.breakpoints.down("sm")]: {
-      gridTemplateColumns: "95%",
-    },
-    [theme.breakpoints.down("xs")]: {
-      justifyItems: "center",
-      gridTemplateRows: "auto",
-    },
-  },
-  // "& @media screen and (max-width: 800px)": {
-  //   flexDirection: "column",
-  // },
-}));
+import { useStyles } from "../styles/CheckoutStyles";
 
 const Checkout = () => {
   const classes = useStyles();

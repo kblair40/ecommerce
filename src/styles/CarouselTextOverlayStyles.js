@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
       background: "transparent",
     },
   },
+  galleryLink: {
+    textDecoration: "none",
+  },
 
   // MEDIA QUERIES
   [theme.breakpoints.down("md")]: {
