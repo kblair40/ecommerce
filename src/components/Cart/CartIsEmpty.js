@@ -3,8 +3,7 @@ import React from "react";
 const CartIsEmpty = () => {
   return (
     <div>
-      {/* style={{ maxWidth: "100vw" }} */}
-      <h1>Your Cart is Empty</h1>
+      <h1 style={{ color: "#0c0c0d" }}>Your Cart is Empty</h1>
     </div>
   );
 };

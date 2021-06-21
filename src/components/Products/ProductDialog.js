@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -14,12 +13,6 @@ import DialogAddToCartBtn from "./DialogAddToCartBtn";
 import DialogCloseBtn from "./DialogCloseBtn";
 
 const useStyles = makeStyles({
-  addToCart: {
-    width: "60%",
-  },
-  cancel: {
-    width: "30%",
-  },
   dialogActionsRoot: {
     display: "flex",
     justifyContent: "space-evenly",
@@ -33,6 +26,9 @@ const useStyles = makeStyles({
     maxWidth: "60%",
   },
   titleRoot: {
+    fontFamily: "Montserrat",
+    fontWeight: "500",
+    color: "#0c0c0d",
     textAlign: "center",
   },
 });
@@ -75,7 +71,12 @@ const ProductDialog = () => {
 
   return (
     <Dialog open={isOpen} onClose={handleClose}>
-      <DialogTitle classes={{ root: classes.titleRoot }}>{title}</DialogTitle>
+      <DialogTitle
+        disableTypography={true}
+        classes={{ root: classes.titleRoot }}
+      >
+        {title}
+      </DialogTitle>
       <DialogContent>
         {needsSizes && <SizesSelect />}
         <div className={classes.imageContainer}>

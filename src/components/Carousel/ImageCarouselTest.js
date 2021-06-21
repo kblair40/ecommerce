@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import CarouselTextOverlay from "./CarouselTextOverlay";
-import CarouselImage from "./CarouselImage";
+import CarouselTextOverlayTest from "./CarouselTextOverlayTest";
+import CarouselImageTest from "./CarouselImageTest";
 
 import six from "../../assets/images/six.jpg";
 import seven from "../../assets/images/seven.jpg";
@@ -34,7 +34,7 @@ const overlayTexts = [
   { main: "Summer Collection", sub: "2021" },
 ];
 
-const ImageCarousel = () => {
+const ImageCarouselTest = () => {
   const [textIdx, setTextIdx] = useState(0);
   const [loading, setLoading] = useState(true);
   const classes = useStyles();
@@ -62,34 +62,20 @@ const ImageCarousel = () => {
           onChange={(index) => setTextIdx(index)}
           width="70vw"
         >
-          <CarouselImage image={six} altText={"Girl in jacket"} />
-          <CarouselImage
+          <CarouselImageTest image={six} altText={"Girl in jacket"} />
+          <CarouselImageTest
             image={seven}
             altText={"Rack with multiple coats hanging"}
           />
-          <CarouselImage image={eight} altText={"Man on beach near ocean"} />
-          {/* <div className={classes.carouselImg}>
-            <img className={classes.img} src={six} alt="Girl in jacket" />
-          </div>
-          <div className={classes.carouselImg}>
-            <img
-              className={classes.img}
-              src={seven}
-              alt="Rack with multiple coats hanging"
-            />
-          </div>
-          <div className={classes.carouselImg}>
-            <img
-              className={classes.img}
-              src={eight}
-              alt="Man on beach near ocean"
-            />
-          </div> */}
+          <CarouselImageTest
+            image={eight}
+            altText={"Man on beach near ocean"}
+          />
         </Carousel>
       </div>
-      <CarouselTextOverlay text={overlayTexts[textIdx]} />
+      <CarouselTextOverlayTest text={overlayTexts[textIdx]} />
     </div>
   );
 };
 
-export default ImageCarousel;
+export default ImageCarouselTest;

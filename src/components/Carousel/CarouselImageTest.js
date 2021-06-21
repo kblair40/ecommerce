@@ -7,7 +7,7 @@ function Image({ image, altText }) {
   });
   return <img src={image} alt={altText} />;
 }
-const CarouselImage = ({ image, altText }) => {
+const CarouselImageTest = ({ image, altText }) => {
   return (
     <div>
       <Suspense fallback={<p style={{ color: "#0c0c0d" }}>Loading...</p>}>
@@ -17,4 +17,4 @@ const CarouselImage = ({ image, altText }) => {
   );
 };
 
-export default CarouselImage;
+export default CarouselImageTest;

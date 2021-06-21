@@ -12,15 +12,29 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     margin: "-.5rem 0 1rem 0",
+    color: "red",
+  },
+  sizeBtnInactive: {
+    fontFamily: "Oswald",
+    color: "#0c0c0d",
+    fontWeight: 400,
+    transitionDuration: "1s",
+    "&:hover": {
+      fontWeight: 500,
+    },
   },
   sizeBtnActive: {
-    background: "rgba(0,0,0,0.3)",
+    background: "#a0a0a1",
+    fontFamily: "Oswald",
+    color: "#0c0c0d",
     "&:hover": {
-      background: "rgba(0,0,0,0.3)",
+      background: "#a0a0a1",
     },
   },
   buttonGroupError: {
     border: "1px solid red",
+    fontFamily: "Oswald",
+    zIndex: 10,
   },
   errorMsg: {
     margin: ".2rem 0",
@@ -50,7 +64,9 @@ const SizesSelect = () => {
       )}
       <ButtonGroup className={`${hasError && classes.buttonGroupError}`}>
         <Button
-          className={activeSize === "s" && classes.sizeBtnActive}
+          className={
+            activeSize === "s" ? classes.sizeBtnActive : classes.sizeBtnInactive
+          }
           value="s"
           onClick={setSize}
           disableRipple
@@ -58,7 +74,9 @@ const SizesSelect = () => {
           S
         </Button>
         <Button
-          className={activeSize === "m" && classes.sizeBtnActive}
+          className={
+            activeSize === "m" ? classes.sizeBtnActive : classes.sizeBtnInactive
+          }
           value="m"
           onClick={setSize}
           disableRipple
@@ -66,7 +84,9 @@ const SizesSelect = () => {
           M
         </Button>
         <Button
-          className={activeSize === "l" && classes.sizeBtnActive}
+          className={
+            activeSize === "l" ? classes.sizeBtnActive : classes.sizeBtnInactive
+          }
           value="l"
           onClick={setSize}
           disableRipple
@@ -74,7 +94,11 @@ const SizesSelect = () => {
           L
         </Button>
         <Button
-          className={activeSize === "xl" && classes.sizeBtnActive}
+          className={
+            activeSize === "xl"
+              ? classes.sizeBtnActive
+              : classes.sizeBtnInactive
+          }
           value="xl"
           onClick={setSize}
           disableRipple
@@ -82,7 +106,11 @@ const SizesSelect = () => {
           XL
         </Button>
         <Button
-          className={activeSize === "xxl" && classes.sizeBtnActive}
+          className={
+            activeSize === "xxl"
+              ? classes.sizeBtnActive
+              : classes.sizeBtnInactive
+          }
           value="xxl"
           onClick={setSize}
           disableRipple

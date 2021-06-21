@@ -12,6 +12,7 @@ import SetMode from "./SetMode";
 
 const useStyles = makeStyles((theme) => ({
   navbarContainer: {
+    color: "#0c0c0d",
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "baseline",
@@ -32,13 +33,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   smallNavLinksContainer: {
+    color: "#0c0c0d",
     display: "flex",
   },
   navbarLogo: {
     fontFamily: "Montserrat, sans-serif",
     textDecoration: "none",
     margin: ".3rem",
-    color: "#232323",
+    color: "#0c0c0d",
     fontSize: "1.8rem",
     "&:visited": {
       color: "#232323",
@@ -61,17 +63,18 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     fontSize: "1.2rem",
     padding: 0,
-    color: "#232323",
+    color: "#0c0c0d",
     "&:visited": {
-      color: "#232323",
+      color: "#0c0c0d",
     },
   },
   badgeRoot: {
-    background: "#898989",
+    color: "#0c0c0d",
+    margin: "0 0 1rem 1rem",
   },
   cartRoot: {
     background: "transparent",
-    color: "#454545",
+    color: "#0c0c0d",
   },
 }));
 
@@ -111,7 +114,6 @@ const Navbar = () => {
       <div className={classes.smallNavLinksContainer}>
         <NavLink className={classes.navbarLinks} to="/checkout">
           <Badge
-            invisible={false}
             badgeContent={totalItemsInCart}
             color="default"
             showZero

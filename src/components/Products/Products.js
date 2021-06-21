@@ -84,7 +84,6 @@ const Products = () => {
   } else {
     return (
       <div className={classes.productsContainer}>
-        {/* USED TO be <ul></ul> instead of <List></List> */}
         <List className={classes.productsList}>
           {products.map((prod) => (
             <Product

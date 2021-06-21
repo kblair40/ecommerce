@@ -2,17 +2,15 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import { useDispatch } from "react-redux";
 import ReactImageMagnify from "react-image-magnify";
 
 import AddToCartButton from "./AddToCartButton";
-import { cartActions } from "../../store/cartSlice";
-import { BREAKPOINTS } from "../../constants";
 
 const useStyles = makeStyles((theme) => ({
   cardTitle: {
+    color: "#0c0c0d",
     fontSize: "1.2rem",
-    fontFamily: "Montserrat",
+    fontFamily: "Montserrat, sans-serif",
     fontWeight: 600,
     margin: ".5rem",
     textAlign: "center",
@@ -27,9 +25,10 @@ const useStyles = makeStyles((theme) => ({
   },
   price: {
     fontWeight: "bold",
-    fontFamily: "Montserrat",
+    fontFamily: "Montserrat, sans-serif",
     marginBottom: "1.5rem",
     alignSelf: "flex-end",
+    color: "#0c0c0d",
     flexGrow: 1,
   },
   actionsRoot: {
@@ -56,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
       width: "22%",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "18%", // test this on external monitor
+      width: "18%",
     },
   },
 }));
@@ -71,8 +70,7 @@ const Product = ({
   handleProductClick,
   needsSizes,
 }) => {
-  const classes = useStyles(BREAKPOINTS);
-  const dispatch = useDispatch();
+  const classes = useStyles();
 
   const handleClick = () => {
     handleProductClick(
@@ -86,21 +84,6 @@ const Product = ({
     );
   };
 
-  // const handleAddItemtoCart = () => {
-  //   dispatch(
-  //     cartActions.addToCart({
-  //       chosenSize: undefined,
-  //       id,
-  //       title,
-  //       price,
-  //       description,
-  //       category,
-  //       image,
-  //       needsSizes,
-  //     })
-  //   );
-  // };
-
   return (
     <Card classes={{ root: classes.cardRoot }}>
       <p onClick={handleClick} className={classes.cardTitle}>
@@ -110,7 +93,7 @@ const Product = ({
       <ReactImageMagnify
         {...{
           smallImage: {
-            alt: { title },
+            alt: title,
             width: 200,
             height: 250,
             src: image,
@@ -130,7 +113,6 @@ const Product = ({
       </CardContent>
       <CardActions classes={{ root: classes.actionsRoot }}>
         <AddToCartButton handleProductClick={handleClick} />
-        {/* <AddToCartButton handleAddItemtoCart={handleAddItemtoCart} /> */}
       </CardActions>
     </Card>
   );

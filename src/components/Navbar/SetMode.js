@@ -16,10 +16,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   switchBase: {
-    color: "#454545",
+    color: "#0c0c0d",
   },
   root: {
-    color: "#454545",
+    color: "#0c0c0d",
+  },
+  track: {
+    backgroundColor: "#0c0c0d",
   },
 }));
 
@@ -43,6 +46,7 @@ const SetMode = () => {
         classes={{
           switchBase: classes.switchBase,
           root: classes.root,
+          track: classes.track,
         }}
         onChange={toggleMode}
       />

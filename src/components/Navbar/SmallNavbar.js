@@ -69,7 +69,6 @@ const SmallNavbar = () => {
       </IconButton>
 
       <Drawer
-        variant="persistent"
         className={classes.drawer}
         variant="persistent"
         anchor="left"

@@ -5,7 +5,7 @@ const ErrorMessage = ({ input }) => {
   const notEmailErrorMessage = "Input cannot be empty";
   const emailErrorMessage = "Invalid email address";
   return (
-    <FormHelperText>
+    <FormHelperText style={{ fontFamily: "Montserrat", color: "#ff4244" }}>
       {input === "email" ? emailErrorMessage : notEmailErrorMessage}
     </FormHelperText>
   );

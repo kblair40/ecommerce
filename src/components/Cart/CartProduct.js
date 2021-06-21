@@ -9,6 +9,7 @@ import { cartActions } from "../../store/cartSlice";
 
 const useStyles = makeStyles((theme) => ({
   itemContainer: {
+    color: "#0c0c0d",
     width: "80%",
     minWidth: "18rem",
     display: "flex",
@@ -20,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: "20rem",
     },
   },
-
   // COLUMN #1
   mainInfoContainer: {
     minWidth: "19rem",
@@ -56,7 +56,6 @@ const useStyles = makeStyles((theme) => ({
   info: {
     margin: 0,
   },
-
   // COLUMN #2
   updateCartActions: {
     marginTop: "1rem",
@@ -89,7 +88,6 @@ const useStyles = makeStyles((theme) => ({
   removeItemBtnText: {
     margin: 0,
   },
-
   // COLUMN #3
   priceContainer: {
     marginTop: "1rem",
@@ -128,7 +126,7 @@ const CartProduct = ({ item }) => {
   return (
     <>
       <div className={classes.itemContainer}>
-        {/* FIRST COLUMN - Should display image on left, main product info in column to the right */}
+        {/* FIRST COLUMN - >sm - image on left, main info in own column on right */}
         <div className={classes.mainInfoContainer}>
           <div className={classes.cartItemImageContainer}>
             <img
@@ -137,7 +135,6 @@ const CartProduct = ({ item }) => {
               alt={item.title}
             />
           </div>
-          {/* SECOND COLUMN, But inside the first column */}
           <div className={classes.mainInfo}>
             <p className={classes.itemTitle}>{item.title}</p>
             <div className={classes.mainInfoSubContainer}>
@@ -152,7 +149,7 @@ const CartProduct = ({ item }) => {
           </div>
         </div>
 
-        {/* ACTUAL SECOND COLUMN */}
+        {/* SECOND COLUMN */}
         <div className={classes.updateCartActions}>
           <div className={classes.qtyUpdateContainer}>
             Qty: &nbsp;

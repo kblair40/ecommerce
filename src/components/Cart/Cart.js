@@ -8,15 +8,14 @@ import CartProduct from "./CartProduct";
 
 const useStyles = makeStyles({
   cartProductsContainer: {
+    color: "#0c0c0d",
     width: "100%",
     display: "flex",
     flexDirection: "column",
-    // background: "red",
   },
   cartEmptyContainer: {
     fontFamily: "Montserrat",
     display: "flex",
-    // background: "black",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -25,8 +24,6 @@ const useStyles = makeStyles({
 const Cart = (props) => {
   const cartState = useSelector((state) => state.cart);
   const classes = useStyles();
-
-  console.log("CART STATE:", cartState);
 
   if (!cartState.items.length) {
     return (
@@ -37,9 +34,7 @@ const Cart = (props) => {
   }
 
   return (
-    <div
-    // style={{ background: "black" }}
-    >
+    <div>
       <ul className={classes.cartProductsContainer}>
         {cartState.items.map((item, idx) => {
           return <CartProduct key={uuid()} item={item} />;

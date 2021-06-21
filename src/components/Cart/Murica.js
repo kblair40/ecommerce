@@ -5,7 +5,7 @@ import { MURICA } from "../../constants";
 
 const Murica = () => {
   return (
-    <Select defaultValue="AK">
+    <Select style={{ color: "#0c0c0d" }} defaultValue="AK">
       {MURICA.map((state) => (
         <MenuItem value={state}>{state}</MenuItem>
       ))}

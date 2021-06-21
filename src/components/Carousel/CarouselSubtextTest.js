@@ -19,8 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-const CarouselSubtext = () => {
+const CarouselSubtextTest = () => {
   const classes = useStyles();
   return (
     <div className={classes.subtextContainer}>
@@ -73,4 +72,4 @@ const CarouselSubtext = () => {
   );
 };
 
-export default CarouselSubtext;
+export default CarouselSubtextTest;

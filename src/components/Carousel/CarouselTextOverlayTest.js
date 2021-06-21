@@ -47,7 +47,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CarouselTextOverlay = ({ text }) => {
+const CarouselTextOverlayTest = ({ text }) => {
   const classes = useStyles();
 
   return (
@@ -61,4 +61,4 @@ const CarouselTextOverlay = ({ text }) => {
   );
 };
 
-export default CarouselTextOverlay;
+export default CarouselTextOverlayTest;

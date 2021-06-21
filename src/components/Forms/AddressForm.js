@@ -13,45 +13,46 @@ import ErrorMessage from "./ErrorMessage";
 
 const useStyles = makeStyles((theme) => ({
   checkoutFormContainer: {
-    // background: "rgba(0,0,0,0.1)",
+    color: "#0c0c0d",
+    "& input": {
+      color: "#0c0c0d",
+    },
+    "& label": {
+      color: "#909191",
+    },
     fontFamily: "Oswald",
     fontWeight: 800,
     padding: "1rem",
-    // marginTop: "2rem",
   },
   inputRoot: {
     fontFamily: "Montserrat",
-    // borderColor: "red",
     "&:after": {
-      borderColor: "#a0a1a1", // reg focus color here
+      borderColor: "#a0a1a1",
     },
     "&.Mui-error:after": {
-      borderColor: "#ff4244", // error color here
+      borderColor: "#ff4244",
     },
   },
-  // inputError: {},
-
   inputRow: {
     marginBottom: "1rem",
-    width: "100%", // used to be 100%
-    maxWidth: "30rem", // used to be 30rem
+    width: "100%",
+    maxWidth: "30rem",
   },
   multipleInputRow: {
-    width: "100%", // used to be 100%
-    maxWidth: "30rem", // used to be 30rem
+    width: "100%",
+    maxWidth: "30rem",
     display: "flex",
     flexWrap: "wrap",
     marginBottom: "1rem",
-    // justifyContent: "space-between",
   },
   inputCol: {
     width: "32%",
     margin: "0 .5% 1rem .5%",
-    // marginBottom: "1rem",
     minWidth: "5rem",
   },
   selectRoot: {
     fontFamily: "Montserrat",
+    color: "#0c0c0d",
     paddingLeft: ".2rem",
     paddingRight: ".2rem",
     minWidth: "2rem",
@@ -64,27 +65,24 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: ".2rem",
     paddingRight: ".2rem",
     minWidth: "2rem",
-    "&.MuiSelect-select:after": {
-      borderColor: "green", // NOT WORKING
-    },
   },
   submitOrderBtn: {
+    fontFamily: "Montserrat",
     width: "100%",
     backgroundColor: "purple",
     "&.MuiButton-root": {
       color: "white",
-      backgroundColor: "rgba(100,200,100,1)",
+      backgroundColor: "#1d6d86",
     },
     [theme.breakpoints.down("sm")]: {
-      maxWidth: "20rem", // used to be 30rem
+      maxWidth: "20rem",
     },
   },
   buttonDisabled: {
     "&.MuiButton-root": {
       backgroundColor: "#f0f0f0",
-      color: "black",
+      color: "#0c0c0d",
     },
-    backgroundColor: "green",
   },
 }));
 
@@ -257,7 +255,6 @@ const AddressForm = () => {
               State
             </InputLabel>
             <Select
-              // autoWidth={true}
               className={`${
                 stateHasError ? classes.selectRootError : classes.selectRoot
               }`}
@@ -296,12 +293,9 @@ const AddressForm = () => {
         </div>
         <Button
           type="submit"
-          // className={classes.submitOrderBtn}
           variant="contained"
           classes={{
             root: classes.submitOrderBtn,
-            // label: classes.submitOrderBtn,
-            // contained: classes.submitOrderBtn,
             disabled: classes.buttonDisabled,
           }}
           disabled={!formIsValid}

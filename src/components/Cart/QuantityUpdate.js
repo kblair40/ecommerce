@@ -6,7 +6,9 @@ import { v4 as uuid } from "uuid";
 
 const styles = {
   selectRoot: {
-    padding: 0,
+    color: "#0c0c0d",
+    textAlign: "right",
+    padding: "0",
   },
 };
 
