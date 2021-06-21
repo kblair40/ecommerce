@@ -1,29 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import List from "@material-ui/core/List";
 import Loading from "../../Loading";
 
+import { useStyles } from "../../styles/ProductsStyles";
 import Product from "./Product";
 import ProductDialog from "./ProductDialog";
 import { productDialogActions } from "../../store/productDialogSlice";
 import { PRODUCTS } from "../../constants";
-
-const useStyles = makeStyles({
-  productsContainer: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-  },
-  productsList: {
-    display: "flex",
-    width: "100%",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    marginTop: "4rem",
-  },
-});
 
 const Products = () => {
   const params = useParams();

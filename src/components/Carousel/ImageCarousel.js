@@ -6,38 +6,14 @@ import CarouselTextOverlay from "./CarouselTextOverlay";
 import CarouselImage from "./CarouselImage";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
+import { useStyles } from "../../styles/ImageCarouselStyles";
 import six from "../../assets/images/six.jpg";
 import seven from "../../assets/images/seven.jpg";
 import eight from "../../assets/images/eight.jpg";
 
-const useStyles = makeStyles((theme) => ({
-  mainContainer: {
-    marginTop: "4rem",
-    display: "flex",
-    fontFamily: "Montserrat, sans-serif",
-    position: "relative",
-  },
-  carouselContainer: {
-    position: "relative",
-    // maxWidth: "100vw",
-  },
-  carouselImg: {
-    minWidth: "600px",
-    maxWidth: "800px",
-  },
-  img: {
-    maxWidth: "100%",
-  },
-  [theme.breakpoints.down("sm")]: {
-    carouselImg: {
-      width: "100%",
-    },
-  },
-}));
-
 const overlayTexts = [
   { main: "Jackets" },
-  { main: "Winter Coats " },
+  { main: "Winter Coats" },
   { main: "Summer Collection" },
 ];
 

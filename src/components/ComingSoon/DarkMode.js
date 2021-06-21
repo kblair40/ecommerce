@@ -3,15 +3,7 @@ import Snackbar from "@material-ui/core/Snackbar";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { useSelector } from "react-redux";
-
-const styles = {
-  snackbarRoot: {
-    fontFamily: "Montserrat",
-    background: "#0c0c0d",
-    color: "white",
-    fontWeight: 500,
-  },
-};
+import styles from "../../styles/DarkModeStyles";
 
 const DarkMode = ({ classes }) => {
   const isOpen = useSelector((state) => state.mode.snackbarOpen);

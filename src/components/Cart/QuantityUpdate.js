@@ -4,13 +4,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { v4 as uuid } from "uuid";
 
-const styles = {
-  selectRoot: {
-    color: "#0c0c0d",
-    textAlign: "right",
-    padding: "0",
-  },
-};
+import styles from "../../styles/QuantityUpdateStyles";
 
 const QuantityUpdate = ({
   quantity,

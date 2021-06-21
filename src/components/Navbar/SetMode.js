@@ -3,28 +3,9 @@ import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
 import Switch from "@material-ui/core/Switch";
 import { useDispatch } from "react-redux";
-import { modeActions } from "../../store/modeSlice";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 
-const useStyles = makeStyles((theme) => ({
-  iconContainer: {
-    display: "flex",
-    alignItems: "center",
-    [theme.breakpoints.down("sm")]: {
-      position: "fixed",
-      bottom: "5rem",
-    },
-  },
-  switchBase: {
-    color: "#0c0c0d",
-  },
-  root: {
-    color: "#0c0c0d",
-  },
-  track: {
-    backgroundColor: "#0c0c0d",
-  },
-}));
+import { modeActions } from "../../store/modeSlice";
+import { useStyles } from "../../styles/SetModeStyles";
 
 const SetMode = () => {
   const dispatch = useDispatch();

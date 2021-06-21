@@ -42,31 +42,26 @@ const addressFormSlice = createSlice({
     },
     manageEmail(state, action) {
       const email = action.payload.val;
-      console.log("email received", email);
       state.emailInput = email;
       state.emailInputIsValid = validators.email(email);
     },
     manageAddress(state, action) {
       const address = action.payload.val;
-      console.log("address received", address);
       state.addressInput = address;
       state.addressInputIsValid = validators.address(address);
     },
     manageCity(state, action) {
       const city = action.payload.val;
-      console.log("city received", city);
       state.cityInput = city;
       state.cityInputIsValid = validators.city(city);
     },
     manageState(state, action) {
       const st = action.payload.val;
-      console.log("state received", st);
       state.stateInput = st;
       state.stateInputIsValid = validators.state(st);
     },
     manageZip(state, action) {
       const zip = action.payload.val;
-      console.log("zip received", zip);
       state.zipInput = zip;
       state.zipInputIsValid = validators.zip(zip);
     },

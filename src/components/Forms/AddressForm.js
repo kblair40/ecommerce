@@ -1,90 +1,15 @@
 import React from "react";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
-
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+
+import { useStyles } from "../../styles/AddressFormStyles";
 import { MURICA } from "../../constants";
 import useInput from "../../hooks/useInput";
 import ErrorMessage from "./ErrorMessage";
-
-const useStyles = makeStyles((theme) => ({
-  checkoutFormContainer: {
-    color: "#0c0c0d",
-    "& input": {
-      color: "#0c0c0d",
-    },
-    "& label": {
-      color: "#909191",
-    },
-    fontFamily: "Oswald",
-    fontWeight: 800,
-    padding: "1rem",
-  },
-  inputRoot: {
-    fontFamily: "Montserrat",
-    "&:after": {
-      borderColor: "#a0a1a1",
-    },
-    "&.Mui-error:after": {
-      borderColor: "#ff4244",
-    },
-  },
-  inputRow: {
-    marginBottom: "1rem",
-    width: "100%",
-    maxWidth: "30rem",
-  },
-  multipleInputRow: {
-    width: "100%",
-    maxWidth: "30rem",
-    display: "flex",
-    flexWrap: "wrap",
-    marginBottom: "1rem",
-  },
-  inputCol: {
-    width: "32%",
-    margin: "0 .5% 1rem .5%",
-    minWidth: "5rem",
-  },
-  selectRoot: {
-    fontFamily: "Montserrat",
-    color: "#0c0c0d",
-    paddingLeft: ".2rem",
-    paddingRight: ".2rem",
-    minWidth: "2rem",
-    "&:after": {
-      borderColor: "#a0a1a1",
-    },
-  },
-  selectRootError: {
-    fontFamily: "Montserrat",
-    paddingLeft: ".2rem",
-    paddingRight: ".2rem",
-    minWidth: "2rem",
-  },
-  submitOrderBtn: {
-    fontFamily: "Montserrat",
-    width: "100%",
-    backgroundColor: "purple",
-    "&.MuiButton-root": {
-      color: "white",
-      backgroundColor: "#1d6d86",
-    },
-    [theme.breakpoints.down("sm")]: {
-      maxWidth: "20rem",
-    },
-  },
-  buttonDisabled: {
-    "&.MuiButton-root": {
-      backgroundColor: "#f0f0f0",
-      color: "#0c0c0d",
-    },
-  },
-}));
 
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
@@ -156,18 +81,8 @@ const AddressForm = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (!formIsValid) {
-      console.log("NOT SUBMITTED: FORM IS INVALID");
       return;
     }
-    console.log(
-      "SUBMITTED VALUES:",
-      nameValue,
-      emailValue,
-      addressValue,
-      cityValue,
-      stateValue,
-      zipValue
-    );
 
     resetName();
     resetEmail();
@@ -299,6 +214,7 @@ const AddressForm = () => {
             disabled: classes.buttonDisabled,
           }}
           disabled={!formIsValid}
+          disableFocusRipple
         >
           Submit Order
         </Button>

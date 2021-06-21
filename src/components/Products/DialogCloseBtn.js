@@ -2,16 +2,8 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-const styles = {
-  addToCart: {
-    width: "40%",
-    "&.MuiButton-root": {
-      fontFamily: "Montserrat",
-      background: "#ff4244",
-      color: "white",
-    },
-  },
-};
+import styles from "../../styles/DialogCloseBtnStyles";
+
 const DialogCloseBtn = ({ classes, handleClose }) => {
   return (
     <Button

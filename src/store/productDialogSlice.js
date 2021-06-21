@@ -9,7 +9,6 @@ const productDialogSlice = createSlice({
   reducers: {
     showDialog(state, action) {
       state.showing = true;
-      console.log("DIALOG PAYLOAD RECEIVED:", action.payload);
       state.activeProduct = { ...action.payload };
     },
     hideDialog(state) {

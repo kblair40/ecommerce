@@ -8,7 +8,6 @@ const modeSlice = createSlice({
   },
   reducers: {
     toggleMode(state) {
-      console.log("toggling!");
       if (state.mode === "light") {
         state.mode = "dark";
       } else {
@@ -17,11 +16,9 @@ const modeSlice = createSlice({
     },
     openSnackbar(state) {
       state.snackbarOpen = true;
-      console.log("STATE:", current(state));
     },
     closeSnackbar(state) {
       state.snackbarOpen = false;
-      console.log("STATE:", current(state));
     },
   },
 });

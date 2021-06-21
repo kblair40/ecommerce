@@ -36,10 +36,6 @@ const cartSlice = createSlice({
           quantity: 1,
         });
         state.items = currentItems;
-        console.log(
-          "FROM REDUX 'addToCart' - state.items now =",
-          current(state)
-        );
       }
       state.totalQuantity++;
     },
