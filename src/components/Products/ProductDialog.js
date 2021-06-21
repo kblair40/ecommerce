@@ -52,6 +52,13 @@ const ProductDialog = () => {
   };
 
   const handleAddToCart = () => {
+    if (needsSizes && !chosenSize) {
+      dispatch(cartActions.setError());
+      setTimeout(() => {
+        dispatch(cartActions.removeError());
+      }, 2500);
+      return;
+    }
     dispatch(
       cartActions.addToCart({
         id,
@@ -67,7 +74,6 @@ const ProductDialog = () => {
 
   return (
     <Dialog open={isOpen} onClose={handleClose}>
-      {/* style={{ textAlign: "center" }} */}
       <DialogTitle classes={{ root: classes.titleRoot }}>{title}</DialogTitle>
       <DialogContent>
         {needsSizes && <SizesSelect />}

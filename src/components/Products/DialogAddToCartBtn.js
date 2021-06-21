@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
+import { useSelector } from "react-redux";
 
 const styles = {
   addToCart: {
@@ -14,6 +15,14 @@ const styles = {
 };
 
 const DialogAddToCartBtn = ({ handleClick, classes }) => {
+  const cartItems = useSelector((state) => state.cart.items);
+  //   const hasError = useSelector((state) => state.cart.hasError);
+  const cartIsEmpty = cartItems.length > 0;
+
+  //   const handleAddToCartClick = () => {
+  //     handleClick(cartIsEmpty);
+  //   };
+
   return (
     <Button
       onClick={handleClick}

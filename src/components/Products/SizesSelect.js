@@ -7,6 +7,7 @@ import { cartActions } from "../../store/cartSlice";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    fontFamily: "Montserrat",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -18,12 +19,20 @@ const useStyles = makeStyles((theme) => ({
       background: "rgba(0,0,0,0.3)",
     },
   },
+  buttonGroupError: {
+    border: "1px solid red",
+  },
+  errorMsg: {
+    margin: ".2rem 0",
+    color: "#ff4244",
+  },
 }));
 
 const SizesSelect = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const activeSize = useSelector((state) => state.cart.chosenSize);
+  const hasError = useSelector((state) => state.cart.hasError);
 
   const setSize = (e) => {
     e.stopPropagation();
@@ -34,7 +43,12 @@ const SizesSelect = () => {
 
   return (
     <div className={classes.root}>
-      <ButtonGroup>
+      {hasError && (
+        <p style={{ margin: ".2rem 0", color: "#ff4244" }}>
+          Please select a size
+        </p>
+      )}
+      <ButtonGroup className={`${hasError && classes.buttonGroupError}`}>
         <Button
           className={activeSize === "s" && classes.sizeBtnActive}
           value="s"

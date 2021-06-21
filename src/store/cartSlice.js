@@ -9,6 +9,7 @@ const cartSlice = createSlice({
     items: [],
     totalQuantity: 0,
     chosenSize: undefined,
+    hasError: false,
   },
   reducers: {
     setSize(state, action) {
@@ -71,6 +72,12 @@ const cartSlice = createSlice({
 
       state.items = updatedItems;
       state.totalQuantity -= qtyChange;
+    },
+    setError(state) {
+      state.hasError = true;
+    },
+    removeError(state) {
+      state.hasError = false;
     },
   },
 });
