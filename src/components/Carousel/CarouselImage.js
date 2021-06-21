@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { useImage } from "react-image";
+import Loading from "../../Loading";
 
 function Image({ image, altText }) {
   const { src } = useImage({
@@ -10,7 +11,7 @@ function Image({ image, altText }) {
 const CarouselImage = ({ image, altText }) => {
   return (
     <div>
-      <Suspense fallback={<p style={{ color: "#0c0c0d" }}>Loading...</p>}>
+      <Suspense fallback={<Loading />}>
         <Image image={image} altText={altText} />
       </Suspense>
     </div>

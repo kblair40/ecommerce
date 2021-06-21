@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import CarouselTextOverlay from "./CarouselTextOverlay";
 import CarouselImage from "./CarouselImage";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import six from "../../assets/images/six.jpg";
 import seven from "../../assets/images/seven.jpg";
 import eight from "../../assets/images/eight.jpg";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   mainContainer: {
     marginTop: "4rem",
     display: "flex",
@@ -18,6 +19,7 @@ const useStyles = makeStyles({
   },
   carouselContainer: {
     position: "relative",
+    // maxWidth: "100vw",
   },
   carouselImg: {
     minWidth: "600px",
@@ -26,17 +28,23 @@ const useStyles = makeStyles({
   img: {
     maxWidth: "100%",
   },
-});
+  [theme.breakpoints.down("sm")]: {
+    carouselImg: {
+      width: "100%",
+    },
+  },
+}));
 
 const overlayTexts = [
-  { main: "Jackets", sub: null },
-  { main: "Winter Coats ", sub: null },
-  { main: "Summer Collection", sub: "2021" },
+  { main: "Jackets" },
+  { main: "Winter Coats " },
+  { main: "Summer Collection" },
 ];
 
 const ImageCarousel = () => {
   const [textIdx, setTextIdx] = useState(0);
   const [loading, setLoading] = useState(true);
+  const mediumScreen = useMediaQuery("(max-width:1280px)");
   const classes = useStyles();
 
   useEffect(() => {
@@ -53,14 +61,14 @@ const ImageCarousel = () => {
         <Carousel
           autoPlay={true}
           infiniteLoop={true}
-          interval={4000}
+          interval={3500}
           showArrows={false}
           showIndicators={false}
           showThumbs={false}
           showStatus={false}
           stopOnHover={false}
           onChange={(index) => setTextIdx(index)}
-          width="70vw"
+          width={`${mediumScreen ? "75vw" : "65vw"}`}
         >
           <CarouselImage image={six} altText={"Girl in jacket"} />
           <CarouselImage
@@ -68,26 +76,9 @@ const ImageCarousel = () => {
             altText={"Rack with multiple coats hanging"}
           />
           <CarouselImage image={eight} altText={"Man on beach near ocean"} />
-          {/* <div className={classes.carouselImg}>
-            <img className={classes.img} src={six} alt="Girl in jacket" />
-          </div>
-          <div className={classes.carouselImg}>
-            <img
-              className={classes.img}
-              src={seven}
-              alt="Rack with multiple coats hanging"
-            />
-          </div>
-          <div className={classes.carouselImg}>
-            <img
-              className={classes.img}
-              src={eight}
-              alt="Man on beach near ocean"
-            />
-          </div> */}
         </Carousel>
+        <CarouselTextOverlay text={overlayTexts[textIdx]} />
       </div>
-      <CarouselTextOverlay text={overlayTexts[textIdx]} />
     </div>
   );
 };

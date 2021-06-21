@@ -1,8 +1,6 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-// TODO:
-// 1. Change flexDirection to column at narrow (<500px?) widths
 const useStyles = makeStyles((theme) => ({
   subtextContainer: {
     color: "#0c0c0d",
@@ -15,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Montserrat",
     width: "30%",
     [theme.breakpoints.down("sm")]: {
-      width: "80%",
+      width: "85vw",
     },
   },
 }));

@@ -28,7 +28,7 @@ const Cart = (props) => {
   if (!cartState.items.length) {
     return (
       <div className={classes.cartEmptyContainer}>
-        <CartIsEmpty />;
+        <CartIsEmpty />
       </div>
     );
   }

@@ -21,8 +21,8 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     right: 0,
     width: "100%",
-    zIndex: 10,
     minWidth: "350px",
+    overflow: "hidden",
     [theme.breakpoints.down("sm")]: {
       justifyContent: "space-between",
       padding: "0 2rem",
@@ -88,7 +88,7 @@ const Navbar = () => {
           <SmallNavbar />
         </div>
       </Hidden>
-      <NavLink className={classes.navbarLogo} to="/home">
+      <NavLink className={classes.navbarLogo} to="/">
         <h1 className={classes.navbarLogo}>ECOMMERCE</h1>
       </NavLink>
 

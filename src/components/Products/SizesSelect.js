@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     margin: "-.5rem 0 1rem 0",
-    color: "red",
   },
   sizeBtnInactive: {
     fontFamily: "Oswald",
@@ -24,11 +23,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   sizeBtnActive: {
-    background: "#a0a0a1",
+    background: "#1d6d86",
     fontFamily: "Oswald",
-    color: "#0c0c0d",
+    color: "white",
     "&:hover": {
-      background: "#a0a0a1",
+      background: "#1d6d86",
     },
   },
   buttonGroupError: {

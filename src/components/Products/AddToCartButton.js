@@ -10,16 +10,23 @@ const styles = {
     width: "95%",
     right: "2.5%",
     background: "#1d6d86",
+    // borderColor: "#1d6d86",
     color: "white",
+    // color: "#1d6d86",
     "&:hover": {
       background: "#1d6d86",
+      // background: "white",
     },
   },
 };
 
 const AddToCartButton = ({ classes, handleProductClick }) => {
   return (
-    <Button onClick={handleProductClick} classes={{ root: classes.btnRoot }}>
+    <Button
+      variant="outlined"
+      onClick={handleProductClick}
+      classes={{ root: classes.btnRoot }}
+    >
       add to cart
     </Button>
   );

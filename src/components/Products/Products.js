@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import List from "@material-ui/core/List";
+import Loading from "../../Loading";
 
 import Product from "./Product";
 import ProductDialog from "./ProductDialog";
@@ -78,29 +78,31 @@ const Products = () => {
           alignItems: "center",
         }}
       >
-        <LinearProgress />
+        <Loading />
       </div>
     );
   } else {
     return (
-      <div className={classes.productsContainer}>
-        <List className={classes.productsList}>
-          {products.map((prod) => (
-            <Product
-              key={prod.id}
-              id={prod.id}
-              title={prod.title}
-              price={prod.price}
-              description={prod.description}
-              category={prod.category}
-              image={prod.image}
-              needsSizes={prod.needsSizes}
-              handleProductClick={handleProductClick}
-            />
-          ))}
-        </List>
-        <ProductDialog showing={dialogShowing} />
-      </div>
+      <React.Fragment>
+        <div className={classes.productsContainer}>
+          <List className={classes.productsList}>
+            {products.map((prod) => (
+              <Product
+                key={prod.id}
+                id={prod.id}
+                title={prod.title}
+                price={prod.price}
+                description={prod.description}
+                category={prod.category}
+                image={prod.image}
+                needsSizes={prod.needsSizes}
+                handleProductClick={handleProductClick}
+              />
+            ))}
+          </List>
+          <ProductDialog showing={dialogShowing} />
+        </div>
+      </React.Fragment>
     );
   }
 };
