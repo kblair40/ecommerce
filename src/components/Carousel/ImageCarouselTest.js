@@ -4,12 +4,13 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import CarouselTextOverlayTest from "./CarouselTextOverlayTest";
 import CarouselImageTest from "./CarouselImageTest";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import six from "../../assets/images/six.jpg";
 import seven from "../../assets/images/seven.jpg";
 import eight from "../../assets/images/eight.jpg";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   mainContainer: {
     marginTop: "4rem",
     display: "flex",
@@ -26,17 +27,24 @@ const useStyles = makeStyles({
   img: {
     maxWidth: "100%",
   },
-});
+  [theme.breakpoints.down("sm")]: {
+    carouselImg: {
+      width: "100%",
+    },
+  },
+}));
 
 const overlayTexts = [
-  { main: "Jackets", sub: null },
-  { main: "Winter Coats ", sub: null },
-  { main: "Summer Collection", sub: "2021" },
+  { main: "Jackets" },
+  { main: "Winter Coats " },
+  { main: "Summer Collection" },
 ];
 
 const ImageCarouselTest = () => {
   const [textIdx, setTextIdx] = useState(0);
   const [loading, setLoading] = useState(true);
+  const smallScreen = useMediaQuery("(max-width:960px)");
+  const mediumScreen = useMediaQuery("(max-width:1280px)");
   const classes = useStyles();
 
   useEffect(() => {
@@ -53,14 +61,14 @@ const ImageCarouselTest = () => {
         <Carousel
           autoPlay={true}
           infiniteLoop={true}
-          interval={4000}
+          interval={2000}
           showArrows={false}
           showIndicators={false}
           showThumbs={false}
           showStatus={false}
           stopOnHover={false}
           onChange={(index) => setTextIdx(index)}
-          width="70vw"
+          width={`${mediumScreen ? "75vw" : "65vw"}`}
         >
           <CarouselImageTest image={six} altText={"Girl in jacket"} />
           <CarouselImageTest
@@ -72,8 +80,8 @@ const ImageCarouselTest = () => {
             altText={"Man on beach near ocean"}
           />
         </Carousel>
+        <CarouselTextOverlayTest text={overlayTexts[textIdx]} />
       </div>
-      <CarouselTextOverlayTest text={overlayTexts[textIdx]} />
     </div>
   );
 };
