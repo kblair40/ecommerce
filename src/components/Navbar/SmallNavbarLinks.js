@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     color: "#a0a0a0",
     height: "100%",
     "& li": {
-      fontSize: "2.5rem",
+      fontSize: "2rem",
       transitionDuration: ".4s",
       textAlign: "center",
       margin: "0 auto",
@@ -61,7 +61,7 @@ const useStyles = makeStyles({
     alignSelf: "center",
 
     "& p": {
-      fontSize: "2rem",
+      fontSize: "1.8rem",
       position: "relative",
       bottom: ".25rem",
       margin: 0,
@@ -69,12 +69,12 @@ const useStyles = makeStyles({
   },
 });
 
-const SmallNavbarLinks = () => {
+const SmallNavbarLinks = ({ handleDrawerClose }) => {
   const classes = useStyles();
   const totalItemsInCart = useSelector((state) => state.cart.totalQuantity);
 
   return (
-    <div className={classes.linksContainer}>
+    <div onClick={handleDrawerClose} className={classes.linksContainer}>
       <List>
         <div className={classes.linksSection1}>
           <ListItem className={classes.listItem}>

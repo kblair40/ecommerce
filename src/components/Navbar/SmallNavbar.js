@@ -86,7 +86,7 @@ const SmallNavbar = () => {
 
         <Divider />
 
-        <SmallNavbarLinks />
+        <SmallNavbarLinks handleDrawerClose={handleDrawerClose} />
 
         <Divider />
       </Drawer>

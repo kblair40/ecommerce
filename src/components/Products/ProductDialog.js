@@ -70,6 +70,7 @@ const ProductDialog = () => {
         image,
       })
     );
+    handleClose();
   };
 
   return (
