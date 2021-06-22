@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   qtyUpdateContainer: {
     width: "10rem",
     marginBottom: ".5rem",
-    marginLeft: ".5rem",
+    marginLeft: "1rem",
     [theme.breakpoints.down("sm")]: {
       width: "7rem",
       marginRight: "1rem",

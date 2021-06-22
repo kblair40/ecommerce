@@ -94,7 +94,7 @@ const AddressForm = () => {
 
   return (
     <Card className={classes.checkoutFormContainer} elevation={0}>
-      <h1>Shipping Address</h1>
+      <h1 className={classes.addressFormTitle}>Shipping Address</h1>
       <form onSubmit={handleFormSubmit}>
         <div className={classes.inputRow}>
           <InputLabel classes={{ root: classes.inputRoot }} htmlFor="fullName">
@@ -150,11 +150,13 @@ const AddressForm = () => {
         </div>
 
         <div className={classes.multipleInputRow}>
-          <div className={classes.inputCol}>
+          {/* <div className={classes.inputCol}> */}
+          <div className={classes.cityInput}>
             <InputLabel classes={{ root: classes.inputRoot }} htmlFor="city">
               City
             </InputLabel>
             <Input
+              // classes={{ root: `${classes.inputRoot} ${classes.cityInput}` }}
               classes={{ root: classes.inputRoot }}
               name="city"
               disableUnderline={false}
@@ -165,14 +167,18 @@ const AddressForm = () => {
             />
             {cityHasError && <ErrorMessage />}
           </div>
-          <div className={classes.inputCol}>
+          {/* <div className={classes.inputCol}> */}
+          <div className={classes.stateInput}>
             <InputLabel classes={{ root: classes.inputRoot }} htmlFor="state">
               State
             </InputLabel>
             <Select
+              // className={`${
+              //   stateHasError ? classes.selectRootError : classes.selectRoot
+              // } ${classes.stateInput}`}
               className={`${
                 stateHasError ? classes.selectRootError : classes.selectRoot
-              }`}
+              } `}
               id="state"
               name="state"
               value={stateValue}
@@ -190,7 +196,8 @@ const AddressForm = () => {
             {stateHasError && <ErrorMessage />}
           </div>
 
-          <div className={classes.inputCol}>
+          {/* <div className={classes.inputCol}> */}
+          <div className={classes.zipInput}>
             <InputLabel classes={{ root: classes.inputRoot }} htmlFor="zip">
               Zip
             </InputLabel>

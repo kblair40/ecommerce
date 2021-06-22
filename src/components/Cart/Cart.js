@@ -5,7 +5,6 @@ import { useStyles } from "../../styles/CartStyles";
 
 import CartIsEmpty from "./CartIsEmpty";
 import CartProduct from "./CartProduct";
-import OrderDetail from "./OrderDetail";
 
 const Cart = (props) => {
   const cartState = useSelector((state) => state.cart);
@@ -26,7 +25,6 @@ const Cart = (props) => {
           return <CartProduct key={uuid()} item={item} />;
         })}
       </ul>
-      <OrderDetail />
     </div>
   );
 };

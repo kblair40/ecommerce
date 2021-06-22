@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 800,
     padding: "1rem",
   },
+  addressFormTitle: {
+    margin: "0 0 1rem 0",
+  },
   inputRoot: {
     fontFamily: "Montserrat",
     "&:after": {
@@ -27,34 +30,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     maxWidth: "30rem",
   },
-  multipleInputRow: {
-    width: "100%",
-    maxWidth: "30rem",
-    display: "flex",
-    flexWrap: "wrap",
-    marginBottom: "1rem",
-  },
-  inputCol: {
-    width: "32%",
-    margin: "0 .5% 1rem .5%",
-    minWidth: "5rem",
-  },
-  selectRoot: {
-    fontFamily: "Montserrat",
-    color: "#0c0c0d",
-    paddingLeft: ".2rem",
-    paddingRight: ".2rem",
-    minWidth: "2rem",
-    "&:after": {
-      borderColor: "#a0a1a1",
-    },
-  },
-  selectRootError: {
-    fontFamily: "Montserrat",
-    paddingLeft: ".2rem",
-    paddingRight: ".2rem",
-    minWidth: "2rem",
-  },
+
   submitOrderBtn: {
     zIndex: "20",
     fontFamily: "Montserrat",
@@ -63,15 +39,48 @@ const useStyles = makeStyles((theme) => ({
       color: "white",
       backgroundColor: "#1d6d86",
     },
-    [theme.breakpoints.down("sm")]: {
-      maxWidth: "20rem",
-    },
   },
   buttonDisabled: {
     "&.MuiButton-root": {
       backgroundColor: "#f0f0f0",
       color: "#0c0c0d",
     },
+  },
+
+  // LAST ROW (city, state, zip)
+  multipleInputRow: {
+    // background: "rgba(0,0,0,0.15)",
+    // width: "100%",
+    // maxWidth: "30rem",
+    display: "flex",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    marginBottom: "1rem",
+  },
+  cityInput: {
+    flex: "0 2 60%",
+  },
+  stateInput: {
+    flex: "0 .5 12%",
+  },
+  zipInput: {
+    flex: "0 1 22%",
+  },
+  selectRoot: {
+    fontFamily: "Montserrat",
+    color: "#0c0c0d",
+    paddingLeft: ".2rem",
+    paddingRight: ".2rem",
+    // minWidth: "2rem",
+    "&:after": {
+      borderColor: "#a0a1a1",
+    },
+  },
+  selectRootError: {
+    fontFamily: "Montserrat",
+    paddingLeft: ".2rem",
+    paddingRight: ".2rem",
+    // minWidth: "2rem",
   },
 }));
 

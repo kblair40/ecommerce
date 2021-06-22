@@ -6,17 +6,20 @@ import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   orderDetailCard: {
+    marginTop: "1rem",
     color: "#0c0c0d",
     display: "flex",
     flexDirection: "column",
-    width: "50%",
+    minWidth: "15.625rem",
     maxWidth: "25rem",
-    minWidth: "15rem",
-    padding: ".8rem",
+    padding: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 0,
+    },
   },
   detailRow: {
     display: "flex",
-    margin: ".2rem 0",
+    margin: ".25rem 0",
     alignItems: "center",
     justifyContent: "space-between",
   },
@@ -27,6 +30,12 @@ const useStyles = makeStyles((theme) => ({
   categoryAmount: {
     fontFamily: "Oswald",
     fontSize: "1.2rem",
+  },
+  amountUntilMet: {
+    fontFamily: "Montserrat",
+    fontSize: ".8rem",
+    color: "#ff4244",
+    textAlign: "center",
   },
   orderTotal: {
     fontWeight: "500",
@@ -39,12 +48,10 @@ const OrderDetail = () => {
   const [minimumMet, setMinimumMet] = useState(false);
   const [subtotal, setSubtotal] = useState(0);
   const [tax, setTax] = useState(0);
-  console.log("CART ITEMS:", cartItems);
 
   useEffect(() => {
     let subtotal = 0;
     for (let item of cartItems) {
-      console.log("ITEM:", item);
       subtotal += item.price * item.quantity;
     }
     setSubtotal(subtotal.toFixed(2));
@@ -56,13 +63,13 @@ const OrderDetail = () => {
 
   return (
     <div>
-      <Card className={classes.orderDetailCard}>
-        {!minimumMet && (
+      <Card elevation={0} className={classes.orderDetailCard}>
+        {minimumMet && (
           <div className={classes.amountUntilMet}>
-            You're ${50 - parseInt(subtotal)} amount away from free shipping
+            You're ${(50 - parseInt(subtotal)).toFixed(2)} amount away from free
+            shipping
           </div>
         )}
-        <Divider />
         <div className={classes.detailRow}>
           <div className={classes.detailCategory}>Subtotal:</div>
           <div className={classes.categoryAmount}>${subtotal}</div>

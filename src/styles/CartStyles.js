@@ -6,6 +6,9 @@ const useStyles = makeStyles({
     width: "100%",
     display: "flex",
     flexDirection: "column",
+    maxHeight: "70vh",
+    overflowY: "auto",
+    overflowX: "hidden",
   },
   cartEmptyContainer: {
     fontFamily: "Montserrat",
