@@ -3,6 +3,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
 import Divider from "@material-ui/core/Divider";
 import { useSelector } from "react-redux";
+import Fade from "@material-ui/core/Fade";
 
 const useStyles = makeStyles((theme) => ({
   orderDetailCard: {
@@ -65,7 +66,7 @@ const OrderDetail = () => {
   }, [cartItems]);
 
   return (
-    <div>
+    <Fade in={true} timeout={400}>
       <Card elevation={0} className={classes.orderDetailCard}>
         {!minimumMet && (
           <div className={classes.amountUntilMet}>
@@ -105,7 +106,7 @@ const OrderDetail = () => {
           )}
         </div>
       </Card>
-    </div>
+    </Fade>
   );
 };
 

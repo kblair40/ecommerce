@@ -5,6 +5,7 @@ import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import Fade from "@material-ui/core/Fade";
 
 import { useStyles } from "../../styles/AddressFormStyles";
 import { MURICA } from "../../constants";
@@ -93,133 +94,138 @@ const AddressForm = () => {
   };
 
   return (
-    <Card className={classes.checkoutFormContainer} elevation={0}>
-      <h1 className={classes.addressFormTitle}>Shipping Address</h1>
-      <form onSubmit={handleFormSubmit}>
-        <div className={classes.inputRow}>
-          <InputLabel classes={{ root: classes.inputRoot }} htmlFor="fullName">
-            Full Name
-          </InputLabel>
-          <Input
-            id="fullName"
-            name="fullName"
-            value={nameValue}
-            onChange={handleNameChange}
-            error={nameHasError}
-            onBlur={handleNameBlur}
-            classes={{
-              root: classes.inputRoot,
-            }}
-            fullWidth
-          />
-          {nameHasError && <ErrorMessage />}
-        </div>
-
-        <div className={classes.inputRow}>
-          <InputLabel classes={{ root: classes.inputRoot }} htmlFor="email">
-            Email
-          </InputLabel>
-          <Input
-            classes={{ root: classes.inputRoot }}
-            id="email"
-            name="email"
-            value={emailValue}
-            onChange={handleEmailChange}
-            error={emailHasError}
-            onBlur={handleEmailBlur}
-            fullWidth
-          />
-          {emailHasError && <ErrorMessage input="email" />}
-        </div>
-
-        <div className={classes.inputRow}>
-          <InputLabel classes={{ root: classes.inputRoot }} htmlFor="address">
-            Address
-          </InputLabel>
-          <Input
-            classes={{ root: classes.inputRoot }}
-            id="address"
-            name="address"
-            value={addressValue}
-            error={addressHasError}
-            onChange={handleAddressChange}
-            onBlur={handleAddressBlur}
-            fullWidth
-          />
-          {addressHasError && <ErrorMessage />}
-        </div>
-
-        <div className={classes.multipleInputRow}>
-          <div className={classes.cityInput}>
-            <InputLabel classes={{ root: classes.inputRoot }} htmlFor="city">
-              City
-            </InputLabel>
-            <Input
+    <Fade in={true} timeout={400}>
+      <Card className={classes.checkoutFormContainer} elevation={0}>
+        <h1 className={classes.addressFormTitle}>Shipping Address</h1>
+        <form onSubmit={handleFormSubmit}>
+          <div className={classes.inputRow}>
+            <InputLabel
               classes={{ root: classes.inputRoot }}
-              name="city"
-              disableUnderline={false}
-              value={cityValue}
-              error={cityHasError}
-              onChange={handleCityChange}
-              onBlur={handleCityBlur}
-            />
-            {cityHasError && <ErrorMessage />}
-          </div>
-          <div className={classes.stateInput}>
-            <InputLabel classes={{ root: classes.inputRoot }} htmlFor="state">
-              State
-            </InputLabel>
-            <Select
-              className={`${
-                stateHasError ? classes.selectRootError : classes.selectRoot
-              } `}
-              id="state"
-              name="state"
-              value={stateValue}
-              error={stateHasError}
-              onChange={handleStateChange}
-              onBlur={handleStateBlur}
-              fullWidth
+              htmlFor="fullName"
             >
-              {MURICA.map((state) => (
-                <MenuItem key={state} value={state}>
-                  {state}
-                </MenuItem>
-              ))}
-            </Select>
-            {stateHasError && <ErrorMessage />}
+              Full Name
+            </InputLabel>
+            <Input
+              id="fullName"
+              name="fullName"
+              value={nameValue}
+              onChange={handleNameChange}
+              error={nameHasError}
+              onBlur={handleNameBlur}
+              classes={{
+                root: classes.inputRoot,
+              }}
+              fullWidth
+            />
+            {nameHasError && <ErrorMessage />}
           </div>
 
-          <div className={classes.zipInput}>
-            <InputLabel classes={{ root: classes.inputRoot }} htmlFor="zip">
-              Zip
+          <div className={classes.inputRow}>
+            <InputLabel classes={{ root: classes.inputRoot }} htmlFor="email">
+              Email
             </InputLabel>
             <Input
               classes={{ root: classes.inputRoot }}
-              id="zip"
-              name="zip"
-              value={zipValue}
-              error={zipHasError}
-              onChange={handleZipChange}
-              onBlur={handleZipBlur}
+              id="email"
+              name="email"
+              value={emailValue}
+              onChange={handleEmailChange}
+              error={emailHasError}
+              onBlur={handleEmailBlur}
+              fullWidth
             />
-            {zipHasError && <ErrorMessage />}
+            {emailHasError && <ErrorMessage input="email" />}
           </div>
-        </div>
-        <Button
-          type="submit"
-          variant="contained"
-          classes={{
-            root: classes.submitOrderBtn,
-            disabled: classes.buttonDisabled,
-          }}
-          disabled={!formIsValid}
-          disableFocusRipple
-        >
-          Submit Order
-        </Button>
-      </form>
-    </Card>
+
+          <div className={classes.inputRow}>
+            <InputLabel classes={{ root: classes.inputRoot }} htmlFor="address">
+              Address
+            </InputLabel>
+            <Input
+              classes={{ root: classes.inputRoot }}
+              id="address"
+              name="address"
+              value={addressValue}
+              error={addressHasError}
+              onChange={handleAddressChange}
+              onBlur={handleAddressBlur}
+              fullWidth
+            />
+            {addressHasError && <ErrorMessage />}
+          </div>
+
+          <div className={classes.multipleInputRow}>
+            <div className={classes.cityInput}>
+              <InputLabel classes={{ root: classes.inputRoot }} htmlFor="city">
+                City
+              </InputLabel>
+              <Input
+                classes={{ root: classes.inputRoot }}
+                name="city"
+                disableUnderline={false}
+                value={cityValue}
+                error={cityHasError}
+                onChange={handleCityChange}
+                onBlur={handleCityBlur}
+              />
+              {cityHasError && <ErrorMessage />}
+            </div>
+            <div className={classes.stateInput}>
+              <InputLabel classes={{ root: classes.inputRoot }} htmlFor="state">
+                State
+              </InputLabel>
+              <Select
+                className={`${
+                  stateHasError ? classes.selectRootError : classes.selectRoot
+                } `}
+                id="state"
+                name="state"
+                value={stateValue}
+                error={stateHasError}
+                onChange={handleStateChange}
+                onBlur={handleStateBlur}
+                fullWidth
+              >
+                {MURICA.map((state) => (
+                  <MenuItem key={state} value={state}>
+                    {state}
+                  </MenuItem>
+                ))}
+              </Select>
+              {stateHasError && <ErrorMessage />}
+            </div>
+
+            <div className={classes.zipInput}>
+              <InputLabel classes={{ root: classes.inputRoot }} htmlFor="zip">
+                Zip
+              </InputLabel>
+              <Input
+                classes={{ root: classes.inputRoot }}
+                id="zip"
+                name="zip"
+                value={zipValue}
+                error={zipHasError}
+                onChange={handleZipChange}
+                onBlur={handleZipBlur}
+              />
+              {zipHasError && <ErrorMessage />}
+            </div>
+          </div>
+          <Button
+            type="submit"
+            variant="contained"
+            classes={{
+              root: classes.submitOrderBtn,
+              disabled: classes.buttonDisabled,
+            }}
+            disabled={!formIsValid}
+            disableFocusRipple
+          >
+            Submit Order
+          </Button>
+        </form>
+      </Card>
+    </Fade>
   );
 };
 
