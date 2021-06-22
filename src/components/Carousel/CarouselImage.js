@@ -1,5 +1,7 @@
 import React, { Suspense } from "react";
 import { useImage } from "react-image";
+import Fade from "@material-ui/core/Fade";
+
 import Loading from "../../Loading";
 
 function Image({ image, altText }) {

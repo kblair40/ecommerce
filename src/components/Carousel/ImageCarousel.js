@@ -17,24 +17,34 @@ const overlayTexts = [
   { main: "Summer Collection" },
 ];
 
-const ImageCarousel = () => {
+const CarouselPlaceholder = () => {
+  const classes = useStyles();
+  return (
+    <div
+      className={classes.placeholder}
+      // style={{ width: "80vw", height: "60vh", background: "rgba(0,0,0,0.3)" }}
+    />
+  );
+};
+
+const ImageCarousel = ({ wait }) => {
   const [textIdx, setTextIdx] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [hidden, setHidden] = useState(true);
   const mediumScreen = useMediaQuery("(max-width:1280px)");
   const classes = useStyles();
 
   useEffect(() => {
-    setLoading(false);
-  }, [loading]);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+    setTimeout(() => {
+      setHidden(false);
+    }, 800);
+  });
 
   return (
     <div className={classes.mainContainer}>
       <div className={classes.carouselContainer}>
+        {hidden && <CarouselPlaceholder />}
         <Carousel
+          className={hidden && classes.hidden}
           autoPlay={true}
           infiniteLoop={true}
           interval={3500}
@@ -60,3 +70,39 @@ const ImageCarousel = () => {
 };
 
 export default ImageCarousel;
+
+// useEffect(() => {
+//   setLoading(false);
+// }, [loading]);
+
+// if (loading) {
+//   return <p>Loading...</p>;
+// }
+
+// return (
+//   <div className={classes.mainContainer}>
+//     <div className={classes.carouselContainer}>
+//       <Carousel
+//         autoPlay={true}
+//         infiniteLoop={true}
+//         interval={3500}
+//         showArrows={false}
+//         showIndicators={false}
+//         showThumbs={false}
+//         showStatus={false}
+//         stopOnHover={false}
+//         onChange={(index) => setTextIdx(index)}
+//         width={`${mediumScreen ? "75vw" : "65vw"}`}
+//       >
+//         <CarouselImage image={six} altText={"Girl in jacket"} />
+//         <CarouselImage
+//           image={seven}
+//           altText={"Rack with multiple coats hanging"}
+//         />
+//         <CarouselImage image={eight} altText={"Man on beach near ocean"} />
+//       </Carousel>
+//       <CarouselTextOverlay text={overlayTexts[textIdx]} />
+//     </div>
+//   </div>
+// );
+// };

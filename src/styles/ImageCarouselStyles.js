@@ -17,9 +17,32 @@ const useStyles = makeStyles((theme) => ({
   img: {
     maxWidth: "100%",
   },
+  hidden: {
+    display: "none",
+  },
+  placeholder: {
+    width: "65vw",
+    height: "85vh",
+  },
+  [theme.breakpoints.down("md")]: {
+    placeholder: {
+      width: "70vw",
+      height: "80vh",
+    },
+  },
   [theme.breakpoints.down("sm")]: {
     carouselImg: {
       width: "100%",
+    },
+    placeholder: {
+      width: "75vw",
+      height: "50vh",
+    },
+  },
+  [theme.breakpoints.down("xs")]: {
+    placeholder: {
+      width: "75vw",
+      height: "23vh",
     },
   },
 }));

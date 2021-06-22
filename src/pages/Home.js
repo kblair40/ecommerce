@@ -9,7 +9,7 @@ const Home = ({ classes }) => {
   return (
     <div className={classes.carouselContainer}>
       <div className={classes.carouselSubcontainer}>
-        <ImageCarousel />
+        <ImageCarousel wait={1000} />
         <CarouselSubtext />
       </div>
     </div>
