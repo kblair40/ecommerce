@@ -10,7 +10,7 @@ const Checkout = () => {
   const classes = useStyles();
   return (
     <div className={classes.checkoutPageContainer}>
-      <div>
+      <div className={classes.checkoutCart}>
         <Cart />
       </div>
       <div className={classes.checkoutCartSection}>

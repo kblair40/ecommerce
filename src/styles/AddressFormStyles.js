@@ -12,11 +12,14 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Oswald",
     fontWeight: 800,
     padding: "1rem",
+    minWidth: "15.625rem",
   },
   addressFormTitle: {
     margin: "0 0 1rem 0",
+    whiteSpace: "nowrap",
   },
   inputRoot: {
+    width: "100%",
     fontFamily: "Montserrat",
     "&:after": {
       borderColor: "#a0a1a1",
@@ -32,9 +35,9 @@ const useStyles = makeStyles((theme) => ({
   },
 
   submitOrderBtn: {
-    zIndex: "20",
     fontFamily: "Montserrat",
     width: "100%",
+    maxWidth: "30rem",
     "&.MuiButton-root": {
       color: "white",
       backgroundColor: "#1d6d86",
@@ -49,29 +52,62 @@ const useStyles = makeStyles((theme) => ({
 
   // LAST ROW (city, state, zip)
   multipleInputRow: {
-    // background: "rgba(0,0,0,0.15)",
-    // width: "100%",
-    // maxWidth: "30rem",
+    width: "100%",
+    maxWidth: "30rem",
     display: "flex",
     justifyContent: "space-between",
     flexWrap: "wrap",
     marginBottom: "1rem",
   },
   cityInput: {
-    flex: "0 2 60%",
+    width: "49%",
+    minWidth: "10.5rem",
+    marginBottom: "1rem",
   },
   stateInput: {
-    flex: "0 .5 12%",
+    width: "19%",
+    minWidth: "3rem",
   },
   zipInput: {
-    flex: "0 1 22%",
+    width: "29%",
+    minWidth: "6rem",
+  },
+  [theme.breakpoints.down("md")]: {
+    cityInput: {
+      width: "74%",
+      minWidth: "10.5rem",
+      marginBottom: "1rem",
+    },
+    stateInput: {
+      width: "24%",
+      minWidth: "3rem",
+    },
+    zipInput: {
+      width: "50%",
+      minWidth: "6rem",
+    },
+  },
+  [theme.breakpoints.down("sm")]: {
+    cityInput: {
+      width: "100%",
+      minWidth: "10.5rem",
+      marginBottom: "1rem",
+    },
+    stateInput: {
+      width: "28%",
+      minWidth: "3rem",
+    },
+    zipInput: {
+      width: "65%",
+      minWidth: "6rem",
+    },
   },
   selectRoot: {
     fontFamily: "Montserrat",
     color: "#0c0c0d",
     paddingLeft: ".2rem",
     paddingRight: ".2rem",
-    // minWidth: "2rem",
+    width: "100%",
     "&:after": {
       borderColor: "#a0a1a1",
     },
@@ -80,7 +116,6 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Montserrat",
     paddingLeft: ".2rem",
     paddingRight: ".2rem",
-    // minWidth: "2rem",
   },
 }));
 

@@ -33,9 +33,12 @@ const useStyles = makeStyles((theme) => ({
   },
   amountUntilMet: {
     fontFamily: "Montserrat",
-    fontSize: ".8rem",
+    fontSize: ".9rem",
     color: "#ff4244",
-    textAlign: "center",
+    whiteSpace: "nowrap",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: ".7rem",
+    },
   },
   orderTotal: {
     fontWeight: "500",
@@ -64,10 +67,10 @@ const OrderDetail = () => {
   return (
     <div>
       <Card elevation={0} className={classes.orderDetailCard}>
-        {minimumMet && (
+        {!minimumMet && (
           <div className={classes.amountUntilMet}>
-            You're ${(50 - parseInt(subtotal)).toFixed(2)} amount away from free
-            shipping
+            You're ${(50 - parseFloat(subtotal)).toFixed(2)} away from free
+            shipping!
           </div>
         )}
         <div className={classes.detailRow}>

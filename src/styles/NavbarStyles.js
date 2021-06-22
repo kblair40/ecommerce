@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     width: "100%",
     minWidth: "350px",
-    overflow: "hidden",
     [theme.breakpoints.down("sm")]: {
       justifyContent: "space-between",
       padding: "0 2rem",
