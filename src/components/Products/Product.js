@@ -40,8 +40,8 @@ const Product = ({
         {...{
           smallImage: {
             alt: title,
-            width: 200,
-            height: 250,
+            width: 180,
+            height: 240,
             src: image,
           },
           largeImage: {

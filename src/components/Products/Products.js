@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import List from "@material-ui/core/List";
-import Loading from "../../Loading";
 
 import { useStyles } from "../../styles/ProductsStyles";
 import Product from "./Product";
 import ProductDialog from "./ProductDialog";
 import { productDialogActions } from "../../store/productDialogSlice";
 import { PRODUCTS } from "../../constants";
-import Fade from "../Transitions/FadeTransition";
 import FadeTransition from "../Transitions/FadeTransition";
+import Loading from "../../Loading";
 
 const Products = (props) => {
   const params = useParams();
