@@ -4,8 +4,6 @@ error: #ff4244
 Others - aqua spring: #effaf6, elm: #1d6d86, black: #0c0c0d, grey: #a0a1a1, piston blue: #4ebeef, copper: #af8536, brown/sepia: #6c3510
 
 TODO
-3.  Add checkout window to left of cart (smaller screens go below) with price total
-      including tax and a button to checkout
 8.  Fix image sizing on products pages, especially for jewelry
 9.  Better form validations!
 11. Add filter for gender on Clothing page
