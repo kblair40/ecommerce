@@ -1,4 +1,4 @@
-## E-Commerce App
+# E-Commerce App
 
 <hr />
 
@@ -6,7 +6,7 @@ A minimal, fully-response e-commerce demo app that consumes the [Fake Store API]
 
 See the live app [HERE](https://ecommerce-kb.netlify.app/)
 
-#### TODOs
+## TODOs
 
 I undoubtedly know more now than when I began this app, so I plan to work on and add the following features:
 
@@ -18,7 +18,7 @@ I undoubtedly know more now than when I began this app, so I plan to work on and
 
 The primary goal of this app was and still is to put what I've learned into practice.
 
-#### Installation
+## Installation
 
 If you would prefer to play around with the code base instead of or in addition to viewing the live app, you may clone it into a new repo with the command below...
 `git clone https://github.com/kblair40/watchlist.git`
