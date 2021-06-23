@@ -26,11 +26,13 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   navbarLogo: {
-    fontFamily: "Montserrat, sans-serif",
+    // fontFamily: "Montserrat, sans-serif",
+    fontFamily: "Big Shoulders Stencil Display, Montserrat, sans-serif",
+    fontWeight: 700,
     textDecoration: "none",
     margin: ".3rem",
     color: "#0c0c0d",
-    fontSize: "1.8rem",
+    fontSize: "2rem",
     "&:visited": {
       color: "#232323",
     },

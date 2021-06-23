@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
@@ -24,6 +24,9 @@ function App() {
         </Route>
         <Route path="/loading" exact>
           <Loading />
+        </Route>
+        <Route path="*" exact>
+          <Redirect to="/clothing" />
         </Route>
       </Switch>
       <DarkMode />

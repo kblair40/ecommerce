@@ -1,44 +1,18 @@
 import React, { useState } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import CarouselTextOverlay from "./CarouselTextOverlay";
 import six from "../../assets/images/six.jpg";
 import seven from "../../assets/images/seven.jpg";
 import eight from "../../assets/images/eight.jpg";
-
-const useStyles = makeStyles((theme) => ({
-  carouselContainer: {
-    position: "relative",
-    left: "-6%",
-    marginTop: "3.5rem",
-    width: "86%",
-  },
-  singleSlide: {
-    "& > div": {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundSize: "cover",
-      height: "55vh",
-    },
-  },
-  [theme.breakpoints.down("xs")]: {
-    carouselContainer: {
-      width: "98%",
-      left: "-1%",
-    },
-  },
-}));
+import { useStyles } from "../../styles/ImageCarouselStyles";
 
 const overlayTexts = ["Jackets", "Winter Coats", "Summer Collection"];
 const slideImages = [six, seven, eight];
 
 const MainCarousel = () => {
   const [textIdx, setTextIdx] = useState(0);
-  const mediumScreen = useMediaQuery("(max-width:1280px)");
   const classes = useStyles();
   return (
     <div className={classes.carouselContainer}>

@@ -2,24 +2,25 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles((theme) => ({
   textOverlayContainer: {
-    color: "#0c0c0d",
-    position: "absolute",
-    textAlign: "right",
-    top: 0,
-    right: "calc(-45% + 20rem)",
     fontFamily: "Montserrat",
-    maxWidth: "40rem",
+    color: "#0c0c0d",
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-end",
+    textAlign: "right",
+    position: "absolute",
+    top: 0,
+    right: "-12%",
   },
   overlayHeader: {
     fontSize: "6rem",
     margin: "0 0 1rem 0",
-    overFlow: "hidden",
   },
   galleryBtn: {
-    fontSize: "1.2rem",
+    position: "relative",
+    right: "1%",
+    textAlign: "right",
+    padding: 0,
+    fontSize: "1.6rem",
     "&:hover": {
       background: "transparent",
     },
@@ -30,24 +31,25 @@ const useStyles = makeStyles((theme) => ({
 
   // MEDIA QUERIES
   [theme.breakpoints.down("md")]: {
-    textOverlayContainer: {
-      right: "calc(-48% + 20rem)",
+    overlayHeader: {
+      fontSize: "5.5rem",
     },
   },
   [theme.breakpoints.down("sm")]: {
-    textOverlayContainer: {
-      right: 0,
-    },
+    textOverlayContainer: {},
     overlayHeader: {
       fontSize: "4.5rem",
     },
   },
   [theme.breakpoints.down("xs")]: {
+    galleryBtn: {
+      fontSize: "1.3rem",
+    },
     textOverlayContainer: {
-      right: "-5%",
+      right: "2.5%",
     },
     overlayHeader: {
-      fontSize: "3rem",
+      fontSize: "4rem",
     },
   },
 }));
