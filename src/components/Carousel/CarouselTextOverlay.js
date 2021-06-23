@@ -15,16 +15,18 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "right",
     position: "absolute",
     top: 0,
-    right: "-16%",
-    maxWidth: "40rem",
+    right: "-12%",
   },
   overlayHeader: {
     fontSize: "6rem",
     margin: "0 0 1rem 0",
-    overFlow: "hidden",
   },
   galleryBtn: {
-    fontSize: "1.2rem",
+    position: "relative",
+    right: "1%",
+    textAlign: "right",
+    padding: 0,
+    fontSize: "1.6rem",
     "&:hover": {
       background: "transparent",
     },
@@ -36,15 +38,24 @@ const useStyles = makeStyles((theme) => ({
   // MEDIA QUERIES
   [theme.breakpoints.down("md")]: {
     overlayHeader: {
-      fontSize: "5rem",
+      fontSize: "5.5rem",
     },
   },
   [theme.breakpoints.down("sm")]: {
+    textOverlayContainer: {},
+    overlayHeader: {
+      fontSize: "4.5rem",
+    },
+  },
+  [theme.breakpoints.down("xs")]: {
+    galleryBtn: {
+      fontSize: "1.3rem",
+    },
     textOverlayContainer: {
-      right: "-8%",
+      right: "2.5%",
     },
     overlayHeader: {
-      fontSize: "3.8rem",
+      fontSize: "4rem",
     },
   },
 }));

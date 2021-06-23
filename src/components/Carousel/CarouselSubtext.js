@@ -1,5 +1,27 @@
 import React from "react";
-import { useStyles } from "../../styles/CarouselSubtextStyles";
+// import { useStyles } from "../../styles/CarouselSubtextStyles";
+
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  subtextContainer: {
+    width: "98%",
+    color: "#0c0c0d",
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    position: "relative",
+    right: "0%",
+  },
+  text: {
+    color: "#0c0c0d",
+    fontFamily: "Montserrat",
+    width: "33%",
+    [theme.breakpoints.down("sm")]: {
+      width: "98%",
+    },
+  },
+}));
 
 const CarouselSubtext = () => {
   const classes = useStyles();
@@ -18,7 +40,13 @@ const CarouselSubtext = () => {
         occaecat velit tempor ullamco minim sint in. Minim cupidatat ut enim
         aliqua in proident in irure labore Lorem. Qui non ea ea consectetur
         nostrud. Ex quis officia aute minim est reprehenderit ad voluptate est
-        nostrud irure occaecat.
+        nostrud irure occaecat. Eiusmod elit occaecat consectetur do. Nostrud ea
+        dolor veniam Lorem sint nisi aliqua fugiat ullamco ad enim excepteur
+        aute amet. Nulla non laborum in est sint occaecat aliquip reprehenderit
+        cillum sit ut fugiat. Aute est sit eiusmod duis eiusmod irure eu fugiat
+        magna sit deserunt eu. Irure in id do do magna exercitation ipsum mollit
+        dolor mollit aliquip. Officia nulla consectetur aliquip ullamco proident
+        duis est culpa ipsum aute exercitation.
       </p>
       <p className={classes.text}>
         Consectetur pariatur non adipisicing exercitation fugiat anim esse duis
@@ -33,7 +61,14 @@ const CarouselSubtext = () => {
         nostrud irure occaecat. Fugiat irure non labore nulla qui mollit
         consequat laborum aliqua. Duis nisi occaecat et aute dolore ullamco id
         aute laborum sit et sint. Deserunt non adipisicing exercitation fugiat
-        anim esse duis occaecat velit tempor ullamco minim sint in.
+        anim esse duis occaecat velit tempor ullamco minim sint in. Eiusmod elit
+        occaecat consectetur do. Nostrud ea dolor veniam Lorem sint nisi aliqua
+        fugiat ullamco ad enim excepteur aute amet. Nulla non laborum in est
+        sint occaecat aliquip reprehenderit cillum sit ut fugiat. Aute est sit
+        eiusmod duis eiusmod irure eu fugiat magna sit deserunt eu. Irure in id
+        do do magna exercitation ipsum mollit dolor mollit aliquip. Officia
+        nulla consectetur aliquip ullamco proident duis est culpa ipsum aute
+        exercitation.
       </p>
       <p className={classes.text}>
         Minim sint in non adipisicing exercitation fugiat anim esse duis
@@ -48,7 +83,14 @@ const CarouselSubtext = () => {
         Deserunt non adipisicing exercitation fugiat anim esse duis occaecat
         velit tempor ullamco minim sint in. Ad excepteur laborum Lorem id
         pariatur officia id consectetur pariatur. Ad excepteur laborum Lorem id
-        pariatur officia id consectetur pariatur.
+        pariatur officia id consectetur pariatur. Eiusmod elit occaecat
+        consectetur do. Nostrud ea dolor veniam Lorem sint nisi aliqua fugiat
+        ullamco ad enim excepteur aute amet. Nulla non laborum in est sint
+        occaecat aliquip reprehenderit cillum sit ut fugiat. Aute est sit
+        eiusmod duis eiusmod irure eu fugiat magna sit deserunt eu. Irure in id
+        do do magna exercitation ipsum mollit dolor mollit aliquip. Officia
+        nulla consectetur aliquip ullamco proident duis est culpa ipsum aute
+        exercitation.
       </p>
     </div>
   );

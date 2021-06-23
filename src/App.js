@@ -1,5 +1,4 @@
 import { Switch, Route } from "react-router-dom";
-import Fade from "@material-ui/core/Fade";
 
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";

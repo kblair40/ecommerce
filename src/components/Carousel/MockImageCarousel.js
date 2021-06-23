@@ -29,13 +29,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     minHeight: "500px",
   },
-  carouselImg: {
-    // minWidth: "600px",
-    // maxWidth: "800px",
-  },
-  img: {
-    // maxWidth: "80%",
-  },
 }));
 
 const ImageCarousel2 = ({ wait }) => {

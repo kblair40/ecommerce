@@ -71,6 +71,8 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "7rem",
     padding: ".2rem",
     marginRight: "1rem",
+    borderColor: "#ff4244",
+    color: "#ff4244",
     "&:hover": {
       background: "#fff",
     },

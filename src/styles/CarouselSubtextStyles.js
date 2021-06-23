@@ -11,9 +11,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#0c0c0d",
     fontFamily: "Montserrat",
     width: "30%",
-    [theme.breakpoints.down("sm")]: {
-      width: "85vw",
-    },
   },
 }));
 

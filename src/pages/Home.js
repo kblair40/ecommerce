@@ -10,7 +10,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    // width: "100vw",
+    width: "98vw",
     justifyContent: "center",
   },
   carouselSubcontainer: {
@@ -18,7 +18,6 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     width: "100%",
-    // maxWidth: "80vw",
     minWidth: "340px",
   },
 };
@@ -26,7 +25,7 @@ const styles = {
 const Home = ({ classes }) => {
   return (
     <React.Fragment>
-      <Fade in={true} timeout={1000}>
+      <Fade in={true} timeout={500}>
         <div className={classes.carouselContainer}>
           <div className={classes.carouselSubcontainer}>
             <ImageCarousel />
@@ -39,17 +38,3 @@ const Home = ({ classes }) => {
 };
 
 export default withStyles(styles)(Home);
-
-// const Home = ({ classes }) => {
-//   return (
-//     <Fade in={true} timeout={1000}>
-//       <div className={classes.carouselContainer}>
-//         <div className={classes.carouselSubcontainer}>
-//           {/* <ImageCarousel wait={1000} /> */}
-//           <ImageCarousel wait={1000} />
-//           <CarouselSubtext />
-//         </div>
-//       </div>
-//     </Fade>
-//   );
-// };

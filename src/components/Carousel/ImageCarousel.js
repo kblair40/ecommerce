@@ -12,9 +12,9 @@ import eight from "../../assets/images/eight.jpg";
 const useStyles = makeStyles((theme) => ({
   carouselContainer: {
     position: "relative",
-    left: "-8%",
+    left: "-6%",
     marginTop: "3.5rem",
-    width: "80%",
+    width: "86%",
   },
   singleSlide: {
     "& > div": {
@@ -22,14 +22,13 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "center",
       justifyContent: "center",
       backgroundSize: "cover",
-      // height: "450px",
-      height: "50vh",
+      height: "55vh",
     },
   },
   [theme.breakpoints.down("xs")]: {
     carouselContainer: {
-      width: "90%",
-      left: "-4%",
+      width: "98%",
+      left: "-1%",
     },
   },
 }));
