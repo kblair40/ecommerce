@@ -7,8 +7,7 @@ TODO
 8.  Fix image sizing on products pages, especially for jewelry
 9.  Better form validations!
 11. Add filter for gender on Clothing page
-12. Add multiple images for home page pictures.  Change image depending on screen size for better responsiveness.
-13. Add arrow buttons to left of home page image carousel to allow user to change image on demand
+
 EVENTUALLY
 1.  Put available products into firebase and load from there
 2.  Add ability for user to create account and login

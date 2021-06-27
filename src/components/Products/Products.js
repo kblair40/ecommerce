@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import List from "@material-ui/core/List";
 
 import { useStyles } from "../../styles/ProductsStyles";
+import GenderFilter from "./GenderFilter";
 import Product from "./Product";
 import ProductDialog from "./ProductDialog";
 import { productDialogActions } from "../../store/productDialogSlice";
@@ -16,21 +17,52 @@ const Products = (props) => {
   const classes = useStyles();
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const [gender, setGender] = useState("All");
+
   const dialogShowing = useSelector((state) => state.detailsDialog.showing);
   const dispatch = useDispatch();
 
   useEffect(() => {
     setLoading(true);
+    console.log("CATEGORY:", params.category);
+    console.log("GENDER:", gender);
+    console.log("PRODUCTS:", PRODUCTS);
+    let activeProducts;
     if (params.category !== "home") {
-      setProducts(
-        PRODUCTS.filter((product) => product.category.includes(params.category))
-      );
+      if (params.category === "clothing") {
+        if (gender === "All") {
+          console.log("GENDER:", gender);
+          activeProducts = PRODUCTS.filter((product) =>
+            product.category.includes(params.category)
+          );
+        } else if (gender === "Female") {
+          activeProducts = PRODUCTS.filter(
+            (product) => product.gender === "womens"
+          );
+        } else if (gender === "Male") {
+          activeProducts = PRODUCTS.filter(
+            (product) => product.gender === "mens"
+          );
+        } else {
+          console.log("NONE OF THE ABOVE");
+          setProducts(PRODUCTS);
+        }
+        console.log("ACTIVE PRODUCTS:", activeProducts);
+        setProducts(activeProducts);
+        // return;
+      } else {
+        setProducts(
+          PRODUCTS.filter((product) =>
+            product.category.includes(params.category)
+          )
+        );
+      }
     } else {
       setProducts(PRODUCTS);
     }
 
     setLoading(false);
-  }, [params.category]);
+  }, [params.category, gender]);
 
   const handleProductClick = (
     id,
@@ -54,6 +86,10 @@ const Products = (props) => {
     );
   };
 
+  const filterByGender = (gender) => {
+    setGender(gender);
+  };
+
   if (loading) {
     return (
       <div
@@ -71,6 +107,10 @@ const Products = (props) => {
     return (
       <FadeTransition>
         <div {...props} className={classes.productsContainer}>
+          {params.category === "clothing" && (
+            <GenderFilter filterByGender={filterByGender} gender={gender} />
+          )}
+
           <List className={classes.productsList}>
             {products.map((prod) => (
               <Product
@@ -78,6 +118,7 @@ const Products = (props) => {
                 id={prod.id}
                 title={prod.title}
                 price={prod.price}
+                gender={prod.category === "clothing" && prod.gender}
                 description={prod.description}
                 category={prod.category}
                 image={prod.image}

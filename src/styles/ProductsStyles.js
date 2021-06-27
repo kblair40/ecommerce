@@ -3,8 +3,9 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 const useStyles = makeStyles({
   productsContainer: {
     width: "100%",
-    display: "flex",
-    justifyContent: "center",
+    // display: "flex",
+    // justifyContent: "center",
+    position: "relative",
   },
   productsList: {
     display: "flex",

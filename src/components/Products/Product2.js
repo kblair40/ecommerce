@@ -69,6 +69,7 @@ const Product2 = ({
   image,
   handleProductClick,
   needsSizes,
+  specialDims,
 }) => {
   const classes = useStyles();
 
@@ -94,8 +95,9 @@ const Product2 = ({
         {...{
           smallImage: {
             alt: title,
-            width: 180,
-            height: 240,
+            // isFluidWidth: true,
+            width: 180, // originally 180
+            height: 240, // originally 240
             src: image,
           },
           largeImage: {

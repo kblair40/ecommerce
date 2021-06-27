@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "center",
       justifyContent: "center",
       backgroundSize: "cover",
+      backgroundPosition: "center",
       height: "55vh",
     },
   },

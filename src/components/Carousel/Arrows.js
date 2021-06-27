@@ -5,7 +5,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 import { useStyles } from "../../styles/ArrowsStyles";
 
-const Arrows = ({ nextSlide, prevSlide }) => {
+const Arrows = ({ slideNumber, numberOfSlides, nextSlide, prevSlide }) => {
   const classes = useStyles();
   return (
     <div className={classes.arrowsContainer}>
@@ -18,7 +18,9 @@ const Arrows = ({ nextSlide, prevSlide }) => {
           <ArrowBackIcon />
         </IconButton>
       </div>
-      <div className={classes.imageNumber}>1 / 3</div>
+      <div className={classes.imageNumber}>
+        {slideNumber + 1} / {numberOfSlides}
+      </div>
 
       <div className={classes.forward}>
         <IconButton
