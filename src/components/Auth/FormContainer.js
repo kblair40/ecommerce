@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+
 import LoginForm from "./LoginForm";
 import NewAccountForm from "./NewAccountForm";
+import { authActions } from "../../store/authSlice";
 
 const useStyles = makeStyles((theme) => ({
   authFormContainer: {
@@ -37,7 +41,12 @@ const useStyles = makeStyles((theme) => ({
 
 const FormContainer = ({ children }) => {
   const classes = useStyles();
+
+  const history = useHistory();
+
   const [isLoginMode, setIsLoginMode] = useState(true);
+
+  const dispatch = useDispatch();
 
   const toggleMode = () => {
     setIsLoginMode((state) => !state);
@@ -54,6 +63,43 @@ const FormContainer = ({ children }) => {
       "\nCONFIRM PASSWORD:",
       confirmPassword
     );
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        returnSecureToken: true,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return res.json().then((data) => {
+            // MIGHT WANT TO STORE ERROR MODAL HERE INSTEAD OF THE BELOW
+            console.log("ERROR:", data);
+            let errorMessage = "Authentication Failed";
+            if (data && data.error && data.error.message) {
+              errorMessage = data.error.message;
+            }
+            // alert(errorMessage);
+            throw new Error(errorMessage);
+          });
+        }
+      })
+      .then((data) => {
+        console.log("SUCCESS:", data);
+        dispatch(authActions.login(data.idToken));
+        // Maybe make the '/' below be '/login' if user just created new account
+        // history.replace("/");
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
   };
 
   return (
