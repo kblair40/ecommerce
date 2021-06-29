@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     width: "100%",
     minWidth: "350px",
+    zIndex: 50,
     [theme.breakpoints.down("sm")]: {
       justifyContent: "space-between",
       padding: "0 2rem",
@@ -21,12 +22,24 @@ const useStyles = makeStyles((theme) => ({
       padding: "0 1rem",
     },
   },
-  smallNavLinksContainer: {
-    color: "#0c0c0d",
+  smallLinksContainer: {
+    position: "relative",
+    top: ".8rem",
+    width: "20%",
+    minWidth: "12rem",
+    height: "3rem",
+  },
+  navbarLinksSmall: {
+    width: "100%",
+    height: "100%",
     display: "flex",
     justifyContent: "space-between",
-    minWidth: "5rem",
+    alignItems: "center",
+    position: "absolute",
+    // top: ".8rem",
+    // right: ".5rem",
   },
+
   navbarLogo: {
     fontFamily: "Big Shoulders Stencil Display, Montserrat, sans-serif",
     fontWeight: 700,

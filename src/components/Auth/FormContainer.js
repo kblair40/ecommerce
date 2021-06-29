@@ -5,8 +5,8 @@ import Button from "@material-ui/core/Button";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import LoginForm from "./LoginForm";
-import NewAccountForm from "./NewAccountForm";
+import LoginForm from "../Forms/LoginForm";
+import NewAccountForm from "../Forms/NewAccountForm";
 import { authActions } from "../../store/authSlice";
 
 const useStyles = makeStyles((theme) => ({
@@ -53,17 +53,6 @@ const FormContainer = ({ children }) => {
   };
 
   const handleSubmit = (url, email, password, confirmPassword = null) => {
-    console.log(
-      "URL:",
-      url,
-      "\nEMAIL:",
-      email,
-      "\nPASSWORD:",
-      password,
-      "\nCONFIRM PASSWORD:",
-      confirmPassword
-    );
-
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -93,9 +82,12 @@ const FormContainer = ({ children }) => {
       })
       .then((data) => {
         console.log("SUCCESS:", data);
-        dispatch(authActions.login(data.idToken));
+        let displayName = email.split("@")[0];
+        dispatch(
+          authActions.login({ token: data.idToken, displayName: displayName })
+        );
         // Maybe make the '/' below be '/login' if user just created new account
-        // history.replace("/");
+        history.replace("/");
       })
       .catch((err) => {
         alert(err.message);

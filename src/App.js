@@ -2,6 +2,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
+import UserProfile from "./pages/UserProfile";
 import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/Products/Products";
 import DarkMode from "./components/ComingSoon/DarkMode";
@@ -18,6 +19,10 @@ function App() {
         </Route>
         <Route path="/auth" exact>
           <Auth />
+        </Route>
+
+        <Route path="/profile" exact>
+          <UserProfile />
         </Route>
 
         <Route path="/:category" exact>
