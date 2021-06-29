@@ -1,53 +1,70 @@
 import React, { useState } from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
+import LoginForm from "./LoginForm";
 
-const styles = {
-  formContainer: {
+const useStyles = makeStyles((theme) => ({
+  authFormContainer: {
     display: "flex",
     justifyContent: "center",
     margin: "4rem 0",
-    height: "40vh",
   },
-  formContainerCardRoot: {
+  authFormContainerCardRoot: {
     fontFamily: "Montserrat",
     padding: "1rem",
+    minWidth: "15rem",
+    width: "100%",
+    maxWidth: "25rem",
+    margin: "1rem",
   },
-  submitBtnRoot: {
-    background: "#1d6d86",
-    color: "white",
+  loginFormHeader: {
+    color: "#0c0c0d",
+  },
+  toggleModeBtnRoot: {
     fontFamily: "Montserrat",
+    color: "#a0a1a1",
+    transition: "color .3s",
+    margin: 0,
+    padding: ".5rem 0",
+    "&:hover": {
+      color: "#0c0c0d",
+      background: "transparent",
+    },
   },
-};
+}));
 
-const FormContainer = ({ classes, children }) => {
-  const handleSubmit = () => {};
+const FormContainer = ({ children }) => {
+  const classes = useStyles();
   const [isLoginMode, setIsLoginMode] = useState(true);
 
-  const handleModeChange = () => {
+  const toggleMode = () => {
     setIsLoginMode((state) => !state);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <div className={classes.formContainer}>
-      <Card classes={{ root: classes.formContainerCardRoot }}>
+    <div className={classes.authFormContainer}>
+      <Card classes={{ root: classes.authFormContainerCardRoot }}>
+        <h1 className={classes.loginFormHeader}>Login</h1>
         <form onSubmit={handleSubmit}>
-          <div className={classes.formContentContainer}>{children}</div>
-          <Button
-            variant="contained"
-            classes={{ root: classes.submitBtnRoot }}
-            type="submit"
-            fullWidth
-          >
-            Login
-          </Button>
+          <LoginForm handleSubmit={handleSubmit} isLoginMode={isLoginMode} />
         </form>
-        <Button variant="text"></Button>
+        <Button
+          onClick={toggleMode}
+          variant="text"
+          classes={{ root: classes.toggleModeBtnRoot }}
+          disableRipple
+        >
+          No account? Create one!
+        </Button>
         {isLoginMode && <div>LOGIN MODE!!</div>}
       </Card>
     </div>
   );
 };
 
-export default withStyles(styles)(FormContainer);
+export default FormContainer;
