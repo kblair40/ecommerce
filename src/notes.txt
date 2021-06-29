@@ -6,7 +6,6 @@ Others - aqua spring: #effaf6, elm: #1d6d86, black: #0c0c0d, grey: #a0a1a1, pist
 TODO
 8.  Fix image sizing on products pages, especially for jewelry
 9.  Better form validations!
-11. Add filter for gender on Clothing page
 
 EVENTUALLY
 1.  Put available products into firebase and load from there

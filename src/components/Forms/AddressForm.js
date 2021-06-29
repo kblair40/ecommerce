@@ -15,12 +15,24 @@ import ErrorMessage from "./ErrorMessage";
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
 
+// VALIDATORS
+
+const validators = {
+  name: (name) => /^[a-z]{2,15}$/i.test(name),
+  email: (email) => /^[a-z0-9]+@[a-z]+\.com$/i.test(email),
+  address: (address) => /^[0-9]+\s[a-z]{1,15}/i.test(address),
+  city: (city) => /^[a-z]{2,16}/i.test(city),
+  state: (state) => /^[a-z]{2}$/i.test(state),
+  zip: (zip) => /[0-9]{5}/.test(zip),
+};
+
 const AddressForm = () => {
   const classes = useStyles();
 
   const {
     value: nameValue,
     isValid: nameIsValid,
+    // isValid: nameIsValid,
     hasError: nameHasError,
     handleChange: handleNameChange,
     handleBlur: handleNameBlur,
@@ -29,6 +41,7 @@ const AddressForm = () => {
   const {
     value: emailValue,
     isValid: emailIsValid,
+    // isValid: ,
     hasError: emailHasError,
     handleChange: handleEmailChange,
     handleBlur: handleEmailBlur,
@@ -36,6 +49,7 @@ const AddressForm = () => {
   } = useInput(isEmail);
   const {
     value: addressValue,
+    // isValid: addressIsValid,
     isValid: addressIsValid,
     hasError: addressHasError,
     handleChange: handleAddressChange,

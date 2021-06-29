@@ -24,9 +24,6 @@ const Products = (props) => {
 
   useEffect(() => {
     setLoading(true);
-    console.log("CATEGORY:", params.category);
-    console.log("GENDER:", gender);
-    console.log("PRODUCTS:", PRODUCTS);
     let activeProducts;
     if (params.category !== "home") {
       if (params.category === "clothing") {
@@ -44,12 +41,9 @@ const Products = (props) => {
             (product) => product.gender === "mens"
           );
         } else {
-          console.log("NONE OF THE ABOVE");
           setProducts(PRODUCTS);
         }
-        console.log("ACTIVE PRODUCTS:", activeProducts);
         setProducts(activeProducts);
-        // return;
       } else {
         setProducts(
           PRODUCTS.filter((product) =>

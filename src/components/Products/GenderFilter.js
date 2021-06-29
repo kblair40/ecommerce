@@ -15,6 +15,20 @@ const useStyles = makeStyles({
   },
   filterRoot: {
     width: "3.5rem",
+    fontFamily: "Montserrat, sans-serif",
+    textAlign: "center",
+    "&:after": {
+      borderColor: "red",
+    },
+    "&:focus:after": {
+      borderColor: "red",
+    },
+    "&:focus": {
+      borderColor: "red",
+    },
+  },
+  filterLabel: {
+    fontFamily: "Montserrat, sans-serif",
   },
 });
 
@@ -28,7 +42,7 @@ const GenderFilter = ({ filterByGender, gender }) => {
 
   return (
     <div className={classes.genderFilterContainer}>
-      <p>Filter: </p>
+      <p className={classes.filterLabel}>Filter: </p>
       <Select
         onChange={handleChange}
         classes={{ root: classes.filterRoot }}

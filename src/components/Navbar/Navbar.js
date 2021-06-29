@@ -53,6 +53,9 @@ const Navbar = () => {
             <ShoppingCartIcon classes={{ root: classes.cartRoot }} />
           </Badge>
         </NavLink>
+        <NavLink className={classes.navbarLinks} to="/auth">
+          Login
+        </NavLink>
       </div>
     </nav>
   );

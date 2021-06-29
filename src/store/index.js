@@ -4,6 +4,7 @@ import productDialogReducer from "./productDialogSlice";
 import modeReducer from "./modeSlice";
 import cartReducer from "./cartSlice";
 import addressFormReducer from "./addressFormSlice";
+import authReducer from "./authSlice";
 
 const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
     mode: modeReducer,
     cart: cartReducer,
     addressForm: addressFormReducer,
+    auth: authReducer,
   },
 });
 

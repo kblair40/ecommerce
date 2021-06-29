@@ -264,3 +264,5 @@ export const BREAKPOINTS = {
   md: "640px",
   sm: "440px",
 };
+
+export const API_KEY = "AIzaSyDyaOMH6tT8rP3-edQtQi-dSoYICqmDaa0";

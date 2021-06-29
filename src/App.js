@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/Products/Products";
 import DarkMode from "./components/ComingSoon/DarkMode";
 import Loading from "./Loading";
+import Auth from "./pages/Auth";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       <Switch>
         <Route path="/checkout" exact>
           <Checkout />
+        </Route>
+        <Route path="/auth" exact>
+          <Auth />
         </Route>
 
         <Route path="/:category" exact>

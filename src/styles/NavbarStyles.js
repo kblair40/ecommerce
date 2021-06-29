@@ -24,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
   smallNavLinksContainer: {
     color: "#0c0c0d",
     display: "flex",
+    justifyContent: "space-between",
+    minWidth: "5rem",
   },
   navbarLogo: {
     fontFamily: "Big Shoulders Stencil Display, Montserrat, sans-serif",
