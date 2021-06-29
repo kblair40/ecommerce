@@ -24,20 +24,23 @@ const useStyles = makeStyles((theme) => ({
   },
   smallLinksContainer: {
     position: "relative",
-    top: ".8rem",
+    top: ".6rem",
     width: "20%",
-    minWidth: "12rem",
-    height: "3rem",
+    minWidth: "14rem",
+    height: "2.5rem",
+    [theme.breakpoints.down("sm")]: {
+      top: ".6rem",
+      width: "auto",
+      minWidth: "3rem",
+    },
   },
   navbarLinksSmall: {
     width: "100%",
-    height: "100%",
+    height: "2.8rem",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     position: "absolute",
-    // top: ".8rem",
-    // right: ".5rem",
   },
 
   navbarLogo: {
@@ -53,7 +56,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       textAlign: "center",
       width: "50%",
-      top: ".2rem",
+      // top: ".4rem",
+      top: ".3rem",
       position: "absolute",
       left: 0,
       right: 0,

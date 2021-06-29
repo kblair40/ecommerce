@@ -11,6 +11,8 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles((theme) => ({
   navLink: {
     textDecoration: "none",
+    padding: 0,
+    margin: 0,
     "&:hover": {
       textDecoration: "none",
     },
@@ -21,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Montserrat",
     fontWeight: "700",
     textDecoration: "none",
+    margin: 0,
     "&:hover": {
       background: "transparent",
       textDecoration: "underline",

@@ -5,10 +5,12 @@ Others - aqua spring: #effaf6, elm: #1d6d86, black: #0c0c0d, grey: #a0a1a1, pist
 
 TODO
 8.  Fix image sizing on products pages, especially for jewelry
-9.  Better form validations!
+9.  Better form validations
+10. User should be able to change their password
+11. Cart should clear when order is submitted and modal providing order details should display.
+
 
 EVENTUALLY
 1.  Put available products into firebase and load from there
-2.  Add ability for user to create account and login
-     - User should be able to rate products and add products to their favorites
+2.  User should be able to rate products and add products to their favorites
 3.  

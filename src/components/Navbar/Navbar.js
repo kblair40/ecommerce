@@ -15,12 +15,6 @@ const Navbar = () => {
   const classes = useStyles();
   const totalItemsInCart = useSelector((state) => state.cart.totalQuantity);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const displayName = useSelector((state) => state.auth.displayName);
-  const dispatch = useDispatch();
-
-  const handleLogout = () => {
-    dispatch(authActions.logout());
-  };
 
   return (
     <nav className={classes.navbarContainer}>
@@ -65,7 +59,7 @@ const Navbar = () => {
             </Badge>
           </NavLink>
           <NavAccountLinks
-            handleLogout={handleLogout}
+            // handleLogout={handleLogout}
             isLoggedIn={isLoggedIn}
           />
         </div>

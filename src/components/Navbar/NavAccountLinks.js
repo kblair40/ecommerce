@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Montserrat",
     display: "flex",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
   linkContainer: {
     display: "flex",

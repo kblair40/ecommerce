@@ -21,7 +21,8 @@ const QuantityUpdate = ({
 
   return (
     <Select
-      classes={{ root: classes.selectRoot }}
+      className={classes.selectRoot}
+      // classes={{ root: classes.selectRoot }}
       value={qty}
       displayEmpty={true}
       onChange={handleChange}
