@@ -43,20 +43,29 @@ const useStyles = makeStyles((theme) => ({
 const LoginForm = ({ handleSubmit, isLoginMode }) => {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
+  const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
 
-  const handleEmailChange = (e) => {
-    setEmailValue(e.target.value);
+  const handleClickShowPassword = () => {
+    setShowPassword((state) => !state);
+  };
+  const handleClickShowConfirmPassword = () => {
+    setShowConfirmPassword((state) => !state);
   };
 
   const handlePasswordChange = (e) => {
     setPasswordValue(e.target.value);
   };
 
-  const handleClickShowPassword = () => {
-    setShowPassword((state) => !state);
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPasswordValue(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmailValue(e.target.value);
   };
 
   return (
@@ -110,7 +119,36 @@ const LoginForm = ({ handleSubmit, isLoginMode }) => {
           fullWidth
         />
       </div>
-
+      <div className={classes.loginFormRow}>
+        <TextField
+          type={showConfirmPassword ? "text" : "password"}
+          InputProps={{
+            classes: {
+              underline: classes.bottomInputBorder,
+            },
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowConfirmPassword}
+                >
+                  {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+          InputLabelProps={{
+            classes: {
+              root: classes.loginInputLabelRoot,
+            },
+          }}
+          id="standard-basic"
+          label="Confirm Password"
+          onChange={handleConfirmPasswordChange}
+          value={confirmPasswordValue}
+          fullWidth
+        />
+      </div>
       <div className={classes.loginFormRow}>
         <Button
           variant="contained"
@@ -120,7 +158,7 @@ const LoginForm = ({ handleSubmit, isLoginMode }) => {
           fullWidth
           disableFocusRipple
         >
-          Login
+          Create Account
         </Button>
       </div>
     </div>

@@ -3,6 +3,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import LoginForm from "./LoginForm";
+import NewAccountForm from "./NewAccountForm";
 
 const useStyles = makeStyles((theme) => ({
   authFormContainer: {
@@ -49,9 +50,18 @@ const FormContainer = ({ children }) => {
   return (
     <div className={classes.authFormContainer}>
       <Card classes={{ root: classes.authFormContainerCardRoot }}>
-        <h1 className={classes.loginFormHeader}>Login</h1>
+        <h1 className={classes.loginFormHeader}>
+          {isLoginMode ? "Login" : "Create Account"}
+        </h1>
         <form onSubmit={handleSubmit}>
-          <LoginForm handleSubmit={handleSubmit} isLoginMode={isLoginMode} />
+          {isLoginMode ? (
+            <LoginForm handleSubmit={handleSubmit} isLoginMode={isLoginMode} />
+          ) : (
+            <NewAccountForm
+              handleSubmit={handleSubmit}
+              isLoginMode={isLoginMode}
+            />
+          )}
         </form>
         <Button
           onClick={toggleMode}
@@ -59,9 +69,10 @@ const FormContainer = ({ children }) => {
           classes={{ root: classes.toggleModeBtnRoot }}
           disableRipple
         >
-          No account? Create one!
+          {isLoginMode
+            ? "No account? Create one!"
+            : "Already have an account? Login"}
         </Button>
-        {isLoginMode && <div>LOGIN MODE!!</div>}
       </Card>
     </div>
   );
