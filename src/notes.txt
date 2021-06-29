@@ -13,4 +13,5 @@ TODO
 EVENTUALLY
 1.  Put available products into firebase and load from there
 2.  User should be able to rate products and add products to their favorites
-3.  
+3.  if items are in cart and user leaves/logs out, cart should be saved and reloaded automatically on next login
+

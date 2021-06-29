@@ -84,7 +84,6 @@ const LoginForm = ({ handleSubmit, isLoginMode }) => {
               root: classes.loginInputLabelRoot,
             },
           }}
-          id="standard-basic"
           label="Email"
           onChange={handleEmailChange}
           value={emailValue}
@@ -114,7 +113,6 @@ const LoginForm = ({ handleSubmit, isLoginMode }) => {
               root: classes.loginInputLabelRoot,
             },
           }}
-          id="standard-basic"
           label="Password"
           onChange={handlePasswordChange}
           value={passwordValue}
