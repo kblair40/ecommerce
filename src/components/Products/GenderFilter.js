@@ -6,7 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 const useStyles = makeStyles({
   genderFilterContainer: {
     position: "relative",
-    top: "2.5rem",
+    top: "4rem",
     left: "1rem",
     display: "flex",
     alignItems: "center",
@@ -15,20 +15,24 @@ const useStyles = makeStyles({
   },
   filterRoot: {
     width: "3.5rem",
-    fontFamily: "Montserrat, sans-serif",
-    textAlign: "center",
-    "&:after": {
-      borderColor: "red",
-    },
-    "&:focus:after": {
-      borderColor: "red",
-    },
-    "&:focus": {
-      borderColor: "red",
+    background: "transparent",
+    "&.Mui-focused": {
+      backgroundColor: "transparent",
     },
   },
   filterLabel: {
     fontFamily: "Montserrat, sans-serif",
+  },
+  select: {
+    fontFamily: "Montserrat, sans-serif",
+    textAlign: "center",
+    "&:before": {
+      borderBottom: "2px solid #0c0c0d",
+      zIndex: 10,
+    },
+    "&.Mui-focused": {
+      backgroundColor: "transparent",
+    },
   },
 });
 
@@ -45,6 +49,7 @@ const GenderFilter = ({ filterByGender, gender }) => {
       <p className={classes.filterLabel}>Filter: </p>
       <Select
         onChange={handleChange}
+        className={classes.select}
         classes={{ root: classes.filterRoot }}
         displayEmpty={true}
         defaultValue="All"
