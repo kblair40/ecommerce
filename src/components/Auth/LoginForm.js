@@ -7,6 +7,8 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 
+import { API_KEY } from "../../constants";
+
 const useStyles = makeStyles((theme) => ({
   loginFormRow: {
     margin: "1rem 0 1.5rem 0",
@@ -57,6 +59,15 @@ const LoginForm = ({ handleSubmit, isLoginMode }) => {
 
   const handleClickShowPassword = () => {
     setShowPassword((state) => !state);
+  };
+
+  const handleClickSubmit = (e) => {
+    e.preventDefault();
+    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
+
+    handleSubmit(url, emailValue, passwordValue);
+    setEmailValue("");
+    setPasswordValue("");
   };
 
   return (
@@ -116,7 +127,7 @@ const LoginForm = ({ handleSubmit, isLoginMode }) => {
           variant="contained"
           classes={{ root: classes.submitBtnRoot }}
           type="submit"
-          onClick={handleSubmit}
+          onClick={handleClickSubmit}
           fullWidth
           disableFocusRipple
         >

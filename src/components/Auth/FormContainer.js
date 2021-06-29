@@ -43,8 +43,17 @@ const FormContainer = ({ children }) => {
     setIsLoginMode((state) => !state);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (url, email, password, confirmPassword = null) => {
+    console.log(
+      "URL:",
+      url,
+      "\nEMAIL:",
+      email,
+      "\nPASSWORD:",
+      password,
+      "\nCONFIRM PASSWORD:",
+      confirmPassword
+    );
   };
 
   return (
