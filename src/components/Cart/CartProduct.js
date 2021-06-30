@@ -12,11 +12,18 @@ const CartProduct = ({ item }) => {
   const dispatch = useDispatch();
 
   const handleQtyUpdate = (qty) => {
-    dispatch(cartActions.updateQty({ id: item.id, newQty: qty }));
+    dispatch(
+      cartActions.updateQty({ id: item.id, newQty: qty, price: item.price })
+    );
   };
 
   const handleRemoveFromCart = () => {
-    dispatch(cartActions.removeFromCart({ id: item.id }));
+    dispatch(
+      cartActions.removeFromCart({
+        id: item.id,
+        price: item.price,
+      })
+    );
   };
 
   return (

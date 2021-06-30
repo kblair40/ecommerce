@@ -49,21 +49,11 @@ const useStyles = makeStyles((theme) => ({
 const OrderDetail = () => {
   const classes = useStyles();
   const cartItems = useSelector((state) => state.cart.items);
-  const [minimumMet, setMinimumMet] = useState(false);
-  const [subtotal, setSubtotal] = useState(0);
-  const [tax, setTax] = useState(0);
-
-  useEffect(() => {
-    let subtotal = 0;
-    for (let item of cartItems) {
-      subtotal += item.price * item.quantity;
-    }
-    setSubtotal(subtotal.toFixed(2));
-    if (subtotal > 50) {
-      setMinimumMet(true);
-    }
-    setTax((subtotal * 0.07).toFixed(2));
-  }, [cartItems]);
+  const subtotal = parseFloat(
+    useSelector((state) => state.cart.subtotal).toFixed(2)
+  );
+  const minimumMet = subtotal >= 50;
+  const tax = parseFloat((subtotal * 0.07).toFixed(2));
 
   return (
     <Fade in={true} timeout={400}>
@@ -76,10 +66,9 @@ const OrderDetail = () => {
         )}
         <div className={classes.detailRow}>
           <div className={classes.detailCategory}>Subtotal:</div>
-          <div className={classes.categoryAmount}>${subtotal}</div>
+          <div className={classes.categoryAmount}>${subtotal.toFixed(2)}</div>
         </div>
 
-        {/* Shipping <hover icon displaying $ amount until free>  $$$ */}
         <div className={classes.detailRow}>
           <div className={classes.detailCategory}>Shipping:</div>
           <div className={classes.categoryAmount}>
