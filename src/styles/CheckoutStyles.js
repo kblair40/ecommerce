@@ -2,6 +2,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles((theme) => ({
   checkoutPageContainer: {
+    position: "relative", // for positioning ThankYou modal
     marginTop: "3rem",
     display: "grid",
     gridTemplateColumns: "65% 35%",

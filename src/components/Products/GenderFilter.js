@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     width: "8rem",
   },
   filterRoot: {
-    width: "3.5rem",
+    width: "4.5rem",
     background: "transparent",
     "&.Mui-focused": {
       backgroundColor: "transparent",
@@ -46,7 +46,7 @@ const GenderFilter = ({ filterByGender, gender }) => {
 
   return (
     <div className={classes.genderFilterContainer}>
-      <p className={classes.filterLabel}>Filter: </p>
+      <p className={classes.filterLabel}>Gender: </p>
       <Select
         onChange={handleChange}
         className={classes.select}

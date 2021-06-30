@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { setMenuOrder } from "../helpers";
 
 const defaultMenuOptions = [1, 2, 3, 4, 5];
@@ -69,6 +69,11 @@ const cartSlice = createSlice({
       state.items = updatedItems;
       state.totalQuantity -= qtyChange;
     },
+    clearCart(state) {
+      state.items = [];
+      state.totalQuantity = 0;
+    },
+
     setError(state) {
       state.hasError = true;
     },

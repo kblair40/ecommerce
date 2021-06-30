@@ -79,7 +79,9 @@ const useStyles = makeStyles((theme) => ({
   },
   badgeRoot: {
     color: "#0c0c0d",
-    margin: "0 0 1rem 1rem",
+    fontFamily: "Montserrat",
+    fontWeight: 600,
+    background: "transparent",
   },
   cartRoot: {
     background: "transparent",

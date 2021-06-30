@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   profileCardHeader: {
-    // already set to Montserrat
     marginLeft: ".5rem",
     fontWeight: "600",
   },
@@ -71,6 +70,7 @@ const useStyles = makeStyles((theme) => ({
       height: "auto",
       width: "100vw",
       padding: 0,
+      backgroundColor: "transparent",
     },
   },
 }));
