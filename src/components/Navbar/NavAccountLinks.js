@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Button from "@material-ui/core/Button";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import Hidden from "@material-ui/core/Hidden";
 import { NavLink } from "react-router-dom";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,9 +15,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Montserrat",
     display: "flex",
     alignItems: "center",
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
+    // [theme.breakpoints.down("sm")]: {
+    //   display: "none",
+    // },
   },
   linkContainer: {
     display: "flex",

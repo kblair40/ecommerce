@@ -58,10 +58,9 @@ const Navbar = () => {
               <ShoppingCartIcon classes={{ root: classes.cartRoot }} />
             </Badge>
           </NavLink>
-          <NavAccountLinks
-            // handleLogout={handleLogout}
-            isLoggedIn={isLoggedIn}
-          />
+          <Hidden smDown>
+            <NavAccountLinks isLoggedIn={isLoggedIn} />
+          </Hidden>
         </div>
       </div>
     </nav>

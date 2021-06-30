@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     color: "#0c0c0d",
+    margin: "0 -.2rem",
   },
   track: {
     backgroundColor: "#0c0c0d",

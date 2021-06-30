@@ -6,7 +6,7 @@ Others - aqua spring: #effaf6, elm: #1d6d86, black: #0c0c0d, grey: #a0a1a1, pist
 TODO
 8.  Fix image sizing on products pages, especially for jewelry
 9.  Better form validations
-10. User should be able to change their password
+10. PasswordChangeForm should not assume success
 11. Cart should clear when order is submitted and modal providing order details should display.
 
 

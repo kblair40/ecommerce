@@ -70,7 +70,6 @@ const FormContainer = ({ children }) => {
         } else {
           return res.json().then((data) => {
             // MIGHT WANT TO STORE ERROR MODAL HERE INSTEAD OF THE BELOW
-            console.log("ERROR:", data);
             let errorMessage = "Authentication Failed";
             if (data && data.error && data.error.message) {
               errorMessage = data.error.message;
@@ -81,7 +80,6 @@ const FormContainer = ({ children }) => {
         }
       })
       .then((data) => {
-        console.log("SUCCESS:", data);
         let displayName = email.split("@")[0];
         dispatch(
           authActions.login({ token: data.idToken, displayName: displayName })
