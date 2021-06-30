@@ -2,7 +2,7 @@ import React from "react";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
 import Switch from "@material-ui/core/Switch";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { modeActions } from "../../store/modeSlice";
 import { useStyles } from "../../styles/SetModeStyles";
@@ -10,7 +10,6 @@ import { useStyles } from "../../styles/SetModeStyles";
 const SetMode = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
-  const currentMode = useSelector((state) => state.mode.mode);
 
   const toggleMode = () => {
     dispatch(modeActions.toggleMode);

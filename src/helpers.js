@@ -9,3 +9,7 @@ export const setMenuOrder = (qty) => {
 
   return qtyOptions;
 };
+
+// export const passwordsDoMatch = (pwd1, pwd2) => {
+//   return null
+// }

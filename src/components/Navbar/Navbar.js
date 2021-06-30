@@ -3,13 +3,13 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Badge from "@material-ui/core/Badge";
 import Hidden from "@material-ui/core/Hidden";
 import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { useStyles } from "../../styles/NavbarStyles";
 import SmallNavbar from "./SmallNavbar";
-import SetMode from "./SetMode";
+// import SetMode from "./SetMode";
 import NavAccountLinks from "./NavAccountLinks";
-import { authActions } from "../../store/authSlice";
+// import { authActions } from "../../store/authSlice";
 
 const Navbar = () => {
   const classes = useStyles();
