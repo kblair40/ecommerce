@@ -5,7 +5,7 @@ import ProfileLinks from "../components/Auth/ProfileLinks";
 const useStyles = makeStyles((theme) => ({
   userProfileContainer: {
     display: "flex",
-    marginTop: "3.5rem",
+    marginTop: "1rem",
     fontFamily: "Montserrat",
   },
 }));

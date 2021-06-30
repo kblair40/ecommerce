@@ -10,22 +10,25 @@ import { useSelector } from "react-redux";
 
 // import { authActions } from "../../store/authSlice";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   changePasswordFormContainer: {
-    marginTop: "5rem",
+    margin: "5rem 0 0 2rem",
     fontFamily: "Montserrat",
     "& p": {
       color: "#ff4244",
+      maxWidth: "14rem",
+      fontSize: ".8rem",
     },
   },
   changePasswordForm: {
     display: "flex",
-    flexDirection: "column",
+    alignItems: "center",
     minWidth: "15rem",
   },
   changePasswordBtnRoot: {
     background: "#1d6d86",
     color: "white",
+    width: "50%",
     fontFamily: "Montserrat",
     marginTop: ".8rem",
     "&:hover": {
@@ -54,11 +57,25 @@ const useStyles = makeStyles({
   },
   inputRow: {
     marginBottom: "1rem",
+    marginRight: "1rem",
   },
-  // errorText: {
-
-  // }
-});
+  [theme.breakpoints.down("sm")]: {
+    changePasswordForm: {
+      flexDirection: "column",
+    },
+    inputRow: {
+      marginRight: "0",
+    },
+    changePasswordBtnRoot: {
+      width: "100%",
+    },
+  },
+  [theme.breakpoints.down("xs")]: {
+    changePasswordFormContainer: {
+      margin: "1rem 0",
+    },
+  },
+}));
 
 const ChangePasswordForm = () => {
   const classes = useStyles();
@@ -129,70 +146,73 @@ const ChangePasswordForm = () => {
   };
   return (
     <div className={classes.changePasswordFormContainer}>
-      {/* ADD HIDE/SHOW PASSWORD FUNCTIONALITY LATER */}
-      <form className={classes.changePasswordForm} onSubmit={handleSubmit}>
-        <div className={classes.inputRow}>
-          <TextField
-            type={showPassword ? "text" : "password"}
-            InputProps={{
-              classes: {
-                underline: classes.bottomInputBorder,
-              },
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                  >
-                    {showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.newPasswordInputLabelRoot,
-              },
-            }}
-            label="New Password"
-            onChange={handlePasswordChange}
-            value={passwordInput}
-            fullWidth
-          />
-        </div>
-        <div className={classes.inputRow}>
-          <TextField
-            type={showConfirmPassword ? "text" : "password"}
-            InputProps={{
-              classes: {
-                underline: classes.bottomInputBorder,
-              },
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowConfirmPassword}
-                  >
-                    {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.newPasswordInputLabelRoot,
-              },
-            }}
-            label="Confirm New Password"
-            onChange={handleConfirmPasswordChange}
-            value={confirmPasswordInput}
-            fullWidth
-          />
+      <form onSubmit={handleSubmit}>
+        <div className={classes.changePasswordForm}>
+          <div className={classes.inputRow}>
+            <TextField
+              type={showPassword ? "text" : "password"}
+              InputProps={{
+                classes: {
+                  underline: classes.bottomInputBorder,
+                },
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                    >
+                      {showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              InputLabelProps={{
+                classes: {
+                  root: classes.newPasswordInputLabelRoot,
+                },
+              }}
+              label="New Password"
+              onChange={handlePasswordChange}
+              value={passwordInput}
+              fullWidth
+            />
+          </div>
+          <div className={classes.inputRow}>
+            <TextField
+              type={showConfirmPassword ? "text" : "password"}
+              InputProps={{
+                classes: {
+                  underline: classes.bottomInputBorder,
+                },
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowConfirmPassword}
+                    >
+                      {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              InputLabelProps={{
+                classes: {
+                  root: classes.newPasswordInputLabelRoot,
+                },
+              }}
+              label="Confirm New Password"
+              onChange={handleConfirmPasswordChange}
+              value={confirmPasswordInput}
+              fullWidth
+            />
+          </div>
         </div>
         <Button
           classes={{ root: classes.changePasswordBtnRoot }}
           variant="contained"
           type="submit"
+          fullWidth
+          disableFocusRipple
         >
           Change Password
         </Button>
