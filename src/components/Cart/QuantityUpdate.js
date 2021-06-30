@@ -11,7 +11,6 @@ const QuantityUpdate = ({
   handleQtyUpdate,
   menuOptions,
   classes,
-  price,
 }) => {
   const [qty, setQty] = useState(quantity);
 

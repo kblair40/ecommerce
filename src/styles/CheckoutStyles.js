@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
       gridColumnGap: 0,
     },
     checkoutCartSection: {
+      width: "100%",
       flexDirection: "row",
     },
   },
@@ -51,10 +52,10 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "center",
     },
     checkoutOrderDetail: {
-      width: "80%",
+      width: "100%",
     },
     checkoutAddressForm: {
-      width: "80%",
+      width: "100%",
     },
   },
 }));
