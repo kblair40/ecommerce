@@ -13,6 +13,10 @@ import { useSelector } from "react-redux";
 const useStyles = makeStyles({
   changePasswordFormContainer: {
     marginTop: "5rem",
+    fontFamily: "Montserrat",
+    "& p": {
+      color: "#ff4244",
+    },
   },
   changePasswordForm: {
     display: "flex",
@@ -51,6 +55,9 @@ const useStyles = makeStyles({
   inputRow: {
     marginBottom: "1rem",
   },
+  // errorText: {
+
+  // }
 });
 
 const ChangePasswordForm = () => {
@@ -60,6 +67,8 @@ const ChangePasswordForm = () => {
   const [confirmPasswordInput, setConfirmPasswordInput] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [formHasLengthError, setFormHasLengthError] = useState(false);
+  const [formHasPwdError, setFormHasPwdError] = useState(false);
 
   const token = useSelector((state) => state.auth.token);
 
@@ -84,6 +93,18 @@ const ChangePasswordForm = () => {
 
     const passwordValue = passwordInput;
     const confirmPasswordValue = confirmPasswordInput;
+
+    if (passwordValue.length < 6) {
+      setFormHasLengthError(true);
+      return;
+    } else if (passwordValue !== confirmPasswordValue) {
+      setFormHasLengthError(false);
+      setFormHasPwdError(true);
+      return;
+    } else {
+      setFormHasLengthError(false);
+      setFormHasPwdError(false);
+    }
 
     setPasswordInput("");
     setConfirmPasswordInput("");
@@ -176,6 +197,8 @@ const ChangePasswordForm = () => {
           Change Password
         </Button>
       </form>
+      {formHasPwdError && <p>Passwords do not match!</p>}
+      {formHasLengthError && <p>Password must be a minimum of 6 characters!</p>}
     </div>
   );
 };
