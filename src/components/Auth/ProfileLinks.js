@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 
 import ChangePasswordForm from "../Forms/ChangePasswordForm";
 import ComingSoon from "../ComingSoon/ComingSoon";
+import LogoutSnackbar from "./LogoutSnackbar";
 
 const useStyles = makeStyles((theme) => ({
   profileContainer: {
@@ -120,6 +121,8 @@ const ProfileLinks = () => {
 
       {componentToRender === "change password" && <ChangePasswordForm />}
       {componentToRender === "coming soon" && <ComingSoon />}
+
+      <LogoutSnackbar />
     </div>
   );
 };

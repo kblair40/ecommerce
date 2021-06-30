@@ -20,10 +20,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     height: "100%",
-    // [theme.breakpoints.down("xs")]: {
-    //   position: "relative",
-    //   bottom: "10rem",
-    // },
   },
   successModalHeader: {
     fontSize: "2rem",

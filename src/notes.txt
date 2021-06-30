@@ -6,8 +6,9 @@ Others - aqua spring: #effaf6, elm: #1d6d86, black: #0c0c0d, grey: #a0a1a1, pist
 TODO
 9.  Better form validations
 10. PasswordChangeForm should not assume success
-    - Give success or error message depending on outcome
-    - log user out and redirect to login page if successful
+    - Give error message if password change is not successful
+    - Animate the modals.  Zoom is probably best
+11. Animate ThankYou modal.  Zoom also?
 
 EVENTUALLY
 1.  Put available products into firebase and load from there

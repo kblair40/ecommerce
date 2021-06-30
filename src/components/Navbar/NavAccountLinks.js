@@ -68,6 +68,10 @@ const NavAccountLinks = ({ isLoggedIn }) => {
   const handleLogout = () => {
     handleClose();
     dispatch(authActions.logout());
+    dispatch(authActions.openSnackbar());
+    setTimeout(() => {
+      dispatch(authActions.closeSnackbar());
+    }, 4000);
   };
 
   return (

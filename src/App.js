@@ -8,6 +8,7 @@ import Products from "./components/Products/Products";
 import DarkMode from "./components/ComingSoon/DarkMode";
 import Loading from "./Loading";
 import Auth from "./pages/Auth";
+import LogoutSnackbar from "./components/Auth/LogoutSnackbar";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         </Route>
       </Switch>
       <DarkMode />
+      <LogoutSnackbar />
     </div>
   );
 }

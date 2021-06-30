@@ -4,12 +4,9 @@ import "react-slideshow-image/dist/styles.css";
 
 import CarouselTextOverlay from "./CarouselTextOverlay";
 import Arrows from "./Arrows";
-// import six_lg from "../../assets/images/six_lg.jpg";
 import six_sm from "../../assets/images/six_sm.jpg";
 import seven from "../../assets/images/seven.jpg";
 import eight_sm from "../../assets/images/eight_sm.jpg";
-// import eight_lg from "../../assets/images/eight_lg.jpg";
-// import eight from "../../assets/images/eight.jpeg";
 import { useStyles } from "../../styles/ImageCarouselStyles";
 
 const overlayTexts = ["Jackets", "Winter Coats", "Summer Collection"];
