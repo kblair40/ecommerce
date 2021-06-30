@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import WorkOutlineIcon from "@material-ui/icons/WorkOutline";
+import Hidden from "@material-ui/core/Hidden";
 
 import ChangePasswordForm from "../Forms/ChangePasswordForm";
 import ComingSoon from "../ComingSoon/ComingSoon";
@@ -26,14 +27,11 @@ const useStyles = makeStyles((theme) => ({
   },
   profileCardContainer: {
     color: "#0c0c0d",
-    // marginLeft: "-1rem",
-    // border: "1px solid #a0a1a1",
     position: "fixed",
+    height: "100%",
     top: "3rem",
     left: 0,
-
     backgroundColor: "#fafafa",
-    // height: "100%",
     width: "17rem",
     display: "flex",
     flexDirection: "column",
@@ -73,6 +71,9 @@ const useStyles = makeStyles((theme) => ({
     profileCardContainer: {
       position: "static",
       marginTop: "1.7rem",
+      height: "auto",
+      width: "100vw",
+      padding: 0,
     },
   },
 }));
@@ -113,13 +114,12 @@ const ProfileLinks = () => {
           </div>
         </Card>
       </div>
-      {/* <Divider orientation="vertical" fullWidth /> */}
-      {/* <div className={classes.renderedComponent}> */}
+      <Hidden smUp>
+        <hr />
+        {/* <Divider style={{ margin: "5rem", background: "red" }} fullWidth /> */}
+      </Hidden>
       {componentToRender === "change password" && <ChangePasswordForm />}
-      {/* </div> */}
-      {/* <div className={classes.renderedComponent}> */}
       {componentToRender === "coming soon" && <ComingSoon />}
-      {/* </div> */}
     </div>
   );
 };
