@@ -44,7 +44,7 @@ const Navbar = () => {
           Accessories
         </NavLink>
 
-        <SetMode />
+        {/* <SetMode /> */}
       </Hidden>
       <div className={classes.smallLinksContainer}>
         <div className={classes.navbarLinksSmall}>
