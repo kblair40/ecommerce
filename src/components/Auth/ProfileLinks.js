@@ -13,7 +13,8 @@ import ComingSoon from "../ComingSoon/ComingSoon";
 const useStyles = makeStyles((theme) => ({
   profileContainer: {
     width: "100vw",
-    height: "100vh",
+    // height: "100vh",
+    height: "90vh",
     display: "flex",
   },
   profileLinksContainer: {

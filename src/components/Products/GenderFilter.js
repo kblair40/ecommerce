@@ -40,7 +40,6 @@ const GenderFilter = ({ filterByGender, gender }) => {
   const classes = useStyles();
 
   const handleChange = (e) => {
-    console.log("VAL:", e.target.value);
     filterByGender(e.target.value);
   };
 

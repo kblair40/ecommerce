@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-around",
+    marginBottom: "13rem",
   },
   cardHeader: {
     marginTop: "1rem",

@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Fade from "@material-ui/core/Fade";
+import { useSelector } from "react-redux";
 
 import { useStyles } from "../../styles/AddressFormStyles";
 import { MURICA } from "../../constants";
@@ -27,6 +28,7 @@ const isEmail = (value) => value.includes("@");
 
 const AddressForm = ({ handleOrderSubmit }) => {
   const classes = useStyles();
+  const cartItems = useSelector((state) => state.cart.items);
 
   const {
     value: nameValue,
@@ -87,7 +89,8 @@ const AddressForm = ({ handleOrderSubmit }) => {
     addressIsValid &&
     cityIsValid &&
     stateIsValid &&
-    zipIsValid
+    zipIsValid &&
+    cartItems.length
   ) {
     formIsValid = true;
   }

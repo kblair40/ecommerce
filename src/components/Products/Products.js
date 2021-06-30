@@ -28,7 +28,6 @@ const Products = (props) => {
     if (params.category !== "home") {
       if (params.category === "clothing") {
         if (gender === "All") {
-          console.log("GENDER:", gender);
           activeProducts = PRODUCTS.filter((product) =>
             product.category.includes(params.category)
           );

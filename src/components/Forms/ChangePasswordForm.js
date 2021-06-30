@@ -8,6 +8,8 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { useSelector } from "react-redux";
 
+import SuccessModal from "../Auth/SuccessModal";
+
 const useStyles = makeStyles((theme) => ({
   changePasswordFormContainer: {
     margin: "5rem 0 0 2rem",
@@ -57,6 +59,19 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "1rem",
     marginRight: "1rem",
   },
+  responseModalContainer: {
+    width: "50vw",
+    height: "50vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  responseModal: {
+    height: "50%",
+    width: "50%",
+    minWidth: "18rem",
+    minHeight: "12rem",
+  },
   [theme.breakpoints.down("sm")]: {
     changePasswordForm: {
       flexDirection: "column",
@@ -72,6 +87,10 @@ const useStyles = makeStyles((theme) => ({
     changePasswordFormContainer: {
       margin: "1rem 0 0 0",
     },
+    responseModalContainer: {
+      position: "absolute",
+      bottom: "10rem",
+    },
   },
 }));
 
@@ -84,6 +103,9 @@ const ChangePasswordForm = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formHasLengthError, setFormHasLengthError] = useState(false);
   const [formHasPwdError, setFormHasPwdError] = useState(false);
+  const [passwordChangeSuccessful, setPasswordChangeSuccessful] =
+    useState(false);
+  const [passwordChangeAttempted, setPasswordChangeAttempted] = useState(false);
 
   const token = useSelector((state) => state.auth.token);
 
@@ -140,6 +162,10 @@ const ChangePasswordForm = () => {
     ).then((res) => {
       // assuming this ALWAYS succeeds
       console.log("RESPONSE:", res);
+      if (res.ok) {
+        setPasswordChangeAttempted(true);
+        setPasswordChangeSuccessful(true);
+      }
     });
   };
   return (
@@ -217,6 +243,16 @@ const ChangePasswordForm = () => {
       </form>
       {formHasPwdError && <p>Passwords do not match!</p>}
       {formHasLengthError && <p>Password must be a minimum of 6 characters!</p>}
+      <div className={classes.responseModalContainer}>
+        <div className={classes.responseModal}>
+          {passwordChangeAttempted && passwordChangeSuccessful && (
+            <SuccessModal />
+          )}
+          {/* {passwordChangeAttempted && !passwordChangeSuccessful && (
+          <ErrorModal />
+        )} */}
+        </div>
+      </div>
     </div>
   );
 };

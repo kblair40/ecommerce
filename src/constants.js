@@ -45,7 +45,7 @@ export const PRODUCTS = [
   },
   {
     id: "JIMLO589",
-    title: "John Hardy Women's Gold Dragon Bracelet",
+    title: "John Hardy Women's Gold Bracelet",
     price: 695,
     description:
       "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",

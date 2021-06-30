@@ -46,7 +46,6 @@ const cartSlice = createSlice({
       let selectedItem = state.items.find((item) => item.id === id);
       let quantityChange = newQty - selectedItem.quantity;
       state.subtotal += quantityChange * price;
-      console.log("SUBTOTAL:", state.subtotal);
 
       let updatedItems = state.items.map((item) => {
         if (item.id === id) {
@@ -59,8 +58,7 @@ const cartSlice = createSlice({
       state.totalQuantity += quantityChange;
     },
     removeFromCart(state, action) {
-      const { id, qty, price } = action.payload;
-      console.log("REMOVE DETAILS:", id, qty, price);
+      const { id, price } = action.payload;
 
       let qtyChange;
       let updatedItems = state.items.filter((item) => {
@@ -78,6 +76,7 @@ const cartSlice = createSlice({
     clearCart(state) {
       state.items = [];
       state.totalQuantity = 0;
+      state.subtotal = 0;
     },
 
     setError(state) {

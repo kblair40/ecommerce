@@ -6,7 +6,6 @@ import { useStyles } from "../../styles/CarouselTextOverlayStyles";
 
 const CarouselTextOverlay = ({ text }) => {
   const classes = useStyles();
-  console.log("TEXT:", text);
   return (
     <React.Fragment>
       <div className={classes.textOverlayContainer}>

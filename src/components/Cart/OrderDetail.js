@@ -48,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
 
 const OrderDetail = () => {
   const classes = useStyles();
-  const cartItems = useSelector((state) => state.cart.items);
   const subtotal = parseFloat(
     useSelector((state) => state.cart.subtotal).toFixed(2)
   );
