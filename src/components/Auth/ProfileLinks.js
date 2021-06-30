@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
 import Divider from "@material-ui/core/Divider";
-import LockIcon from "@material-ui/icons/Lock";
-import { Link } from "react-router-dom";
-import IconButton from "@material-ui/core/IconButton";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import WorkOutlineIcon from "@material-ui/icons/WorkOutline";
-import Hidden from "@material-ui/core/Hidden";
+import { useSelector } from "react-redux";
 
 import ChangePasswordForm from "../Forms/ChangePasswordForm";
 import ComingSoon from "../ComingSoon/ComingSoon";
@@ -18,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100vw",
     height: "100vh",
     display: "flex",
-    // marginTop: "2rem",
   },
   profileLinksContainer: {
     marginRight: "2rem",
@@ -43,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
   profileCardHeader: {
     // already set to Montserrat
     marginLeft: ".5rem",
+    fontWeight: "600",
   },
   profileLink: {
     display: "flex",
@@ -81,6 +78,7 @@ const useStyles = makeStyles((theme) => ({
 const ProfileLinks = () => {
   const classes = useStyles();
   const [componentToRender, setComponentToRender] = useState(null);
+  const displayName = useSelector((state) => state.auth.displayName);
 
   const showComingSoon = () => {
     setComponentToRender("coming soon");
@@ -95,7 +93,11 @@ const ProfileLinks = () => {
     <div className={classes.profileContainer}>
       <div className={classes.profileLinksContainer}>
         <Card elevation={0} className={classes.profileCardContainer}>
-          <h1 className={classes.profileCardHeader}>Manage Profile</h1>
+          <h2 className={classes.profileCardHeader}>
+            {/* Manage Profile */}
+            {/* Welcome, {displayName} */}
+            {displayName}'s Account
+          </h2>
           <Divider style={{ width: "100%" }} />
           <div
             className={classes.profileLink}
@@ -114,10 +116,7 @@ const ProfileLinks = () => {
           </div>
         </Card>
       </div>
-      <Hidden smUp>
-        <hr />
-        {/* <Divider style={{ margin: "5rem", background: "red" }} fullWidth /> */}
-      </Hidden>
+
       {componentToRender === "change password" && <ChangePasswordForm />}
       {componentToRender === "coming soon" && <ComingSoon />}
     </div>

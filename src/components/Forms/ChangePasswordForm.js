@@ -8,8 +8,6 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { useSelector } from "react-redux";
 
-// import { authActions } from "../../store/authSlice";
-
 const useStyles = makeStyles((theme) => ({
   changePasswordFormContainer: {
     margin: "5rem 0 0 2rem",
@@ -72,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
   },
   [theme.breakpoints.down("xs")]: {
     changePasswordFormContainer: {
-      margin: "1rem 0",
+      margin: "1rem 0 0 0",
     },
   },
 }));
