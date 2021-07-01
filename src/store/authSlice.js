@@ -9,6 +9,7 @@ const authSlice = createSlice({
     isLoggedIn: Boolean(localStorage.getItem("token")),
     displayName: localStorage.getItem("displayName"),
     snackbarOpen: false,
+    expTime: localStorage.getItem("expirationTime"),
   },
   reducers: {
     login(state, action) {
@@ -19,12 +20,14 @@ const authSlice = createSlice({
 
       localStorage.setItem("token", state.token);
       localStorage.setItem("displayName", state.displayName);
+      localStorage.setItem("expirationTime", action.payload.expTime);
     },
     logout(state) {
       state.token = null;
       state.isLoggedIn = false;
       localStorage.removeItem("token");
       localStorage.removeItem("displayName");
+      localStorage.removeItem("expirationTime");
     },
     openSnackbar(state) {
       state.snackbarOpen = true;

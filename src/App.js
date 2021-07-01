@@ -17,21 +17,16 @@ import { authActions } from "./store/authSlice";
 function App() {
   const expirationTime = useSelector((st) => st.auth.expTime);
   const remainingTime = calculateRemainingTime(expirationTime);
-
   const isLoggedIn = useSelector((st) => st.auth.isLoggedIn);
   const dispatch = useDispatch();
 
-  useEffect(
-    () => {
-      if (isLoggedIn) {
-        setTimeout(() => {
-          dispatch(authActions.logout());
-        }, remainingTime);
-      }
-    },
-    // respond to changes in isLoggedIn
-    [dispatch, isLoggedIn]
-  );
+  useEffect(() => {
+    if (isLoggedIn) {
+      setTimeout(() => {
+        dispatch(authActions.logout());
+      }, remainingTime);
+    }
+  }, [dispatch, isLoggedIn]);
 
   return (
     <div className="App">
