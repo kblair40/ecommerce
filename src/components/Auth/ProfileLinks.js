@@ -122,7 +122,7 @@ const ProfileLinks = () => {
       {componentToRender === "change password" && <ChangePasswordForm />}
       {componentToRender === "coming soon" && <ComingSoon />}
 
-      <LogoutSnackbar />
+      
     </div>
   );
 };

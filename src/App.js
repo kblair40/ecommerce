@@ -1,4 +1,5 @@
 import { Switch, Route, Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
@@ -11,6 +12,7 @@ import Auth from "./pages/Auth";
 import LogoutSnackbar from "./components/Auth/LogoutSnackbar";
 
 function App() {
+  const isLoggedIn = useSelector((st) => st.auth.isLoggedIn);
   return (
     <div className="App">
       <Navbar />
@@ -21,10 +23,11 @@ function App() {
         <Route path="/auth" exact>
           <Auth />
         </Route>
-
-        <Route path="/profile" exact>
-          <UserProfile />
-        </Route>
+        {isLoggedIn && (
+          <Route path="/profile" exact>
+            <UserProfile />
+          </Route>
+        )}
 
         <Route path="/:category" exact>
           <Products />
