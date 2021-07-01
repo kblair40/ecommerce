@@ -15,6 +15,8 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
       state.displayName = action.payload.displayName;
+      state.expTime = action.payload.expTime;
+
       localStorage.setItem("token", state.token);
       localStorage.setItem("displayName", state.displayName);
     },

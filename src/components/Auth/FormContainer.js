@@ -80,9 +80,16 @@ const FormContainer = ({ children }) => {
         }
       })
       .then((data) => {
+        const expirationTime = new Date(
+          new Date().getTime() + +data.expiresIn * 1000
+        );
         let displayName = email.split("@")[0];
         dispatch(
-          authActions.login({ token: data.idToken, displayName: displayName })
+          authActions.login({
+            token: data.idToken,
+            displayName: displayName,
+            expTime: expirationTime,
+          })
         );
         // Maybe make the '/' below be '/login' if user just created new account
         history.replace("/");

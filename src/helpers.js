@@ -10,6 +10,15 @@ export const setMenuOrder = (qty) => {
   return qtyOptions;
 };
 
+export const calculateRemainingTime = (expirationTime) => {
+  const currentTime = new Date().getTime();
+  const adjExpirationTime = new Date(expirationTime).getTime();
+
+  const remainingDuration = adjExpirationTime - currentTime;
+
+  return remainingDuration;
+};
+
 // export const passwordsDoMatch = (pwd1, pwd2) => {
 //   return null
 // }

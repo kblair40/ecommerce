@@ -1,5 +1,6 @@
+import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
@@ -10,9 +11,28 @@ import DarkMode from "./components/ComingSoon/DarkMode";
 import Loading from "./Loading";
 import Auth from "./pages/Auth";
 import LogoutSnackbar from "./components/Auth/LogoutSnackbar";
+import { calculateRemainingTime } from "./helpers";
+import { authActions } from "./store/authSlice";
 
 function App() {
+  const expirationTime = useSelector((st) => st.auth.expTime);
+  const remainingTime = calculateRemainingTime(expirationTime);
+
   const isLoggedIn = useSelector((st) => st.auth.isLoggedIn);
+  const dispatch = useDispatch();
+
+  useEffect(
+    () => {
+      if (isLoggedIn) {
+        setTimeout(() => {
+          dispatch(authActions.logout());
+        }, remainingTime);
+      }
+    },
+    // respond to changes in isLoggedIn
+    [dispatch, isLoggedIn]
+  );
+
   return (
     <div className="App">
       <Navbar />
