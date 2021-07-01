@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initalToken = localStorage.getItem("token");
+
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    token: null,
-    isLoggedIn: false,
-    displayName: null,
+    token: localStorage.getItem("token"),
+    isLoggedIn: Boolean(localStorage.getItem("token")),
+    displayName: localStorage.getItem("displayName"),
     snackbarOpen: false,
   },
   reducers: {
@@ -13,10 +15,14 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
       state.displayName = action.payload.displayName;
+      localStorage.setItem("token", state.token);
+      localStorage.setItem("displayName", state.displayName);
     },
     logout(state) {
       state.token = null;
       state.isLoggedIn = false;
+      localStorage.removeItem("token");
+      localStorage.removeItem("displayName");
     },
     openSnackbar(state) {
       state.snackbarOpen = true;
