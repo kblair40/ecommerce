@@ -6,9 +6,9 @@ const defaultMenuOptions = [1, 2, 3, 4, 5];
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    items: [],
-    totalQuantity: 0,
-    subtotal: 0,
+    items: JSON.parse(localStorage.getItem("cartItems")) || [],
+    totalQuantity: JSON.parse(localStorage.getItem("totalQuantity")) || 0,
+    subtotal: JSON.parse(localStorage.getItem("subtotal")) || 0,
     chosenSize: undefined,
     hasError: false,
   },
@@ -38,30 +38,46 @@ const cartSlice = createSlice({
         });
         state.items = currentItems;
       }
-      state.totalQuantity++;
-      state.subtotal += newItem.price;
+
+      const newQty = state.totalQuantity + 1;
+      const subtotal = state.subtotal + newItem.price;
+
+      state.totalQuantity = newQty;
+      state.subtotal = subtotal;
+
+      localStorage.setItem("totalQuantity", newQty);
+      localStorage.setItem("subtotal", subtotal);
+      localStorage.setItem("cartItems", JSON.stringify(currentItems));
     },
     updateQty(state, action) {
-      let { id, newQty, price } = action.payload;
-      let selectedItem = state.items.find((item) => item.id === id);
-      let quantityChange = newQty - selectedItem.quantity;
+      const { id, newQty, price } = action.payload;
+      const currentItems = state.items.slice();
+      const selectedItem = currentItems.find((item) => item.id === id);
+      const quantityChange = newQty - selectedItem.quantity;
+
       state.subtotal += quantityChange * price;
 
-      let updatedItems = state.items.map((item) => {
+      const updatedItems = currentItems.map((item) => {
         if (item.id === id) {
           item.quantity = newQty;
         }
         return item;
       });
 
+      const newQuantity = state.totalQuantity + quantityChange;
+
       state.items = updatedItems;
-      state.totalQuantity += quantityChange;
+      state.totalQuantity += newQuantity;
+
+      localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+      localStorage.setItem("totalQuantity", newQuantity);
     },
     removeFromCart(state, action) {
       const { id, price } = action.payload;
+      const currentItems = state.items.slice();
 
       let qtyChange;
-      let updatedItems = state.items.filter((item) => {
+      let updatedItems = currentItems.filter((item) => {
         if (item.id === id) {
           qtyChange = item.quantity;
           return false;
@@ -69,14 +85,27 @@ const cartSlice = createSlice({
         return true;
       });
 
+      const newQty = state.totalQuantity - qtyChange;
+      const removedItemCost = qtyChange * price;
+      const subtotal = state.subtotal - removedItemCost;
+
       state.items = updatedItems;
-      state.totalQuantity -= qtyChange;
-      state.subtotal -= qtyChange * price;
+      state.totalQuantity = newQty;
+      state.subtotal = subtotal;
+
+      localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+      localStorage.setItem("totalQuantity", newQty);
+      localStorage.setItem("subtotal", subtotal);
     },
     clearCart(state) {
       state.items = [];
       state.totalQuantity = 0;
       state.subtotal = 0;
+
+      // localStorage.setItem("cartItems", JSON.stringify([]));
+      localStorage.removeItem("cartItems");
+      localStorage.setItem("totalQuantity", 0);
+      localStorage.setItem("subtotal", 0);
     },
 
     setError(state) {
