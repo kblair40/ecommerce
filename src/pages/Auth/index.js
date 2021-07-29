@@ -1,10 +1,10 @@
 import React from "react";
-import AuthForms from "../../components/AuthForms";
+import AuthFormContainer from "../../components/AuthFormContainer";
 
 const Auth = () => {
   return (
     <div>
-      <AuthForms />
+      <AuthFormContainer />
     </div>
   );
 };

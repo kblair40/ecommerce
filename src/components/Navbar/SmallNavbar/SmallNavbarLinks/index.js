@@ -8,7 +8,7 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
-import SetMode from "../../ToggleMode";
+import ToggleMode from "../../ToggleMode";
 import { authActions } from "../../../../store/authSlice";
 import useStyles from "./styles";
 
@@ -93,7 +93,7 @@ const SmallNavbarLinks = ({ handleDrawerClose }) => {
               </NavLink>
             </ListItem>
           )}
-          <SetMode style={{ marginTop: "3rem" }} />
+          <ToggleMode style={{ marginTop: "3rem" }} />
         </div>
       </List>
     </div>

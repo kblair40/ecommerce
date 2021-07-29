@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { useSelector } from "react-redux";
 
-import SuccessModal from "../../../../misc/SuccessModal/";
+import SuccessModal from "../../../misc/SuccessModal";
 import useStyles from "./styles";
 
 const ChangePasswordForm = () => {
@@ -86,66 +86,64 @@ const ChangePasswordForm = () => {
   };
   return (
     <div className={classes.changePasswordFormContainer}>
-      <form onSubmit={handleSubmit}>
-        <div className={classes.changePasswordForm}>
-          <div className={classes.inputRow}>
-            <TextField
-              type={showPassword ? "text" : "password"}
-              InputProps={{
-                classes: {
-                  underline: classes.bottomInputBorder,
-                },
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                    >
-                      {showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-              InputLabelProps={{
-                classes: {
-                  root: classes.newPasswordInputLabelRoot,
-                },
-              }}
-              label="New Password"
-              onChange={handlePasswordChange}
-              value={passwordInput}
-              fullWidth
-            />
-          </div>
-          <div className={classes.inputRow}>
-            <TextField
-              type={showConfirmPassword ? "text" : "password"}
-              InputProps={{
-                classes: {
-                  underline: classes.bottomInputBorder,
-                },
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowConfirmPassword}
-                    >
-                      {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-              InputLabelProps={{
-                classes: {
-                  root: classes.newPasswordInputLabelRoot,
-                },
-              }}
-              label="Confirm New Password"
-              onChange={handleConfirmPasswordChange}
-              value={confirmPasswordInput}
-              fullWidth
-            />
-          </div>
+      <form onSubmit={handleSubmit} className={classes.changePasswordForm}>
+        <div className={classes.inputRow}>
+          <TextField
+            type={showPassword ? "text" : "password"}
+            InputProps={{
+              classes: {
+                underline: classes.bottomInputBorder,
+              },
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            InputLabelProps={{
+              classes: {
+                root: classes.newPasswordInputLabelRoot,
+              },
+            }}
+            label="New Password"
+            onChange={handlePasswordChange}
+            value={passwordInput}
+            fullWidth
+          />
+        </div>
+        <div className={classes.inputRow}>
+          <TextField
+            type={showConfirmPassword ? "text" : "password"}
+            InputProps={{
+              classes: {
+                underline: classes.bottomInputBorder,
+              },
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowConfirmPassword}
+                  >
+                    {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            InputLabelProps={{
+              classes: {
+                root: classes.newPasswordInputLabelRoot,
+              },
+            }}
+            label="Confirm New Password"
+            onChange={handleConfirmPasswordChange}
+            value={confirmPasswordInput}
+            fullWidth
+          />
         </div>
         <Button
           classes={{ root: classes.changePasswordBtnRoot }}
@@ -159,21 +157,19 @@ const ChangePasswordForm = () => {
       </form>
       {formHasPwdError && <p>Passwords do not match!</p>}
       {formHasLengthError && <p>Password must be a minimum of 6 characters!</p>}
-      <div className={classes.responseModalContainer}>
-        <div className={classes.responseModal}>
-          {passwordChangeAttempted && passwordChangeSuccessful && (
+
+      {passwordChangeAttempted && passwordChangeSuccessful && (
+        <div className={classes.responseModalContainer}>
+          <div className={classes.responseModal}>
             <SuccessModal
               mainText="Success!"
               subText="Please return to login"
               buttonText="Return to Login"
               redirectTo="/auth"
             />
-          )}
-          {/* {passwordChangeAttempted && !passwordChangeSuccessful && (
-          <ErrorModal />
-        )} */}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -2,14 +2,18 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles((theme) => ({
   changePasswordFormContainer: {
-    margin: "5rem 0 0 2rem",
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "98%",
     fontFamily: "Montserrat",
     "& p": {
       color: "#ff4244",
-      maxWidth: "14rem",
       fontSize: ".8rem",
     },
   },
+  // Actual HTML form element
   changePasswordForm: {
     display: "flex",
     alignItems: "center",
@@ -18,15 +22,16 @@ const useStyles = makeStyles((theme) => ({
   changePasswordBtnRoot: {
     background: "#1d6d86",
     color: "white",
-    width: "50%",
+    width: "12rem",
+    minWidth: "12rem",
     fontFamily: "Montserrat",
-    marginTop: ".8rem",
     "&:hover": {
       background: "#1d6d86",
     },
   },
   newPasswordInputLabelRoot: {
     fontFamily: "Montserrat",
+    fontSize: ".9rem",
     whiteSpace: "nowrap",
     "&.Mui-focused": {
       color: "#1d6d86",
@@ -46,8 +51,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   inputRow: {
-    marginBottom: "1rem",
-    marginRight: "1rem",
+    margin: "0 1rem 1rem 0",
   },
   responseModalContainer: {
     width: "50vw",
@@ -63,6 +67,11 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "12rem",
   },
   [theme.breakpoints.down("sm")]: {
+    changePasswordFormContainer: {
+      "& p": {
+        textAlign: "center",
+      },
+    },
     changePasswordForm: {
       flexDirection: "column",
     },
@@ -70,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
       marginRight: "0",
     },
     changePasswordBtnRoot: {
-      width: "100%",
+      width: "50%",
     },
   },
   [theme.breakpoints.down("xs")]: {

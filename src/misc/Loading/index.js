@@ -7,7 +7,7 @@ import styles from "./styles";
 
 const Loading = ({ classes }) => {
   return (
-    <Grid direction="row" justify="center" alignItems="center">
+    <Grid direction="row" justifyContent="center" alignItems="center" container>
       <LinearProgress classes={{ root: classes.loaderRoot }} />
     </Grid>
   );

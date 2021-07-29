@@ -4,8 +4,8 @@ import Divider from "@material-ui/core/Divider";
 import { useDispatch } from "react-redux";
 
 import useStyles from "./styles";
-import QuantityUpdate from "../QuantityUpdate/";
-import { cartActions } from "../../../store/cartSlice";
+import QuantityUpdate from "./QuantityUpdate/";
+import { cartActions } from "../../../../store/cartSlice";
 
 const CartProduct = ({ item }) => {
   const classes = useStyles(item.image);

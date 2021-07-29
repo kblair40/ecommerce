@@ -6,17 +6,17 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 
-import { API_KEY } from "../../../utils/constants";
+import { API_KEY } from "../../../../utils/constants";
 import useStyles from "./styles";
 
-const NewAccountForm = ({ handleSubmit, isLoginMode }) => {
+const NewAccountForm = ({ handleSubmit }) => {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
+  const [passwordsDoMatch, setPasswordsDoMatch] = useState(true);
 
   const handleClickShowPassword = () => {
     setShowPassword((state) => !state);
@@ -40,6 +40,13 @@ const NewAccountForm = ({ handleSubmit, isLoginMode }) => {
   const handleClickSubmit = (e) => {
     e.preventDefault();
     const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
+
+    if (passwordValue !== confirmPasswordValue) {
+      setPasswordsDoMatch(false);
+      return;
+    } else {
+      setPasswordsDoMatch(true);
+    }
 
     handleSubmit(url, emailValue, passwordValue, confirmPasswordValue);
     setEmailValue("");
@@ -127,6 +134,11 @@ const NewAccountForm = ({ handleSubmit, isLoginMode }) => {
           value={confirmPasswordValue}
           fullWidth
         />
+        {!passwordsDoMatch && (
+          <p style={{ color: "#ff4244", fontSize: ".85rem" }}>
+            Passwords must match!
+          </p>
+        )}
       </div>
       <div className={classes.loginFormRow}>
         <Button

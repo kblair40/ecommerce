@@ -11,7 +11,7 @@ const SlideTransition = (props) => {
   return <Slide {...props} direction="up" />;
 };
 
-const DarkMode = ({ classes }) => {
+const ErrorSnackbar = ({ classes }) => {
   const isOpen = useSelector((state) => state.mode.snackbarOpen);
 
   return (
@@ -32,4 +32,4 @@ const DarkMode = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(DarkMode);
+export default withStyles(styles)(ErrorSnackbar);

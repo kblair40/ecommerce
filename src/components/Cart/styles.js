@@ -1,21 +1,48 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-const useStyles = makeStyles({
-  cartProductsContainer: {
-    color: "#0c0c0d",
-    width: "100%",
+const useStyles = makeStyles((theme) => ({
+  checkoutCartSection: {
+    padding: "1rem .1rem",
     display: "flex",
     flexDirection: "column",
-    maxHeight: "70vh",
-    overflowY: "auto",
-    overflowX: "hidden",
+    width: "80%",
   },
-  cartEmptyContainer: {
-    fontFamily: "Montserrat",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+  checkoutOrderDetail: {
+    width: "100%",
   },
-});
+  checkoutAddressForm: {
+    width: "100%",
+  },
+  [theme.breakpoints.down("md")]: {
+    checkoutPageContainer: {
+      gridTemplateColumns: "100%",
+      gridColumnGap: 0,
+    },
+    checkoutCartSection: {
+      width: "100%",
+      flexDirection: "row",
+    },
+  },
+  [theme.breakpoints.down("sm")]: {
+    checkoutOrderDetail: {
+      width: "50%",
+    },
+    checkoutAddressForm: {
+      width: "50%",
+    },
+  },
+  [theme.breakpoints.down("xs")]: {
+    checkoutCartSection: {
+      flexDirection: "column",
+      alignItems: "center",
+    },
+    checkoutOrderDetail: {
+      width: "100%",
+    },
+    checkoutAddressForm: {
+      width: "100%",
+    },
+  },
+}));
 
 export default useStyles;

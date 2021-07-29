@@ -12,18 +12,6 @@ const useStyles = makeStyles((theme) => ({
   checkoutCart: {
     width: "100%",
   },
-  checkoutCartSection: {
-    padding: "1rem .1rem",
-    display: "flex",
-    flexDirection: "column",
-    width: "80%",
-  },
-  checkoutOrderDetail: {
-    width: "100%",
-  },
-  checkoutAddressForm: {
-    width: "100%",
-  },
   [theme.breakpoints.down("md")]: {
     checkoutPageContainer: {
       gridTemplateColumns: "100%",

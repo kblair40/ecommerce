@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     height: "80vh",
     justifyContent: "center",
     alignItems: "center",
+    zIndex: 20,
   },
   thankYouCard: {
     position: "relative",

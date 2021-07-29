@@ -4,18 +4,15 @@ import Button from "@material-ui/core/Button";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import LoginForm from "./LoginForm/";
-import NewAccountForm from "./NewAccountForm/";
+import LoginForm from "./LoginForm";
+import NewAccountForm from "./NewAccountForm";
 import { authActions } from "../../../store/authSlice";
 import useStyles from "./styles";
 
-const AuthForms = ({ children }) => {
+const AuthForms = () => {
   const classes = useStyles();
-
   const history = useHistory();
-
   const [isLoginMode, setIsLoginMode] = useState(true);
-
   const dispatch = useDispatch();
 
   const toggleMode = () => {
@@ -39,7 +36,6 @@ const AuthForms = ({ children }) => {
           return res.json();
         } else {
           return res.json().then((data) => {
-            // MIGHT WANT TO STORE ERROR MODAL HERE INSTEAD OF THE BELOW
             let errorMessage = "Authentication Failed";
             if (data && data.error && data.error.message) {
               errorMessage = data.error.message;
@@ -60,7 +56,7 @@ const AuthForms = ({ children }) => {
             expTime: expirationTime,
           })
         );
-        // Consider making the '/' below be '/login' if user just created new account
+        // Send user back to home page after logging in.
         history.replace("/");
       })
       .catch((err) => {

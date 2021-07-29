@@ -2,9 +2,11 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles((theme) => ({
   userProfileContainer: {
-    display: "flex",
-    marginTop: "1rem",
     fontFamily: "Montserrat",
+    // border: "3px solid orange",
+    // overflow: "auto",
+    position: "relative",
+    top: "3rem",
   },
 }));
 

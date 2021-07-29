@@ -3,7 +3,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import NavAccountDropdown from "../NavAccountDropdown/";
+import NavAccountDropdown from "./NavAccountDropdown";
 import { authActions } from "../../../store/authSlice";
 import useStyles from "./styles";
 

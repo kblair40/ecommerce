@@ -4,8 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Navbar from "./components/Navbar/";
 import Products from "./components/Products/";
-import DarkMode from "./misc/DarkMode/";
-import Loading from "./misc/Loading/";
+// import DarkMode from "./misc/DarkMode/";
 import { calculateRemainingTime } from "./utils/helpers";
 import { authActions } from "./store/authSlice";
 
@@ -27,7 +26,7 @@ function App() {
         dispatch(authActions.logout());
       }, remainingTime);
     }
-  }, [dispatch, isLoggedIn]);
+  }, [dispatch, isLoggedIn, remainingTime]);
 
   return (
     <div className="App">
@@ -51,14 +50,11 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/loading" exact>
-          <Loading />
-        </Route>
+
         <Route path="*" exact>
-          <Redirect to="/clothing" />
+          <Redirect to="/" />
         </Route>
       </Switch>
-      <DarkMode />
     </div>
   );
 }
