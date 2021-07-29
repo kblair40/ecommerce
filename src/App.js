@@ -2,17 +2,18 @@ import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import Home from "./pages/Home";
-import Checkout from "./pages/Checkout";
-import UserProfile from "./pages/UserProfile";
-import Navbar from "./components/Navbar/Navbar";
-import Products from "./components/Products/Products";
-import DarkMode from "./components/ComingSoon/DarkMode";
-import Loading from "./Loading";
-import Auth from "./pages/Auth";
-import LogoutSnackbar from "./components/Auth/LogoutSnackbar";
-import { calculateRemainingTime } from "./helpers";
+import Navbar from "./components/Navbar/";
+import Products from "./components/Products/";
+import DarkMode from "./misc/DarkMode/";
+import Loading from "./misc/Loading/";
+import { calculateRemainingTime } from "./utils/helpers";
 import { authActions } from "./store/authSlice";
+
+// PAGES
+import Home from "./pages/Home/";
+import Checkout from "./pages/Checkout/";
+import Auth from "./pages/Auth/";
+import UserProfile from "./pages/UserProfile/";
 
 function App() {
   const expirationTime = useSelector((st) => st.auth.expTime);
@@ -58,7 +59,6 @@ function App() {
         </Route>
       </Switch>
       <DarkMode />
-      <LogoutSnackbar />
     </div>
   );
 }

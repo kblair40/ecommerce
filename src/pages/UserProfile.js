@@ -1,6 +1,6 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import ProfileLinks from "../components/Auth/ProfileLinks";
+import ProfileLinks from "../components/AuthForms/ProfileLinks/";
 
 const useStyles = makeStyles((theme) => ({
   userProfileContainer: {

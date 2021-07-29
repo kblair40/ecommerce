@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setMenuOrder } from "../helpers";
+import { setMenuOrder } from "../utils/helpers";
 
 const defaultMenuOptions = [1, 2, 3, 4, 5];
 
