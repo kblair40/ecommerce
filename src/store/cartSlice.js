@@ -67,7 +67,7 @@ const cartSlice = createSlice({
       const newQuantity = state.totalQuantity + quantityChange;
 
       state.items = updatedItems;
-      state.totalQuantity += newQuantity;
+      state.totalQuantity = newQuantity;
 
       localStorage.setItem("cartItems", JSON.stringify(updatedItems));
       localStorage.setItem("totalQuantity", newQuantity);
