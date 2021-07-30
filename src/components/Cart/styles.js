@@ -1,16 +1,21 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
   checkoutCartSection: {
     padding: "1rem .1rem",
     display: "flex",
     flexDirection: "column",
-    width: "80%",
+    width: "30%",
+    // border: "1px solid black",
   },
   checkoutOrderDetail: {
     width: "100%",
   },
-  checkoutAddressForm: {
+  checkoutForm: {
     width: "100%",
   },
   [theme.breakpoints.down("md")]: {
@@ -27,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     checkoutOrderDetail: {
       width: "50%",
     },
-    checkoutAddressForm: {
+    checkoutForm: {
       width: "50%",
     },
   },
@@ -35,11 +40,15 @@ const useStyles = makeStyles((theme) => ({
     checkoutCartSection: {
       flexDirection: "column",
       alignItems: "center",
+      border: "1px solid black",
     },
     checkoutOrderDetail: {
+      border: "1px solid red",
+      display: "flex",
+      justifyContent: "center",
       width: "100%",
     },
-    checkoutAddressForm: {
+    checkoutForm: {
       width: "100%",
     },
   },

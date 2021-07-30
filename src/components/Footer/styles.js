@@ -1,10 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles((theme) => ({
-  push: {
-    // position: "relative",
-    // border: "1px solid blue",
-  },
   container: {
     width: "100%",
     minWidth: "330px",

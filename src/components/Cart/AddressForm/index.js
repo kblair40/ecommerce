@@ -16,7 +16,7 @@ import ErrorMessage from "./ErrorMessage";
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
 
-const AddressForm = ({ handleOrderSubmit }) => {
+const AddressForm = ({ handleAddressSubmit }) => {
   const classes = useStyles();
   const cartItems = useSelector((state) => state.cart.items);
 
@@ -94,14 +94,14 @@ const AddressForm = ({ handleOrderSubmit }) => {
     resetCity();
     resetState();
     resetZip();
-    handleOrderSubmit(e);
+    handleAddressSubmit(e);
   };
 
   return (
     <Fade in={true} timeout={400}>
       <Card className={classes.checkoutFormContainer} elevation={0}>
         <h1 className={classes.addressFormTitle}>Shipping Address</h1>
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleAddressSubmit}>
           <div className={classes.inputRow}>
             <InputLabel
               classes={{ root: classes.inputRoot }}

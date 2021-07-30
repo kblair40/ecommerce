@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 import CartProducts from "./CartProducts";
 import OrderDetail from "./OrderDetail";
 import AddressForm from "./AddressForm";
 import ThankYou from "./ThankYou";
-// import PaymentForm from './PaymentForm';
+import PaymentForm from "./PaymentForm";
 import useStyles from "./styles";
 
-const Cart = ({ thankYouModalShowing, handleClose, handleOrderSubmit }) => {
+const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
+
+const Cart = ({ thankYouModalShowing, handleClose, handleAddressSubmit }) => {
   const classes = useStyles();
+  // Add function that sets form showing to 'payment' once address is submitted
+  const [formShowing, setFormShowing] = useState("addrss");
 
   return (
-    <React.Fragment>
+    <div className={classes.container}>
       <CartProducts />
 
       <div className={classes.checkoutCartSection}>
@@ -19,13 +25,19 @@ const Cart = ({ thankYouModalShowing, handleClose, handleOrderSubmit }) => {
           <OrderDetail />
         </section>
 
-        <section className={classes.checkoutAddressForm}>
-          <AddressForm handleOrderSubmit={handleOrderSubmit} />
+        <section className={classes.checkoutForm}>
+          {formShowing === "address" ? (
+            <AddressForm handleAddressSubmit={handleAddressSubmit} />
+          ) : (
+            <Elements stripe={stripePromise}>
+              <PaymentForm />
+            </Elements>
+          )}
         </section>
       </div>
 
       {thankYouModalShowing && <ThankYou handleClose={handleClose} />}
-    </React.Fragment>
+    </div>
   );
 };
 

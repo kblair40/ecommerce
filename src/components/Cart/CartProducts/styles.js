@@ -1,9 +1,10 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   cartProductsContainer: {
     color: "#0c0c0d",
-    width: "100%",
+    // width: "100%",
+    width: "70%",
     display: "flex",
     flexDirection: "column",
     maxHeight: "70vh",
@@ -16,6 +17,11 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
   },
-});
+  [theme.breakpoints.down("md")]: {
+    cartProductsContainer: {
+      width: "100%",
+    },
+  },
+}));
 
 export default useStyles;

@@ -11,7 +11,7 @@ const Checkout = () => {
 
   const [thankYouModalShowing, setThankYouModalShowing] = useState(false);
 
-  const handleOrderSubmit = (e) => {
+  const handleAddressSubmit = (e) => {
     e.preventDefault();
 
     setThankYouModalShowing(true);
@@ -28,7 +28,7 @@ const Checkout = () => {
         <Cart
           thankYouModalShowing={thankYouModalShowing}
           handleClose={handleClose}
-          handleOrderSubmit={handleOrderSubmit}
+          handleAddressSubmit={handleAddressSubmit}
         />
       </div>
     </div>
