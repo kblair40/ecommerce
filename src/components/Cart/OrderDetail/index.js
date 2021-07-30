@@ -11,8 +11,9 @@ const OrderDetail = () => {
   const subtotal = parseFloat(
     useSelector((state) => state.cart.subtotal).toFixed(2)
   );
+
   const minimumMet = subtotal >= 50;
-  const tax = parseFloat((subtotal * 0.07).toFixed(2));
+  const tax = parseFloat((subtotal * 0.085).toFixed(2));
 
   return (
     <Fade in={true} timeout={400}>

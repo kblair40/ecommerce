@@ -77,73 +77,75 @@ const ChangePasswordForm = () => {
       }
     ).then((res) => {
       // assuming this ALWAYS succeeds
-      // console.log("RESPONSE:", res);
       if (res.ok) {
         setPasswordChangeAttempted(true);
         setPasswordChangeSuccessful(true);
       }
     });
   };
+
   return (
     <div className={classes.changePasswordFormContainer}>
       <form onSubmit={handleSubmit} className={classes.changePasswordForm}>
-        <div className={classes.inputRow}>
-          <TextField
-            type={showPassword ? "text" : "password"}
-            InputProps={{
-              classes: {
-                underline: classes.bottomInputBorder,
-              },
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                  >
-                    {showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.newPasswordInputLabelRoot,
-              },
-            }}
-            label="New Password"
-            onChange={handlePasswordChange}
-            value={passwordInput}
-            fullWidth
-          />
-        </div>
-        <div className={classes.inputRow}>
-          <TextField
-            type={showConfirmPassword ? "text" : "password"}
-            InputProps={{
-              classes: {
-                underline: classes.bottomInputBorder,
-              },
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowConfirmPassword}
-                  >
-                    {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.newPasswordInputLabelRoot,
-              },
-            }}
-            label="Confirm New Password"
-            onChange={handleConfirmPasswordChange}
-            value={confirmPasswordInput}
-            fullWidth
-          />
+        <div className={classes.formInputs}>
+          <div className={classes.inputRow}>
+            <TextField
+              type={showPassword ? "text" : "password"}
+              InputProps={{
+                classes: {
+                  underline: classes.bottomInputBorder,
+                },
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                    >
+                      {showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              InputLabelProps={{
+                classes: {
+                  root: classes.newPasswordInputLabelRoot,
+                },
+              }}
+              label="New Password"
+              onChange={handlePasswordChange}
+              value={passwordInput}
+              fullWidth
+            />
+          </div>
+          <div className={classes.inputRow}>
+            <TextField
+              type={showConfirmPassword ? "text" : "password"}
+              InputProps={{
+                classes: {
+                  underline: classes.bottomInputBorder,
+                },
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowConfirmPassword}
+                    >
+                      {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              InputLabelProps={{
+                classes: {
+                  root: classes.newPasswordInputLabelRoot,
+                },
+              }}
+              label="Confirm New Password"
+              onChange={handleConfirmPasswordChange}
+              value={confirmPasswordInput}
+              fullWidth
+            />
+          </div>
         </div>
         <Button
           classes={{ root: classes.changePasswordBtnRoot }}

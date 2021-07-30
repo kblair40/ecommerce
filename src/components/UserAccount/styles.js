@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Montserrat",
     position: "absolute",
     top: "3.5rem",
+    display: "flex",
   },
 
   profileCardContainer: {
@@ -34,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
     padding: ".5rem",
     height: "100%",
     width: "calc(100vw - 17rem)",
@@ -42,18 +42,24 @@ const useStyles = makeStyles((theme) => ({
 
   [theme.breakpoints.down("xs")]: {
     profileContainer: {
+      display: "flex",
       flexDirection: "column",
       alignItems: "center",
+      justifyContent: "flex-start",
       height: "auto",
+      position: "relative",
+      marginBottom: "10rem",
     },
 
     profileCardContainer: {
-      position: "static",
-      marginTop: "1.7rem",
-      height: "auto",
+      position: "relative",
       width: "100vw",
+      top: 0,
       padding: 0,
-      backgroundColor: "transparent",
+    },
+    visibleComponentContainer: {
+      position: "relative",
+      left: "0",
     },
   },
 }));

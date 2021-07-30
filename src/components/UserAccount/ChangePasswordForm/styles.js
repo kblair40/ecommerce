@@ -3,9 +3,6 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 const useStyles = makeStyles((theme) => ({
   changePasswordFormContainer: {
     height: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
     width: "98%",
     fontFamily: "Montserrat",
     "& p": {
@@ -17,7 +14,11 @@ const useStyles = makeStyles((theme) => ({
   changePasswordForm: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
     minWidth: "15rem",
+  },
+  formInputs: {
+    display: "flex",
   },
   changePasswordBtnRoot: {
     background: "#1d6d86",
@@ -68,11 +69,18 @@ const useStyles = makeStyles((theme) => ({
   },
   [theme.breakpoints.down("sm")]: {
     changePasswordFormContainer: {
+      display: "flex",
+      justifyContent: "center",
       "& p": {
         textAlign: "center",
       },
     },
     changePasswordForm: {
+      flexDirection: "column",
+      justifyContent: "flex-start",
+      alignItems: "center",
+    },
+    formInputs: {
       flexDirection: "column",
     },
     inputRow: {
@@ -89,6 +97,9 @@ const useStyles = makeStyles((theme) => ({
     responseModalContainer: {
       position: "absolute",
       bottom: "10rem",
+    },
+    changePasswordForm: {
+      position: "relative",
     },
   },
 }));

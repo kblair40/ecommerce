@@ -15,6 +15,12 @@ const useStyles = makeStyles((theme) => ({
     color: "#0c0c0d",
     marginLeft: ".5rem",
     fontSize: "1.2rem",
+    whiteSpace: "nowrap",
+  },
+  [theme.breakpoints.down("xs")]: {
+    linkText: {
+      margin: ".5rem 0",
+    },
   },
 }));
 

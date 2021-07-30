@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     width: "100%",
+    minWidth: "330px",
     padding: "1rem",
     background: "#f0f0f0",
     fontFamily: "Montserrat",
@@ -60,7 +61,8 @@ const useStyles = makeStyles((theme) => ({
   [theme.breakpoints.down("xs")]: {
     footer: {
       justifyContent: "space-between",
-      height: "14rem",
+      height: "16rem",
+      // height: "auto",
     },
     section: {
       width: "calc(50% - 1rem)",

@@ -7,7 +7,6 @@ import SocialIcons from "./SocialIcons";
 const Footer = () => {
   const classes = useStyles();
   return (
-    // <div className={classes.push}>
     <div className={classes.container}>
       <footer className={classes.footer}>
         <section className={classes.section}>
@@ -52,7 +51,6 @@ const Footer = () => {
         <span>&nbsp;2021 Ecommerce, Inc.</span>
       </div>
     </div>
-    // </div>
   );
 };
 
