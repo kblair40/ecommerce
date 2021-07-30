@@ -11,7 +11,7 @@ import classNames from "classnames";
 
 import useStyles from "./styles";
 
-const PaymentForm = () => {
+const PaymentForm = ({ handlePaymentSubmit }) => {
   const classes = useStyles();
   const elements = useElements();
 
@@ -39,6 +39,8 @@ const PaymentForm = () => {
     exp.clear();
     num.clear();
     cvc.clear();
+
+    handlePaymentSubmit(event);
   };
 
   return (

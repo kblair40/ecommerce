@@ -11,10 +11,15 @@ import useStyles from "./styles";
 
 const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
 
-const Cart = ({ thankYouModalShowing, handleClose, handleAddressSubmit }) => {
+const Cart = ({
+  thankYouModalShowing,
+  handleClose,
+  handleAddressSubmit,
+  formShowing,
+  handlePaymentSubmit,
+}) => {
   const classes = useStyles();
   // Add function that sets form showing to 'payment' once address is submitted
-  const [formShowing, setFormShowing] = useState("addrss");
 
   return (
     <div className={classes.container}>
@@ -30,7 +35,7 @@ const Cart = ({ thankYouModalShowing, handleClose, handleAddressSubmit }) => {
             <AddressForm handleAddressSubmit={handleAddressSubmit} />
           ) : (
             <Elements stripe={stripePromise}>
-              <PaymentForm />
+              <PaymentForm handlePaymentSubmit={handlePaymentSubmit} />
             </Elements>
           )}
         </section>

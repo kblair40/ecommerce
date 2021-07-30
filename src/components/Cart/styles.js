@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     width: "30%",
-    // border: "1px solid black",
   },
   checkoutOrderDetail: {
     width: "100%",

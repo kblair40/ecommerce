@@ -10,8 +10,15 @@ const Checkout = () => {
   const dispatch = useDispatch();
 
   const [thankYouModalShowing, setThankYouModalShowing] = useState(false);
+  const [formShowing, setFormShowing] = useState("address");
 
   const handleAddressSubmit = (e) => {
+    e.preventDefault();
+
+    setFormShowing("payment");
+  };
+
+  const handlePaymentSubmit = (e) => {
     e.preventDefault();
 
     setThankYouModalShowing(true);
@@ -28,7 +35,9 @@ const Checkout = () => {
         <Cart
           thankYouModalShowing={thankYouModalShowing}
           handleClose={handleClose}
+          formShowing={formShowing}
           handleAddressSubmit={handleAddressSubmit}
+          handlePaymentSubmit={handlePaymentSubmit}
         />
       </div>
     </div>
