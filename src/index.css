@@ -5,8 +5,8 @@
 html,
 body {
   overflow-x: hidden;
-}
-
-body {
-  padding-right: 0px !important;
+  margin: 0;
+  /* Refactor later w/o !important.  
+  Product pages get 15px padding-right when 'Add To Cart' is clicked */
+  padding-right: 0 !important;
 }

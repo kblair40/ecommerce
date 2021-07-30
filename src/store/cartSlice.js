@@ -102,7 +102,6 @@ const cartSlice = createSlice({
       state.totalQuantity = 0;
       state.subtotal = 0;
 
-      // localStorage.setItem("cartItems", JSON.stringify([]));
       localStorage.removeItem("cartItems");
       localStorage.setItem("totalQuantity", 0);
       localStorage.setItem("subtotal", 0);

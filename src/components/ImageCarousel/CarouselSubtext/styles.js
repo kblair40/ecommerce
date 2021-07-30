@@ -5,17 +5,31 @@ const useStyles = makeStyles((theme) => ({
     width: "98%",
     color: "#0c0c0d",
     display: "flex",
-    flexWrap: "wrap",
     justifyContent: "space-between",
-    position: "relative",
-    right: "0%",
   },
-  text: {
+  textColumn: {
     color: "#0c0c0d",
     fontFamily: "Montserrat",
-    width: "33%",
-    [theme.breakpoints.down("sm")]: {
-      width: "98%",
+    width: "32%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    "& p": {
+      margin: ".5rem 0",
+    },
+  },
+  [theme.breakpoints.down("sm")]: {
+    textColumn: {
+      "& p": {
+        fontSize: ".9rem",
+      },
+    },
+  },
+  [theme.breakpoints.down("xs")]: {
+    textColumn: {
+      "& p": {
+        fontSize: ".8rem",
+      },
     },
   },
 }));

@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
   carouselContainer: {
     position: "relative",
     left: "-6%",
-    marginTop: "3.5rem",
+    marginTop: "3.6rem",
     width: "86%",
   },
   singleSlide: {

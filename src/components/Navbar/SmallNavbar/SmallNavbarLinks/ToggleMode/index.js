@@ -4,7 +4,7 @@ import Brightness3Icon from "@material-ui/icons/Brightness3";
 import Switch from "@material-ui/core/Switch";
 import { useDispatch } from "react-redux";
 
-import { modeActions } from "../../../store/modeSlice";
+import { modeActions } from "../../../../../store/modeSlice";
 import useStyles from "./styles";
 
 const ToggleMode = () => {
