@@ -39,10 +39,8 @@ const useStyles = makeStyles((theme) => ({
     checkoutCartSection: {
       flexDirection: "column",
       alignItems: "center",
-      border: "1px solid black",
     },
     checkoutOrderDetail: {
-      border: "1px solid red",
       display: "flex",
       justifyContent: "center",
       width: "100%",

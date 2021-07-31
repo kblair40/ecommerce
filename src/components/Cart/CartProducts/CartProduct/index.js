@@ -1,92 +1,38 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
-import Divider from "@material-ui/core/Divider";
-import { useDispatch } from "react-redux";
 
 import useStyles from "./styles";
-import QuantityUpdate from "./QuantityUpdate/";
-import { cartActions } from "../../../../store/cartSlice";
 
-const CartProduct = ({ item }) => {
-  const classes = useStyles(item.image);
-  const dispatch = useDispatch();
+const ProductImage = React.memo(({ src, title }) => {
+  const classes = useStyles();
+  console.log("Image Rerender");
 
-  const handleQtyUpdate = (qty) => {
-    dispatch(
-      cartActions.updateQty({ id: item.id, newQty: qty, price: item.price })
-    );
-  };
+  return <img className={classes.cartItemImage} src={src} alt={title} />;
+});
 
-  const handleRemoveFromCart = () => {
-    dispatch(
-      cartActions.removeFromCart({
-        id: item.id,
-        price: item.price,
-      })
-    );
-  };
+const CartProduct = ({ id, price, image, category, title, chosenSize }) => {
+  const classes = useStyles();
+
+  console.log("product rerender");
 
   return (
-    <>
-      <div className={classes.itemContainer}>
-        {/* FIRST COLUMN - >sm - image on left, main info in own column on right */}
-        <div className={classes.mainInfoContainer}>
-          <div className={classes.cartItemImageContainer}>
-            <img
-              className={classes.cartItemImage}
-              src={item.image}
-              alt={item.title}
-            />
-          </div>
-          <div className={classes.mainInfo}>
-            <p className={classes.itemTitle}>{item.title}</p>
-            <div className={classes.mainInfoSubContainer}>
-              {item.chosenSize && (
-                <p className={classes.info}>
-                  Size: {item.chosenSize.toUpperCase()}
-                </p>
-              )}
-              <p className={classes.info}>{item.category}</p>
-              <p className={classes.info}>SKU #{item.id}</p>
-            </div>
-          </div>
+    <div className={classes.itemContainer}>
+      <div className={classes.mainInfoContainer}>
+        <div className={classes.cartItemImageContainer}>
+          <ProductImage src={image} title={title} />
         </div>
-
-        {/* SECOND COLUMN */}
-        <div className={classes.updateCartActions}>
-          <div className={classes.qtyUpdateContainer}>
-            Qty: &nbsp;
-            <QuantityUpdate
-              handleQtyUpdate={handleQtyUpdate}
-              quantity={item.quantity}
-              id={item.id}
-              menuOptions={item.menuOptions}
-            />
+        <div className={classes.mainInfo}>
+          <p className={classes.itemTitle}>{title}</p>
+          <div className={classes.mainInfoSubContainer}>
+            {chosenSize && (
+              <p className={classes.info}>Size: {chosenSize.toUpperCase()}</p>
+            )}
+            <p className={classes.info}>{category}</p>
+            <p className={classes.info}>SKU #{id}</p>
           </div>
-          <div>
-            <Button
-              classes={{ root: classes.removeBtnRoot }}
-              size="small"
-              onClick={handleRemoveFromCart}
-              variant="outlined"
-              color="secondary"
-            >
-              <p className={classes.removeItemBtnText}>Remove Item</p>
-            </Button>
-          </div>
-        </div>
-
-        {/* THIRD/LAST COLUMN */}
-        <div className={classes.priceContainer}>
-          ${(item.price * item.quantity).toFixed(2)}
-          {item.quantity > 1 && (
-            <p className={classes.priceSubtext}>(${item.price} each)</p>
-          )}
         </div>
       </div>
-      <Divider className={classes.horizontalDivider} />
-    </>
+    </div>
   );
 };
 
-export default CartProduct;
+export default React.memo(CartProduct);

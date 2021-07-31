@@ -1,17 +1,18 @@
 COLORS:
 Success: #5dca36
 error: #ff4244
-Others - aqua spring: #effaf6, elm: #1d6d86, black: #0c0c0d, grey: #a0a1a1, piston blue: #4ebeef, copper: #af8536, brown/sepia: #6c3510
+elm (main): #1d6d86
+black: #0c0c0d
+Others - aqua spring: #effaf6, grey: #a0a1a1, piston blue: #4ebeef, copper: #af8536, brown/sepia: #6c3510
 
 TODO
-9.  Better form validations
+9.  Add hard mode (checkbox?) for address form with realistic form validations
 10. PasswordChangeForm should not assume success
     - Give error message if password change is not successful
     - Animate the modals.  Zoom is probably best
-11. Animate ThankYou modal.  Zoom also?
+11. Animate transition from AddressForm to PaymentForm.
 
 EVENTUALLY
-1.  Put available products into firebase and load from there
 2.  User should be able to rate products and add products to their favorites
 3.  if items are in cart and user leaves/logs out, cart should be saved and reloaded automatically on next login
 

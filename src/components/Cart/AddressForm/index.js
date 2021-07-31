@@ -26,7 +26,6 @@ const AddressForm = ({ handleAddressSubmit }) => {
     hasError: nameHasError,
     handleChange: handleNameChange,
     handleBlur: handleNameBlur,
-    reset: resetName,
   } = useInput(isNotEmpty);
   const {
     value: emailValue,
@@ -34,7 +33,6 @@ const AddressForm = ({ handleAddressSubmit }) => {
     hasError: emailHasError,
     handleChange: handleEmailChange,
     handleBlur: handleEmailBlur,
-    reset: resetEmail,
   } = useInput(isEmail);
   const {
     value: addressValue,
@@ -42,7 +40,6 @@ const AddressForm = ({ handleAddressSubmit }) => {
     hasError: addressHasError,
     handleChange: handleAddressChange,
     handleBlur: handleAddressBlur,
-    reset: resetAddress,
   } = useInput(isNotEmpty);
   const {
     value: cityValue,
@@ -50,7 +47,6 @@ const AddressForm = ({ handleAddressSubmit }) => {
     hasError: cityHasError,
     handleChange: handleCityChange,
     handleBlur: handleCityBlur,
-    reset: resetCity,
   } = useInput(isNotEmpty);
   const {
     value: stateValue,
@@ -58,7 +54,6 @@ const AddressForm = ({ handleAddressSubmit }) => {
     hasError: stateHasError,
     handleChange: handleStateChange,
     handleBlur: handleStateBlur,
-    reset: resetState,
   } = useInput(isNotEmpty);
   const {
     value: zipValue,
@@ -66,7 +61,6 @@ const AddressForm = ({ handleAddressSubmit }) => {
     hasError: zipHasError,
     handleChange: handleZipChange,
     handleBlur: handleZipBlur,
-    reset: resetZip,
   } = useInput(isNotEmpty);
 
   let formIsValid = false;
@@ -81,21 +75,6 @@ const AddressForm = ({ handleAddressSubmit }) => {
   ) {
     formIsValid = true;
   }
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    if (!formIsValid) {
-      return;
-    }
-
-    resetName();
-    resetEmail();
-    resetAddress();
-    resetCity();
-    resetState();
-    resetZip();
-    handleAddressSubmit(e);
-  };
 
   return (
     <Fade in={true} timeout={400}>

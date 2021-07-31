@@ -51,11 +51,12 @@ const cartSlice = createSlice({
     },
     updateQty(state, action) {
       const { id, newQty, price } = action.payload;
+
       const currentItems = state.items.slice();
       const selectedItem = currentItems.find((item) => item.id === id);
       const quantityChange = newQty - selectedItem.quantity;
-
-      state.subtotal += quantityChange * price;
+      const newSubtotal = state.subtotal + quantityChange * price;
+      const newQuantity = state.totalQuantity + quantityChange;
 
       const updatedItems = currentItems.map((item) => {
         if (item.id === id) {
@@ -64,13 +65,13 @@ const cartSlice = createSlice({
         return item;
       });
 
-      const newQuantity = state.totalQuantity + quantityChange;
-
+      state.subtotal = newSubtotal;
       state.items = updatedItems;
       state.totalQuantity = newQuantity;
 
       localStorage.setItem("cartItems", JSON.stringify(updatedItems));
       localStorage.setItem("totalQuantity", newQuantity);
+      localStorage.setItem("subtotal", newSubtotal);
     },
     removeFromCart(state, action) {
       const { id, price } = action.payload;

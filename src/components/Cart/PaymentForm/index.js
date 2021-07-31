@@ -21,6 +21,7 @@ const PaymentForm = ({ handlePaymentSubmit }) => {
     invalid: classes.invalid,
     focus: classes.focus,
   };
+
   const placeholderStyle = {
     base: {
       "::placeholder": {
@@ -32,13 +33,13 @@ const PaymentForm = ({ handlePaymentSubmit }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const num = elements.getElement(CardNumberElement);
-    const exp = elements.getElement(CardExpiryElement);
-    const cvc = elements.getElement(CardCvcElement);
+    const cardNumber = elements.getElement(CardNumberElement);
+    const cardExp = elements.getElement(CardExpiryElement);
+    const cardCvc = elements.getElement(CardCvcElement);
 
-    exp.clear();
-    num.clear();
-    cvc.clear();
+    cardExp.clear();
+    cardNumber.clear();
+    cardCvc.clear();
 
     handlePaymentSubmit(event);
   };
@@ -54,6 +55,7 @@ const PaymentForm = ({ handlePaymentSubmit }) => {
             </label>
             <CardNumberElement
               id="cardNumber"
+              name="cardNumber"
               className={classNames(classes.cardNumber)}
               options={{
                 style: placeholderStyle,
@@ -70,6 +72,7 @@ const PaymentForm = ({ handlePaymentSubmit }) => {
             </label>
             <CardCvcElement
               id="cardCvc"
+              name="cardCvc"
               className={classNames(classes.cardCvc)}
               options={{
                 style: placeholderStyle,
@@ -85,6 +88,7 @@ const PaymentForm = ({ handlePaymentSubmit }) => {
 
             <CardExpiryElement
               id="cardExpiry"
+              name="cardExpiry"
               className={classNames(classes.cardExpiry)}
               options={{
                 style: placeholderStyle,
